@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//create a streambuilder that for less boilerplate code
 class StreamHandler<T> extends StatelessWidget {
   final Stream stream;
   final Widget Function(T) ready;

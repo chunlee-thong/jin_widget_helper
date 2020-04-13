@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//create a custom small icon button
 class SmallIconButton extends StatelessWidget {
   final Function onTap;
   final Widget icon;
