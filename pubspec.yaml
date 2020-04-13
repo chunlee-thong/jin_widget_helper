@@ -1,10 +1,10 @@
 name: jin_widget_helper
-description: A new Flutter package project.
+description: A fluter package that support varios UI helper
 version: 0.0.1
-homepage:
+homepage: https://github.com/Chunlee17/jin_widget_helper
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
