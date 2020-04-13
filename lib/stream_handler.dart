@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-//create a streambuilder that for less boilerplate code
 class StreamHandler<T> extends StatelessWidget {
+  ///create a streambuilder that for less boilerplate code
+
   final Stream stream;
   final Widget Function(T) ready;
   final Widget loading;
   final Widget Function(String, T) error;
 
-  StreamHandler({this.stream, this.ready, this.error, this.loading});
+  const StreamHandler({this.stream, this.ready, this.error, this.loading});
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T>(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-//create a button with loading notifier
 class ActionButton extends StatelessWidget {
+  ///create a button with loading notifier
   final ValueNotifier<bool> isLoading;
   final Function onPressed;
   final Color color;
