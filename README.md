@@ -6,7 +6,7 @@ A package that contain many UI and Utility helper that help decrease your develo
 
 | Widget | Description |
 | ------ | ------ |
-| Action Button | A Simple RaisedButton with loading notifier |
+| ActionButton | A Simple RaisedButton with loading notifier |
 | BadgeButton | A small icon button with badge (like notification badge) |
 | ConnectionChecker | A widget to check internet connection and provide onNoInternet callback |
 | CustomBackButton | A custom back button with title (header) |

@@ -21,3 +21,6 @@
 ## [1.0.2] - 14 April 2020
  - update README.md
 
+## [1.0.3] - 14 April 2020
+ - Add License
+
