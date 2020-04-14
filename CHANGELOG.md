@@ -6,3 +6,11 @@
 
 ## [0.1.1] - 14 April 2020
  - Add Example and documentation
+
+## [1.0.0] - 14 April 2020
+ - Add Connection checker
+ - Add App extension
+ - Add Badge Button
+ - Add Form validator
+ - Add General Dialog
+ - Add Custom back button

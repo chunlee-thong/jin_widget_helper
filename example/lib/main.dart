@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -39,8 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _onIncrement() async {
-    await Future.delayed(Duration(seconds: 1));
-    streamController.add(_counter++);
+    streamController.add(null);
+    await Future.delayed(Duration(seconds: 2));
+    _counter += 1;
+    streamController.add(_counter);
   }
 
   @override
@@ -52,25 +55,36 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Jin Widget Helper Example'),
-      ),
-      body: Center(
+      body: ConnectionChecker(
+        onNoInternet: (message) {
+          return FlatButton.icon(
+            icon: Icon(Icons.error),
+            label: Text(message),
+            onPressed: () {},
+          );
+        },
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            MyBackButton(
+              onTap: () {},
+              header: "Jin Widget Helper",
+              marginLeft: 8,
+            ),
             ActionButton(
               stretch: stretch,
-              margin: EdgeInsets.zero,
-              loadingColor: Colors.cyanAccent,
+              margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+              loadingColor: Colors.white,
+              color: ColorUtils.getColorFromCode(code: "03e2ff"),
               isLoading: isLoading,
               onPressed: onButtonClick,
               child: Text("Click me"),
               shape: StadiumBorder(),
             ),
             WidgetHelper.verticalSpace(16),
-            StreamHandler(
+            StreamHandler<int>(
               stream: streamController.stream,
+              initialData: _counter,
               loading: Center(
                 child: CircularProgressIndicator(),
               ),
@@ -78,10 +92,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 return Text(error);
               },
               ready: (number) {
-                return Text("You click the icon button $number times");
+                return Column(
+                  children: <Widget>[
+                    BadgeButton(
+                      icon: Icon(Icons.notifications_active),
+                      badgeColor: Colors.red,
+                      badgeText: "$_counter",
+                      onTap: () {
+                        _counter = 0;
+                        streamController.add(_counter);
+                      },
+                      showBadge: _counter != 0,
+                    ),
+                    Text("You click the Add button $number times"),
+                  ],
+                );
               },
             ),
-            WidgetHelper.verticalSpace(16),
+            WidgetHelper.verticalSpace(32),
             SmallIconButton(
               icon: Icon(
                 Icons.add,
