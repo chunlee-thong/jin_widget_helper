@@ -14,3 +14,6 @@
  - Add Form validator
  - Add General Dialog
  - Add Custom back button
+
+## [1.0.1] - 14 April 2020
+ - fix intl package
