@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SmallIconButton extends StatelessWidget {
-  ///create a custom small icon button
   final Function onTap;
   final Widget icon;
   final EdgeInsets margin;
@@ -9,6 +8,7 @@ class SmallIconButton extends StatelessWidget {
   final double borderRadius;
   final double elevation;
 
+  ///create a custom small icon button
   const SmallIconButton({
     Key key,
     @required this.onTap,
@@ -20,7 +20,8 @@ class SmallIconButton extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius));
+    final shape = RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(borderRadius));
     return Card(
       shape: shape,
       color: backgroundColor,

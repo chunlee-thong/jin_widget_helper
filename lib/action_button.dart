@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ActionButton extends StatelessWidget {
-  ///create a button with loading notifier
   final ValueNotifier<bool> isLoading;
   final Function onPressed;
   final Color color;
@@ -10,6 +9,8 @@ class ActionButton extends StatelessWidget {
   final ShapeBorder shape;
   final Widget child;
   final bool stretch;
+
+  ///create a button with loading notifier
   ActionButton({
     @required this.onPressed,
     @required this.child,

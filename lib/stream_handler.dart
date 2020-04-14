@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 
 class StreamHandler<T> extends StatelessWidget {
-  ///create a streambuilder that for less boilerplate code
-
   final Stream stream;
   final Widget Function(T) ready;
   final Widget loading;
+  final T initialData;
   final Widget Function(String, T) error;
 
-  const StreamHandler({this.stream, this.ready, this.error, this.loading});
+  ///create a streambuilder that for less boilerplate code
+  const StreamHandler(
+      {this.stream, this.ready, this.error, this.loading, this.initialData});
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T>(
       stream: stream,
+      initialData: initialData,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return ready(snapshot.data);
         } else if (snapshot.hasError) {
-          return error(snapshot.error.toString(), snapshot.data) ?? Text(snapshot.error.toString());
+          return error(snapshot.error.toString(), snapshot.data) ??
+              Text(snapshot.error.toString());
         } else {
           return Center(child: loading ?? CircularProgressIndicator());
         }

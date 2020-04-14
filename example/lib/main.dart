@@ -61,18 +61,24 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ActionButton(
               stretch: stretch,
+              margin: EdgeInsets.zero,
+              loadingColor: Colors.cyanAccent,
               isLoading: isLoading,
               onPressed: onButtonClick,
               child: Text("Click me"),
               shape: StadiumBorder(),
             ),
             WidgetHelper.verticalSpace(16),
-            Text("You click the button: "),
-            WidgetHelper.verticalSpace(16),
             StreamHandler(
               stream: streamController.stream,
+              loading: Center(
+                child: CircularProgressIndicator(),
+              ),
+              error: (error, _) {
+                return Text(error);
+              },
               ready: (number) {
-                return Text("$number");
+                return Text("You click the icon button $number times");
               },
             ),
             WidgetHelper.verticalSpace(16),
@@ -81,6 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 Icons.add,
                 color: Colors.white,
               ),
+              margin: EdgeInsets.zero,
+              borderRadius: 16,
+              elevation: 1.0,
               backgroundColor: Colors.cyan,
               onTap: _onIncrement,
             ),
