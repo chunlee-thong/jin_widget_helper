@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-class MyBackButton extends StatelessWidget {
+class CustomBackButton extends StatelessWidget {
   final Color iconColor;
   final IconData icon;
   final String header;
@@ -11,12 +11,11 @@ class MyBackButton extends StatelessWidget {
   final Color backgroundColor;
   final double marginLeft;
   final Alignment headerAlignment;
-  MyBackButton({
+  CustomBackButton({
     this.iconColor,
     this.onTap,
     this.header,
-    this.headerStyle = const TextStyle(
-        color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+    this.headerStyle = const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
     this.icon,
     this.headerAlignment = Alignment.center,
     this.backgroundColor = Colors.transparent,
@@ -44,9 +43,7 @@ class MyBackButton extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Platform.isIOS
-                            ? Icons.arrow_back_ios
-                            : Icons.arrow_back,
+                        Platform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back,
                         color: iconColor ?? Theme.of(context).iconTheme.color,
                       ),
                     ),
@@ -58,8 +55,7 @@ class MyBackButton extends StatelessWidget {
               Align(
                 alignment: headerAlignment,
                 child: Container(
-                  margin: EdgeInsets.only(
-                      left: headerAlignment == Alignment.centerLeft ? 64 : 0),
+                  margin: EdgeInsets.only(left: headerAlignment == Alignment.centerLeft ? 64 : 0),
                   child: Text(
                     header,
                     style: headerStyle,

@@ -17,3 +17,7 @@
 
 ## [1.0.1] - 14 April 2020
  - fix intl package
+
+## [1.0.2] - 14 April 2020
+ - update README.md
+

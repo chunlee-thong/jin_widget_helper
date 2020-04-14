@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            MyBackButton(
+            CustomBackButton(
               onTap: () {},
               header: "Jin Widget Helper",
               marginLeft: 8,
