@@ -4,5 +4,5 @@
 ## [0.0.2] - 13 April 2020
  - Add Action Button
 
-## [0.1.0] - 14 April 2020
+## [0.1.1] - 14 April 2020
  - Add Example and documentation
