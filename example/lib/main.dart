@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
 
+import 'new_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Jin Widget Helper',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: ColorUtils.hexColorToMaterialColor(0xff08f7ff),
       ),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
@@ -34,9 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     isLoading.value = true;
     await Future.delayed(Duration(seconds: 1));
     isLoading.value = false;
-    setState(() {
-      stretch = !stretch;
-    });
+    PageNavigator.push(context, NewPage());
   }
 
   void _onIncrement() async {
@@ -71,6 +71,10 @@ class _MyHomePageState extends State<MyHomePage> {
               header: "Jin Widget Helper",
               marginLeft: 8,
             ),
+            WidgetHelper.verticalSpace(16),
+            Text(
+                "Today date is ${DateTime.now().formatToLocalDate(format: "dd MMMM yyyy hh:mm a")}"),
+            WidgetHelper.verticalSpace(16),
             ActionButton(
               stretch: stretch,
               margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
@@ -78,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: ColorUtils.getColorFromCode(code: "03e2ff"),
               isLoading: isLoading,
               onPressed: onButtonClick,
-              child: Text("Click me"),
+              child: Text("Open New Screen"),
               shape: StadiumBorder(),
             ),
             WidgetHelper.verticalSpace(16),
@@ -118,12 +122,22 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.zero,
               borderRadius: 16,
               elevation: 1.0,
-              backgroundColor: Colors.cyan,
+              backgroundColor: Theme.of(context).primaryColor,
               onTap: _onIncrement,
             ),
-            WidgetHelper.verticalSpace(16),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) => GeneralMessageDialog(
+              content: "Nice",
+            ),
+          );
+        },
+        child: Icon(Icons.slideshow),
       ),
     );
   }

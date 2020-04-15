@@ -24,3 +24,6 @@
 ## [1.0.3] - 14 April 2020
  - Add License
 
+ ## [1.0.4] - 15 April 2020
+ - Add new example
+
