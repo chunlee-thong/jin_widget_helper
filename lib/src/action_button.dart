@@ -23,34 +23,8 @@ class ActionButton extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    if (stretch) {
-      return Container(
-        width: double.infinity,
-        margin: margin,
-        child: ValueListenableBuilder(
-          valueListenable: isLoading ?? ValueNotifier(false),
-          builder: (context, loading, chile) {
-            return RaisedButton(
-              onPressed: loading ? () {} : onPressed,
-              padding: EdgeInsets.all(12),
-              color: color ?? Theme.of(context).buttonColor,
-              shape: shape,
-              child: loading
-                  ? Container(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(loadingColor),
-                        strokeWidth: 3.0,
-                      ),
-                    )
-                  : child,
-            );
-          },
-        ),
-      );
-    }
     return Container(
+      width: stretch ? double.infinity : null,
       margin: margin,
       child: ValueListenableBuilder(
         valueListenable: isLoading ?? ValueNotifier(false),

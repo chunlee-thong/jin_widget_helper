@@ -27,3 +27,6 @@
  ## [1.0.4] - 15 April 2020
  - Add new example
 
+  ## [1.0.5] - 16 April 2020
+ - Change WidgetHelper to UIHelper
+

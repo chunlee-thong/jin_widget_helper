@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class WidgetHelper {
+class UIHelper {
   ///Create a sizedBox with set height
   static Widget verticalSpace([double height = 8]) {
     return SizedBox(height: height);
