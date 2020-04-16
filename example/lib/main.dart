@@ -71,10 +71,10 @@ class _MyHomePageState extends State<MyHomePage> {
               header: "Jin Widget Helper",
               marginLeft: 8,
             ),
-            WidgetHelper.verticalSpace(16),
+            UIHelper.verticalSpace(16),
             Text(
                 "Today date is ${DateTime.now().formatToLocalDate(format: "dd MMMM yyyy hh:mm a")}"),
-            WidgetHelper.verticalSpace(16),
+            UIHelper.verticalSpace(16),
             ActionButton(
               stretch: stretch,
               margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Open New Screen"),
               shape: StadiumBorder(),
             ),
-            WidgetHelper.verticalSpace(16),
+            UIHelper.verticalSpace(16),
             StreamHandler<int>(
               stream: streamController.stream,
               initialData: _counter,
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            WidgetHelper.verticalSpace(32),
+            UIHelper.verticalSpace(32),
             SmallIconButton(
               icon: Icon(
                 Icons.add,
