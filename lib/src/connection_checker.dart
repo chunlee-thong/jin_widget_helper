@@ -44,14 +44,15 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
 
   @override
   void initState() {
-    if (widget.reactToConnectionChange) {
-      subscription = Connectivity()
-          .onConnectivityChanged
-          .listen((ConnectivityResult result) {
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      if (widget.reactToConnectionChange) {
         print("Conneciton Result ${result.toString()}");
         checkConnectionStream();
-      });
-    }
+      }
+    });
+
     super.initState();
   }
 
@@ -64,21 +65,21 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
 
   @override
   Widget build(BuildContext context) {
+    Widget child;
+    if (widget.onNoInternet != null) {
+      child = widget.onNoInternet(widget.message);
+    } else {
+      child = Text(widget.message);
+    }
     return Container(
       child: StreamBuilder<bool>(
         stream: connectionStream.stream,
         builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data) return widget.child;
-            return Center(
-              child:
-                  widget.onNoInternet(widget.message) ?? Text(widget.message),
-            );
+            return Center(child: child);
           } else if (snapshot.hasError) {
-            return Center(
-              child:
-                  widget.onNoInternet(widget.message) ?? Text(widget.message),
-            );
+            return Center(child: child);
           } else {
             return Center(child: CircularProgressIndicator());
           }

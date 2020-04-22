@@ -33,3 +33,6 @@
 ## [1.0.6] - 17 April 2020
  - Add textstyle extension
 
+ ## [1.0.7] - 17 April 2020
+ - Fix connection checker error
+
