@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class ConnectionChecker extends StatefulWidget {
   final Widget child;
   final String message;
+  final Function(bool) onConnectionChange;
   final bool reactToConnectionChange;
   final Widget Function(String) onNoInternet;
 
@@ -13,6 +14,7 @@ class ConnectionChecker extends StatefulWidget {
     Key key,
     this.child,
     this.reactToConnectionChange = true,
+    this.onConnectionChange,
     this.onNoInternet,
     this.message = "No internet connection",
   }) : super(key: key);
@@ -27,6 +29,9 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
   void checkConnectionStream() async {
     try {
       bool connection = await checkConnection();
+      if (widget.onConnectionChange != null) {
+        await widget.onConnectionChange(connection);
+      }
       connectionStream.add(connection);
     } catch (e) {
       connectionStream.addError(e.toString());
@@ -44,6 +49,7 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
 
   @override
   void initState() {
+    checkConnectionStream();
     subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
