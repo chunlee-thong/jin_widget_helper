@@ -9,7 +9,11 @@ class StreamHandler<T> extends StatelessWidget {
 
   ///create a streambuilder that for less boilerplate code
   const StreamHandler(
-      {this.stream, this.ready, this.error, this.loading, this.initialData});
+      {@required this.stream,
+      @required this.ready,
+      this.error,
+      this.loading,
+      this.initialData});
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T>(
