@@ -12,3 +12,4 @@ export './src/form_validator.dart';
 export './src/app_extension.dart';
 export './src/connection_checker.dart';
 export './src/general_dialog.dart';
+export './src/utility.dart';

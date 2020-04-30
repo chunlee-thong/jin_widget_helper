@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:jin_widget_helper/src/utility.dart';
 
 extension DateUtils on DateTime {
   String formatDate({String format = "dd MMM yyyy"}) {
@@ -25,6 +26,29 @@ extension DateUtils on DateTime {
 extension StringExtension on String {
   String firstUpperCase() {
     return this[0].toUpperCase() + this.substring(1, this.length);
+  }
+}
+
+extension WidgetExtension on Widget {
+  Widget padding({EdgeInsets padding = const EdgeInsets.all(8)}) {
+    return Padding(
+      padding: padding,
+      child: this,
+    );
+  }
+
+  Widget margin({EdgeInsets margin = const EdgeInsets.all(8)}) {
+    return Container(
+      margin: margin,
+      child: this,
+    );
+  }
+
+  Widget rotate({double degree = 0}) {
+    return Transform.rotate(
+      angle: degreeToRadian(degree),
+      child: this,
+    );
   }
 }
 

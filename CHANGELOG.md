@@ -33,6 +33,11 @@
 ## [1.0.6] - 17 April 2020
  - Add textstyle extension
 
-  ## [1.0.11] - 22 April 2020
+## [1.0.11] - 22 April 2020
  - Fix connection checker error
+
+## [1.1.0] - 30 April 2020
+ - Add FutureHandler
+ - Add Widget extension
+ - Refractor some code 
 
