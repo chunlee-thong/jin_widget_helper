@@ -13,11 +13,18 @@ A package that contain many UI and Utility helper that help decrease your develo
 | GeneralMessageDialog | A simple alert dialog |
 | SmallIconButton | A small alternative to Flutter's IconButton |
 | StreamHandler | A Streambuilder with less boilerplate code |
+| FutureHandler | A FutureBuilder with less boilerplate code |
+| ChoiceBottomSheet | A Cupertino bottom sheet |
+
 
 # Utility and Helper
 ### app_extension
 - DateTime extension (isTheSameDay and formatDate)
 - String extension (firstLetterUpperCase)
+
+### widget_extension
+- padding, margin (default value: EdgeInsets.all(8))
+- rotate (in degree)
 
 ### ColorUtils
 - getColorFromCode

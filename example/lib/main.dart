@@ -47,6 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   void dispose() {
     streamController.close();
     super.dispose();
@@ -56,6 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ConnectionChecker(
+        reactToConnectionChange: true,
+        onConnectionChange: (value) {
+          print("Connection result: $value");
+        },
         onNoInternet: (message) {
           return FlatButton.icon(
             icon: Icon(Icons.error),
@@ -72,8 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
               marginLeft: 8,
             ),
             UIHelper.verticalSpace(16),
-            Text(
-                "Today date is ${DateTime.now().formatToLocalDate(format: "dd MMMM yyyy hh:mm a")}"),
+            Text("Today date is ${DateTime.now().formatToLocalDate(format: "dd MMMM yyyy hh:mm a")}")
+                .rotate(degree: 45),
             UIHelper.verticalSpace(16),
             ActionButton(
               stretch: stretch,

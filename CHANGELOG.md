@@ -41,7 +41,10 @@
  - Add Widget extension
  - Refractor some code
 
-
- ## [1.1.1] - 30 April 2020
+## [1.1.1] - 30 April 2020
  - Fix import
+
+## [1.1.2] - 31 April 2020
+ - Add ChoiceBottomSheet
+
 

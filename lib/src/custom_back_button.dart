@@ -15,7 +15,8 @@ class CustomBackButton extends StatelessWidget {
     this.iconColor,
     this.onTap,
     this.header,
-    this.headerStyle = const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+    this.headerStyle = const TextStyle(
+        color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
     this.icon,
     this.headerAlignment = Alignment.center,
     this.backgroundColor = Colors.transparent,
@@ -43,7 +44,9 @@ class CustomBackButton extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(
-                        Platform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back,
+                        Platform.isIOS
+                            ? Icons.arrow_back_ios
+                            : Icons.arrow_back,
                         color: iconColor ?? Theme.of(context).iconTheme.color,
                       ),
                     ),
@@ -55,7 +58,8 @@ class CustomBackButton extends StatelessWidget {
               Align(
                 alignment: headerAlignment,
                 child: Container(
-                  margin: EdgeInsets.only(left: headerAlignment == Alignment.centerLeft ? 64 : 0),
+                  margin: EdgeInsets.only(
+                      left: headerAlignment == Alignment.centerLeft ? 64 : 0),
                   child: Text(
                     header,
                     style: headerStyle,
