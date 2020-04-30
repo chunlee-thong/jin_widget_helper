@@ -39,5 +39,9 @@
 ## [1.1.0] - 30 April 2020
  - Add FutureHandler
  - Add Widget extension
- - Refractor some code 
+ - Refractor some code
+
+
+ ## [1.1.1] - 30 April 2020
+ - Fix import
 
