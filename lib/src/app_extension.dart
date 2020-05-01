@@ -9,9 +9,7 @@ extension DateUtils on DateTime {
   }
 
   bool isTheSameDay(DateTime dateTime) {
-    if (dateTime.day == this.day &&
-        dateTime.month == this.day &&
-        dateTime.year == this.year) {
+    if (dateTime.day == this.day && dateTime.month == this.day && dateTime.year == this.year) {
       return true;
     }
     return false;
@@ -40,6 +38,56 @@ extension WidgetExtension on Widget {
   Widget margin({EdgeInsets margin = const EdgeInsets.all(8)}) {
     return Container(
       margin: margin,
+      child: this,
+    );
+  }
+
+  Widget cssSpace({
+    List<double> margin = const [],
+    List<double> padding = const [],
+  }) {
+    EdgeInsets defineMargin = EdgeInsets.zero;
+    EdgeInsets definePadding = EdgeInsets.zero;
+
+    if (margin.isNotEmpty)
+      switch (margin.length) {
+        case 1:
+          defineMargin = EdgeInsets.all(margin.elementAt(0));
+          break;
+        case 2:
+          defineMargin = EdgeInsets.symmetric(vertical: margin.elementAt(0), horizontal: margin.elementAt(1));
+          break;
+
+        case 3:
+          defineMargin = EdgeInsets.only(top: margin.elementAt(0), right: margin.elementAt(1), bottom: margin.elementAt(2));
+          break;
+
+        default:
+          defineMargin = EdgeInsets.only(top: margin.elementAt(0), right: margin.elementAt(1), bottom: margin.elementAt(2), left: margin.elementAt(3));
+          break;
+      }
+
+    if (padding.isNotEmpty)
+      switch (padding.length) {
+        case 1:
+          definePadding = EdgeInsets.all(margin.elementAt(0));
+          break;
+        case 2:
+          definePadding = EdgeInsets.symmetric(vertical: margin.elementAt(0), horizontal: margin.elementAt(1));
+          break;
+
+        case 3:
+          defineMargin = EdgeInsets.only(top: margin.elementAt(0), right: margin.elementAt(1), bottom: margin.elementAt(2));
+          break;
+
+        default:
+          definePadding = EdgeInsets.only(top: margin.elementAt(0), right: margin.elementAt(1), bottom: margin.elementAt(2), left: margin.elementAt(3));
+          break;
+      }
+
+    return Container(
+      padding: definePadding,
+      margin: defineMargin,
       child: this,
     );
   }

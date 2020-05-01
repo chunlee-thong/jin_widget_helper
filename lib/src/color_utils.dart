@@ -3,12 +3,20 @@ import 'package:flutter/material.dart';
 /// A Color utility class.
 class ColorUtils {
   //get color from hex code
-  static Color getColorFromCode({@required String code}) {
+  static Color getColorFromCode(String code) {
     try {
-      String colorCode = '0xFF' + code.replaceAll("#", "");
+      String hexAlphaPrefix = '0xFF';
+      String colorCode;
+
+      if (code.contains(hexAlphaPrefix)) {
+        colorCode = code;
+      } else {
+        colorCode = '0xFF' + code.replaceAll("#", "");
+      }
+
       return Color(int.parse(colorCode));
     } catch (e) {
-      return Colors.white;
+      throw "Invalid color format";
     }
   }
 

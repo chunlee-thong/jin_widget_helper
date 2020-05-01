@@ -81,20 +81,19 @@ class _MyHomePageState extends State<MyHomePage> {
               marginLeft: 8,
             ),
             UIHelper.verticalSpace(16),
-            Text("Today date is ${DateTime.now().formatToLocalDate(format: "dd MMMM yyyy hh:mm a")}")
-                .rotate(degree: 45),
+            Text("Today date is ${DateTime.now().formatToLocalDate(format: "dd MMMM yyyy hh:mm a")}").rotate(degree: 45),
             UIHelper.verticalSpace(16),
             ActionButton(
               stretch: stretch,
               margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
               loadingColor: Colors.white,
-              color: ColorUtils.getColorFromCode(code: "03e2ff"),
+              color: ColorUtils.getColorFromCode("03e2ff"),
               isLoading: isLoading,
               onPressed: onButtonClick,
               child: Text("Open New Screen"),
               shape: StadiumBorder(),
             ),
-            UIHelper.verticalSpace(16),
+            UIHelper.verticalSpace(16).cssSpace(margin: [0, 16]),
             StreamHandler<int>(
               stream: streamController.stream,
               initialData: _counter,

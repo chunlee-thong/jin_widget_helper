@@ -1,50 +1,66 @@
 ## [0.0.1] - 13 April 2020
- - Initial release
+
+- Initial release
 
 ## [0.0.2] - 13 April 2020
- - Add Action Button
+
+- Add Action Button
 
 ## [0.1.1] - 14 April 2020
- - Add Example and documentation
+
+- Add Example and documentation
 
 ## [1.0.0] - 14 April 2020
- - Add Connection checker
- - Add App extension
- - Add Badge Button
- - Add Form validator
- - Add General Dialog
- - Add Custom back button
+
+- Add Connection checker
+- Add App extension
+- Add Badge Button
+- Add Form validator
+- Add General Dialog
+- Add Custom back button
 
 ## [1.0.1] - 14 April 2020
- - fix intl package
+
+- fix intl package
 
 ## [1.0.2] - 14 April 2020
- - update README.md
+
+- update README.md
 
 ## [1.0.3] - 14 April 2020
- - Add License
 
- ## [1.0.4] - 15 April 2020
- - Add new example
+- Add License
+
+## [1.0.4] - 15 April 2020
+
+- Add new example
 
 ## [1.0.5] - 16 April 2020
- - Change WidgetHelper to UIHelper
+
+- Change WidgetHelper to UIHelper
 
 ## [1.0.6] - 17 April 2020
- - Add textstyle extension
+
+- Add textstyle extension
 
 ## [1.0.11] - 22 April 2020
- - Fix connection checker error
+
+- Fix connection checker error
 
 ## [1.1.0] - 30 April 2020
- - Add FutureHandler
- - Add Widget extension
- - Refractor some code
+
+- Add FutureHandler
+- Add Widget extension
+- Refractor some code
 
 ## [1.1.1] - 30 April 2020
- - Fix import
 
-## [1.1.2] - 31 April 2020
- - Add ChoiceBottomSheet
+- Fix import
 
+## [1.1.2] - 30 April 2020
 
+- Add ChoiceBottomSheet
+
+## [1.1.3] - 1 May 2020
+
+- Add CssSpace
