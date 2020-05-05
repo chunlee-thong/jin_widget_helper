@@ -81,7 +81,7 @@ String name = "chunlee".firstUpperCase() // => Chunlee
 
 ```dart
 Color green = ColorUtils.getColorFromCode("42f545")
-Color newMaterialColor = ColorUtils.hexColorToMaterialColor(0xFF869CF4)
+MaterilColor newMaterialColor = ColorUtils.hexColorToMaterialColor(0xFF869CF4)
 ```
 
 ### FormValidator
@@ -89,6 +89,7 @@ Color newMaterialColor = ColorUtils.hexColorToMaterialColor(0xFF869CF4)
 ```dart
 TextFormField(
 validator: (value) => FormValidator.validateEmail(value, context),
+// there are mor validator
 )
 ```
 
@@ -103,8 +104,8 @@ PageNavigator.pushAndRemove(context, RootPage());
 ### UIHelper
 
 ```dart
-UIHelper.verticalSpace(12) //default value is 8
-UIHelper.horizontalSpace(16) //default value is 8
+UIHelper.verticalSpace(12) //A SizedBox with value as height, default value is 8
+UIHelper.horizontalSpace(16) //A SizedBox with value as width, default value is 8
 Future<Uint8List> imageByte = await UIHelper.getBytesFromAsset("image asset path", 200); //200 is imagewidth
 RoundedRectangleBorder roundRectangle = UIHelper.roundRect(12); //default value is 8
 ```
