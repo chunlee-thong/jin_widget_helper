@@ -20,91 +20,91 @@ A package that contain many UI and Utility helper that help decrease your develo
 
 # Widget's Extension
 
-    ### padding, margin
+### padding, margin
 
-        ``` dart
-        Text("Hello").padding(EdgeInsets.all(8.0)) // defaulat value is EdgeInsets.all(8.0)
-        Text("Hello").margin(EdgeInsets.all(8.0)) // defaulat value is EdgeInsets.all(8.0)
-        ```
+```dart
+Text("Hello").padding(EdgeInsets.all(8.0)) // defaulat value is EdgeInsets.all(8.0)
+Text("Hello").margin(EdgeInsets.all(8.0)) // defaulat value is EdgeInsets.all(8.0)
+```
 
-    ### cssSpacing
+### cssSpacing
 
-        ``` dart
-        Text("Hello").cssSpacing(margin: [10,10], padding:[16])
-        //css margin and padding rule
-        ```
+```dart
+Text("Hello").cssSpacing(margin: [10,10], padding:[16])
+//css margin and padding rule
+```
 
-    ### rotate (in degree)
+### rotate (in degree)
 
-        ``` dart
-        Text("Hello").rotate(45)
-        ```
+```dart
+Text("Hello").rotate(45)
+```
 
-    ### flexible, expanded, clipOval, opacity
+### flexible, expanded, clipOval, opacity
 
-        ``` dart
-        Text("Hello").flexible
-        Text("Hello").expanded
-        Text("Hello").clipOval
-        Text("Hello").opacity(0.5)
-        ```
+```dart
+Text("Hello").flexible
+Text("Hello").expanded
+Text("Hello").clipOval
+Text("Hello").opacity(0.5)
+```
 
 # TextStyle Extention
 
-        ``` dart
-        Text("Hello", style: TextStyle().normal)
-        Text("Hello", style: TextStyle().medium)
-        Text("Hello", style: TextStyle().bold)
-        Text("Hello", style: TextStyle().applyColor(Colors.white))
-        Text("Hello", style: TextStyle().applFontSize(24))
-        ```
+```dart
+Text("Hello", style: TextStyle().normal)
+Text("Hello", style: TextStyle().medium)
+Text("Hello", style: TextStyle().bold)
+Text("Hello", style: TextStyle().applyColor(Colors.white))
+Text("Hello", style: TextStyle().applFontSize(24))
+```
 
 # Other Extension
 
-    ### DateTime extension
+### DateTime extension
 
-        ``` dart
-        DateTime.now().format("dd mmm yyyy")
-        DateTime.now().isTheSameDay(DateTime.now())
-        DateTime.now().formatToLocalDate("dd mmm yyyy")
-        ```
+```dart
+DateTime.now().format("dd mmm yyyy")
+DateTime.now().isTheSameDay(DateTime.now())
+DateTime.now().formatToLocalDate("dd mmm yyyy")
+```
 
-    ### String extension
+### String extension
 
-        ``` dart
-        String name = "chunlee".firstUpperCase() // => Chunlee
-        ```
+```dart
+String name = "chunlee".firstUpperCase() // => Chunlee
+```
 
 # Utility Class
 
-    ### ColorUtils
+### ColorUtils
 
-        ``` dart
-        Color green = ColorUtils.getColorFromCode("42f545")
-        Color newMaterialColor = ColorUtils.hexColorToMaterialColor(0xFF869CF4)
-        ```
+```dart
+Color green = ColorUtils.getColorFromCode("42f545")
+Color newMaterialColor = ColorUtils.hexColorToMaterialColor(0xFF869CF4)
+```
 
-    ### FormValidator
+### FormValidator
 
-        ``` dart
-        TextFormField(
-            validator: (value) => FormValidator.validateEmail(value, context),
-        )
-        ```
+```dart
+TextFormField(
+validator: (value) => FormValidator.validateEmail(value, context),
+)
+```
 
-    ### PageNavigator
+### PageNavigator
 
-        ``` dart
-        PageNavigator.push(context, DetailPage());
-        PageNavigator.pushReplacement(context, HomePage());
-        PageNavigator.pushAndRemove(context, RootPage());
-        ```
+```dart
+PageNavigator.push(context, DetailPage());
+PageNavigator.pushReplacement(context, HomePage());
+PageNavigator.pushAndRemove(context, RootPage());
+```
 
-    ### UIHelper
+### UIHelper
 
-        ``` dart
-        UIHelper.verticalSpace(12) //default value is 8
-        UIHelper.horizontalSpace(16) //default value is 8
-        Future<Uint8List> imageByte = await UIHelper.getBytesFromAsset("image asset path", 200); //200 is imagewidth
-        RoundedRectangleBorder roundRectangle = UIHelper.roundRect(12); //default value is 8
-        ```
+```dart
+UIHelper.verticalSpace(12) //default value is 8
+UIHelper.horizontalSpace(16) //default value is 8
+Future<Uint8List> imageByte = await UIHelper.getBytesFromAsset("image asset path", 200); //200 is imagewidth
+RoundedRectangleBorder roundRectangle = UIHelper.roundRect(12); //default value is 8
+```
