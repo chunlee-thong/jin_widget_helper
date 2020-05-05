@@ -3,19 +3,21 @@ import 'package:intl/intl.dart';
 import 'package:jin_widget_helper/src/utility.dart';
 
 extension DateUtils on DateTime {
-  String formatDate({String format = "dd MMM yyyy"}) {
+  String formatDate([String format = "dd MMM yyyy"]) {
     var formatter = DateFormat(format);
     return formatter.format(this);
   }
 
   bool isTheSameDay(DateTime dateTime) {
-    if (dateTime.day == this.day && dateTime.month == this.day && dateTime.year == this.year) {
+    if (dateTime.day == this.day &&
+        dateTime.month == this.day &&
+        dateTime.year == this.year) {
       return true;
     }
     return false;
   }
 
-  String formatToLocalDate({String format = "dd MMM yyyy"}) {
+  String formatToLocalDate([String format = "dd MMM yyyy"]) {
     var formatter = DateFormat(format);
     return formatter.format(this.toLocal());
   }
@@ -28,21 +30,21 @@ extension StringExtension on String {
 }
 
 extension WidgetExtension on Widget {
-  Widget padding({EdgeInsets padding = const EdgeInsets.all(8)}) {
+  Widget padding([EdgeInsets padding = const EdgeInsets.all(8)]) {
     return Padding(
       padding: padding,
       child: this,
     );
   }
 
-  Widget margin({EdgeInsets margin = const EdgeInsets.all(8)}) {
+  Widget margin([EdgeInsets margin = const EdgeInsets.all(8)]) {
     return Container(
       margin: margin,
       child: this,
     );
   }
 
-  Widget cssSpace({
+  Widget cssSpacing({
     List<double> margin = const [],
     List<double> padding = const [],
   }) {
@@ -55,15 +57,23 @@ extension WidgetExtension on Widget {
           defineMargin = EdgeInsets.all(margin.elementAt(0));
           break;
         case 2:
-          defineMargin = EdgeInsets.symmetric(vertical: margin.elementAt(0), horizontal: margin.elementAt(1));
+          defineMargin = EdgeInsets.symmetric(
+              vertical: margin.elementAt(0), horizontal: margin.elementAt(1));
           break;
 
         case 3:
-          defineMargin = EdgeInsets.only(top: margin.elementAt(0), right: margin.elementAt(1), bottom: margin.elementAt(2));
+          defineMargin = EdgeInsets.only(
+              top: margin.elementAt(0),
+              right: margin.elementAt(1),
+              bottom: margin.elementAt(2));
           break;
 
         default:
-          defineMargin = EdgeInsets.only(top: margin.elementAt(0), right: margin.elementAt(1), bottom: margin.elementAt(2), left: margin.elementAt(3));
+          defineMargin = EdgeInsets.only(
+              top: margin.elementAt(0),
+              right: margin.elementAt(1),
+              bottom: margin.elementAt(2),
+              left: margin.elementAt(3));
           break;
       }
 
@@ -73,15 +83,23 @@ extension WidgetExtension on Widget {
           definePadding = EdgeInsets.all(margin.elementAt(0));
           break;
         case 2:
-          definePadding = EdgeInsets.symmetric(vertical: margin.elementAt(0), horizontal: margin.elementAt(1));
+          definePadding = EdgeInsets.symmetric(
+              vertical: margin.elementAt(0), horizontal: margin.elementAt(1));
           break;
 
         case 3:
-          defineMargin = EdgeInsets.only(top: margin.elementAt(0), right: margin.elementAt(1), bottom: margin.elementAt(2));
+          defineMargin = EdgeInsets.only(
+              top: margin.elementAt(0),
+              right: margin.elementAt(1),
+              bottom: margin.elementAt(2));
           break;
 
         default:
-          definePadding = EdgeInsets.only(top: margin.elementAt(0), right: margin.elementAt(1), bottom: margin.elementAt(2), left: margin.elementAt(3));
+          definePadding = EdgeInsets.only(
+              top: margin.elementAt(0),
+              right: margin.elementAt(1),
+              bottom: margin.elementAt(2),
+              left: margin.elementAt(3));
           break;
       }
 
@@ -92,12 +110,25 @@ extension WidgetExtension on Widget {
     );
   }
 
-  Widget rotate({double degree = 0}) {
+  Widget rotate([double degree = 0]) {
     return Transform.rotate(
       angle: degreeToRadian(degree),
       child: this,
     );
   }
+
+  Widget opacity([double opacity = 1]) {
+    return Opacity(
+      opacity: opacity,
+      child: this,
+    );
+  }
+
+  Widget get expanded => Expanded(child: this);
+
+  Widget get flexible => Flexible(child: this);
+
+  Widget get ovalClip => ClipOval(child: this);
 }
 
 extension TextStyleExtension on TextStyle {
@@ -105,6 +136,8 @@ extension TextStyleExtension on TextStyle {
   TextStyle get bold => this.copyWith(fontWeight: FontWeight.bold);
 
   TextStyle get medium => this.copyWith(fontWeight: FontWeight.w500);
+
+  TextStyle get normal => this.copyWith(fontWeight: FontWeight.normal);
 
   TextStyle applyColor(Color color) {
     return this.copyWith(color: color);

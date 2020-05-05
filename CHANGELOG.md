@@ -64,3 +64,11 @@
 ## [1.1.3] - 1 May 2020
 
 - Add CssSpace
+
+## [1.2.0] - 5 May 2020
+
+- Minor fix and improvement
+- Add MiniListTile
+- Add Valuehandler
+- Add More extension
+- Update README

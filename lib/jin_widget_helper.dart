@@ -15,3 +15,5 @@ export './src/stream_handler.dart';
 export './src/small_icon_button.dart';
 export './src/widget_helper.dart';
 export './src/utility.dart';
+export './src/mini_list_tile.dart';
+export './src/value_listenable_handler.dart';

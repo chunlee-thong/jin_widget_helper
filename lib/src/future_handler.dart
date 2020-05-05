@@ -5,9 +5,9 @@ class FutureHandler<T> extends StatelessWidget {
   final Widget Function(T) ready;
   final Widget loading;
   final T initialData;
-  final Widget Function(String, T) error;
+  final Widget Function(String) error;
 
-  ///create a streambuilder that for less boilerplate code
+  ///create a futurebuilder that for less boilerplate code
   const FutureHandler(
       {@required this.future,
       @required this.ready,
@@ -24,8 +24,8 @@ class FutureHandler<T> extends StatelessWidget {
           return ready(snapshot.data);
         } else if (snapshot.hasError) {
           if (error != null)
-            return error(snapshot.error.toString(), snapshot.data);
-          return Text(snapshot.error.toString());
+            return Center(child: error(snapshot.error.toString()));
+          return Center(child: Text(snapshot.error.toString()));
         } else {
           return Center(child: loading ?? CircularProgressIndicator());
         }

@@ -5,6 +5,7 @@ class ChoiceBottomSheet extends StatelessWidget {
   final List<String> options;
   final String title;
 
+  //a cupertino bottom sheet
   const ChoiceBottomSheet({Key key, this.options, @required this.title})
       : super(key: key);
   @override

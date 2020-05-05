@@ -24,4 +24,8 @@ class UIHelper {
         .buffer
         .asUint8List();
   }
+
+  static RoundedRectangleBorder roundRect([double radius = 8]) {
+    return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
+  }
 }

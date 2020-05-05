@@ -1,8 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
-
 import 'new_page.dart';
 
 void main() => runApp(MyApp());
@@ -75,14 +73,18 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            //custom back button with header
             CustomBackButton(
               onTap: () {},
               header: "Jin Widget Helper",
               marginLeft: 8,
             ),
             UIHelper.verticalSpace(16),
-            Text("Today date is ${DateTime.now().formatToLocalDate(format: "dd MMMM yyyy hh:mm a")}").rotate(degree: 45),
+            //date format extension
+            Text(
+                "Today date is ${DateTime.now().formatToLocalDate("dd MMMM yyyy hh:mm a")}"),
             UIHelper.verticalSpace(16),
+            //action button
             ActionButton(
               stretch: stretch,
               margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
@@ -93,19 +95,19 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Open New Screen"),
               shape: StadiumBorder(),
             ),
-            UIHelper.verticalSpace(16).cssSpace(margin: [0, 16]),
+            UIHelper.verticalSpace(16).cssSpacing(margin: [0, 16]),
+            //streamhandler
             StreamHandler<int>(
               stream: streamController.stream,
               initialData: _counter,
               loading: Center(
                 child: CircularProgressIndicator(),
               ),
-              error: (error, _) {
-                return Text(error);
-              },
+              error: (error) => Text(error),
               ready: (number) {
                 return Column(
                   children: <Widget>[
+                    //badge button
                     BadgeButton(
                       icon: Icon(Icons.notifications_active),
                       badgeColor: Colors.red,
@@ -122,6 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             UIHelper.verticalSpace(32),
+            //small icon button
             SmallIconButton(
               icon: Icon(
                 Icons.add,
@@ -133,11 +136,30 @@ class _MyHomePageState extends State<MyHomePage> {
               backgroundColor: Theme.of(context).primaryColor,
               onTap: _onIncrement,
             ),
+            UIHelper.verticalSpace(32),
+            //Mini listtile
+            MiniListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(randomStringImage()),
+              ),
+              margin: EdgeInsets.zero,
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black12),
+              ),
+              title: Text("Mini List tile title"),
+              subtitle: Text("subtitle"),
+              trailing: Checkbox(
+                onChanged: (value) {},
+                value: true,
+              ),
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          //geenral message dialog
           showDialog(
             context: context,
             builder: (context) => GeneralMessageDialog(

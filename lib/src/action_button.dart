@@ -6,6 +6,7 @@ class ActionButton extends StatelessWidget {
   final Color color;
   final Color loadingColor;
   final EdgeInsets margin;
+  final EdgeInsets padding;
   final ShapeBorder shape;
   final Widget child;
   final bool stretch;
@@ -18,6 +19,7 @@ class ActionButton extends StatelessWidget {
     this.color,
     this.loadingColor = Colors.white,
     this.margin = const EdgeInsets.all(8),
+    this.padding = const EdgeInsets.all(12),
     this.stretch = true,
     this.shape = const StadiumBorder(),
   });
@@ -31,7 +33,7 @@ class ActionButton extends StatelessWidget {
         builder: (context, loading, chile) {
           return RaisedButton(
             onPressed: loading ? () {} : onPressed,
-            padding: EdgeInsets.all(12),
+            padding: padding,
             color: color ?? Theme.of(context).buttonColor,
             shape: shape,
             child: loading

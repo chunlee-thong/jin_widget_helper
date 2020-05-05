@@ -1,7 +1,8 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+
+import 'utility.dart';
 
 class ConnectionChecker extends StatefulWidget {
   final Widget child;
@@ -25,6 +26,7 @@ class ConnectionChecker extends StatefulWidget {
 class _ConnectionCheckerState extends State<ConnectionChecker> {
   StreamController<bool> connectionStream = StreamController();
   StreamSubscription subscription;
+  bool firstRun = true;
 
   void checkConnectionStream() async {
     try {
@@ -38,27 +40,17 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
     }
   }
 
-  Future<bool> checkConnection() async {
-    print("Check connection");
-    final result = await InternetAddress.lookup('google.com');
-    if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-      return true;
-    }
-    return false;
-  }
-
   @override
   void initState() {
-    checkConnectionStream();
+    //checkConnectionStream();
     subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
-      if (widget.reactToConnectionChange) {
-        print("Conneciton Result ${result.toString()}");
+      if (widget.reactToConnectionChange || firstRun) {
+        firstRun = widget.reactToConnectionChange;
         checkConnectionStream();
       }
     });
-
     super.initState();
   }
 

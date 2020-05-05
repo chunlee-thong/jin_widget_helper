@@ -5,7 +5,7 @@ class StreamHandler<T> extends StatelessWidget {
   final Widget Function(T) ready;
   final Widget loading;
   final T initialData;
-  final Widget Function(String, T) error;
+  final Widget Function(String) error;
 
   ///create a streambuilder that for less boilerplate code
   const StreamHandler(
@@ -23,8 +23,9 @@ class StreamHandler<T> extends StatelessWidget {
         if (snapshot.hasData) {
           return ready(snapshot.data);
         } else if (snapshot.hasError) {
-          return error(snapshot.error.toString(), snapshot.data) ??
-              Text(snapshot.error.toString());
+          if (error != null)
+            return Center(child: error(snapshot.error.toString()));
+          return Center(child: Text(snapshot.error.toString()));
         } else {
           return Center(child: loading ?? CircularProgressIndicator());
         }
