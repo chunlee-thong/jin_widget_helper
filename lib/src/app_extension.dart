@@ -124,6 +124,16 @@ extension WidgetExtension on Widget {
     );
   }
 
+  Widget textColor([Color color = Colors.white]) {
+    if (this is Text) {
+      return DefaultTextStyle(
+        style: TextStyle(color: color),
+        child: this,
+      );
+    }
+    return this;
+  }
+
   Widget get expanded => Expanded(child: this);
 
   Widget get flexible => Flexible(child: this);

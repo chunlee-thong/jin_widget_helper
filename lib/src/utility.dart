@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
-
 double degreeToRadian(double degree) {
   return degree * (-pi / 180);
 }

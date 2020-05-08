@@ -24,7 +24,7 @@ class MiniListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final titleWidget = DefaultTextStyle(
-      style: Theme.of(context).textTheme.subhead,
+      style: Theme.of(context).textTheme.subtitle1,
       child: title ?? const SizedBox(),
     );
 
