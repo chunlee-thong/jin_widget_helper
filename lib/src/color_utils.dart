@@ -19,6 +19,15 @@ class ColorUtils {
     }
   }
 
+  static Color fromRGB(int r, int g, int b, [double opacity = 1]) {
+    try {
+      final color = Color.fromRGBO(r, g, b, opacity);
+      return color;
+    } catch (e) {
+      throw "Invalid color format";
+    }
+  }
+
   static MaterialColor hexColorToMaterialColor(int hexColor) {
     final color = Color(hexColor);
     final r = color.red;

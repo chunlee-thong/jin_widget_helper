@@ -81,6 +81,7 @@ String name = "chunlee".firstUpperCase() // => Chunlee
 
 ```dart
 Color green = ColorUtils.getColorFromCode("42f545")
+Color newColor = ColorUtils.fromRGB(8, 182, 155)
 MaterilColor newMaterialColor = ColorUtils.hexColorToMaterialColor(0xFF869CF4)
 ```
 
