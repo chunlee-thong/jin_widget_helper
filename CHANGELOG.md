@@ -83,3 +83,7 @@
 ## [1.2.1+1] - 13 May 2020
 
 - Bug fixes
+
+## [1.2.1+2] - 13 May 2020
+
+- Fix ActionButton bugs

@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: ColorUtils.getColorFromCode("03e2ff"),
               isLoading: isLoading,
               onPressed: onButtonClick,
-              child: Text("Open New Screen"),
+              child: Icon(Icons.adb),
               shape: StadiumBorder(),
             ),
             UIHelper.verticalSpace(16).cssSpacing(margin: [0, 16]),
