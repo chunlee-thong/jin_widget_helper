@@ -79,3 +79,7 @@
 - Add fromRGB in ColorUtils
 - Add SpaceX and SpaceY
 - Add radius to UIHelper
+
+## [1.2.1+1] - 13 May 2020
+
+- Bug fixes
