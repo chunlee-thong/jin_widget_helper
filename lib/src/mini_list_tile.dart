@@ -42,7 +42,7 @@ class MiniListTile extends StatelessWidget {
       decoration: decoration,
       margin: margin,
       child: InkWell(
-        onTap: onTap ?? () {},
+        onTap: onTap ?? null,
         child: Padding(
           padding: padding,
           child: Row(

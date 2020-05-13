@@ -72,3 +72,10 @@
 - Add Valuehandler
 - Add More extension
 - Update README
+
+## [1.2.1] - 13 May 2020
+
+- Add textColor to Widget Extension
+- Add fromRGB in ColorUtils
+- Add SpaceX and SpaceY
+- Add radius to UIHelper

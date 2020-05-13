@@ -17,6 +17,8 @@ A package that contain many UI and Utility helper that help decrease your develo
 | ChoiceBottomSheet    | A Cupertino bottom sheet                                                |
 | MiniListTle          | An easy customizable ListTile                                           |
 | ValueHandler         | A ValueListenableBuilder with lest boilerplate code                     |
+| SpaceX               | SizedBox with width (equivalent to UIHelper.horizontalSpace())          |
+| SpaceY               | SizedBox with height (equivalent to UIHelper.verticalSpace())           |
 
 # Widget's Extension
 

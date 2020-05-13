@@ -28,4 +28,8 @@ class UIHelper {
   static RoundedRectangleBorder roundRect([double radius = 8]) {
     return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
   }
+
+  static BorderRadius radius([double radius = 8]) {
+    return BorderRadius.circular(radius);
+  }
 }

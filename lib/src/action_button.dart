@@ -30,7 +30,7 @@ class ActionButton extends StatelessWidget {
       margin: margin,
       child: ValueListenableBuilder(
         valueListenable: isLoading ?? ValueNotifier(false),
-        builder: (context, loading, chile) {
+        builder: (context, loading, child) {
           return RaisedButton(
             onPressed: loading ? () {} : onPressed,
             padding: padding,
