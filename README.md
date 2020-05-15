@@ -91,7 +91,7 @@ MaterilColor newMaterialColor = ColorUtils.hexColorToMaterialColor(0xFF869CF4)
 
 ```dart
 TextFormField(
-validator: (value) => FormValidator.validateEmail(value, context),
+validator: (value) => JinFormValidator.validateEmail(value, context),
 // there are mor validator
 )
 ```
