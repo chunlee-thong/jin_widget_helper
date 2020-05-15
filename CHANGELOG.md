@@ -88,6 +88,6 @@
 
 - Fix ActionButton bugs
 
-## [1.2.1+2] - 15 May 2020
+## [1.2.2] - 15 May 2020
 
 - Add more documentation and breaking change on FormValidator
