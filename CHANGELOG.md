@@ -91,3 +91,7 @@
 ## [1.2.2] - 15 May 2020
 
 - Add more documentation and breaking change on FormValidator
+
+## [1.2.2+1] - 15 May 2020
+
+- Fix Future and Stream bugs

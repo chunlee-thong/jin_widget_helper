@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -35,4 +37,8 @@ class UIHelper {
   static BorderRadius radius([double radius = 8]) {
     return BorderRadius.circular(radius);
   }
+
+  static final loadingChild = Platform.isIOS
+      ? CupertinoActivityIndicator()
+      : CircularProgressIndicator();
 }

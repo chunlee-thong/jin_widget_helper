@@ -100,9 +100,6 @@ class _MyHomePageState extends State<MyHomePage> {
             StreamHandler<int>(
               stream: streamController.stream,
               initialData: _counter,
-              loading: Center(
-                child: CircularProgressIndicator(),
-              ),
               error: (error) => Text(error),
               ready: (number) {
                 return Column(

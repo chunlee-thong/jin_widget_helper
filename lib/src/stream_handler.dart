@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../jin_widget_helper.dart';
+
 class StreamHandler<T> extends StatelessWidget {
   final Stream stream;
 
@@ -34,10 +36,7 @@ class StreamHandler<T> extends StatelessWidget {
             return Center(child: error(snapshot.error.toString()));
           return Center(child: Text(snapshot.error.toString()));
         } else {
-          return Center(
-              child: loading ?? Platform.isIOS
-                  ? CupertinoActivityIndicator()
-                  : CircularProgressIndicator());
+          return Center(child: loading ?? UIHelper.loadingChild);
         }
       },
     );
