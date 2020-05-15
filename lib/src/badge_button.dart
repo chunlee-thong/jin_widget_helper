@@ -9,6 +9,7 @@ class BadgeButton extends StatelessWidget {
   final EdgeInsets margin;
   final Function onTap;
 
+  ///Create a Icon button with badge
   const BadgeButton({
     Key key,
     @required this.icon,

@@ -6,11 +6,20 @@ import 'utility.dart';
 
 class ConnectionChecker extends StatefulWidget {
   final Widget child;
+
+  ///A message showing when there's no internet
   final String message;
+
+  ///A function trigger when your connection status change
   final Function(bool) onConnectionChange;
+
+  ///Tell the widget wether to call [onConnectionChange] when connection chnage
   final bool reactToConnectionChange;
+
+  ///A Callback function that return a Widget with [message] when there's no internet connection
   final Widget Function(String) onNoInternet;
 
+  ///A widget to check your connection and display a Widget when there's no internet connection
   const ConnectionChecker({
     Key key,
     this.child,

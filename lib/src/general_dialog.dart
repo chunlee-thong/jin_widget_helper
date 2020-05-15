@@ -5,6 +5,7 @@ class GeneralMessageDialog extends StatelessWidget {
   final String content;
   final String confirmText;
 
+  ///An alert dialog with title and content
   GeneralMessageDialog({
     this.confirmText = "OK",
     @required this.content,

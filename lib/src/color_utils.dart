@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColorUtils {
-  //get color from hex code
+  ///Get color from String hex code
   static Color getColorFromCode(String code) {
     try {
       String hexAlphaPrefix = '0xFF';
@@ -19,6 +19,7 @@ class ColorUtils {
     }
   }
 
+  ///Get Color from RGB
   static Color fromRGB(int r, int g, int b, [double opacity = 1]) {
     try {
       final color = Color.fromRGBO(r, g, b, opacity);
@@ -28,6 +29,7 @@ class ColorUtils {
     }
   }
 
+  ///Convert your color to MaterialColor
   static MaterialColor hexColorToMaterialColor(int hexColor) {
     final color = Color(hexColor);
     final r = color.red;

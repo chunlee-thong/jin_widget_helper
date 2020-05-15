@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FormValidator {
+///Rename the class from `FormValidator` tom `JinFormValidator` with reduce the conflic class Name wihthin the project if there's a custom validator
+class JinFormValidator {
   static String validateSimpleField(String value, BuildContext context) {
     if (value.trim().isEmpty) return "Please input required field";
     return null;

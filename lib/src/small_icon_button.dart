@@ -8,7 +8,7 @@ class SmallIconButton extends StatelessWidget {
   final double borderRadius;
   final double elevation;
 
-  ///create a custom small icon button
+  ///An IconButton with respectively small margin and shape
   const SmallIconButton({
     Key key,
     @required this.onTap,

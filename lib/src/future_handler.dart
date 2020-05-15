@@ -1,13 +1,20 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FutureHandler<T> extends StatelessWidget {
   final Future<T> future;
+
+  ///A callback when Future's snapshot hasData
   final Widget Function(T) ready;
   final Widget loading;
   final T initialData;
+
+  ///On snapshot error callback
   final Widget Function(String) error;
 
-  ///create a futurebuilder that for less boilerplate code
+  ///Create a futurebuilder with less boilerplate code
   const FutureHandler(
       {@required this.future,
       @required this.ready,
@@ -27,7 +34,11 @@ class FutureHandler<T> extends StatelessWidget {
             return Center(child: error(snapshot.error.toString()));
           return Center(child: Text(snapshot.error.toString()));
         } else {
-          return Center(child: loading ?? CircularProgressIndicator());
+          return Center(
+            child: loading ?? Platform.isIOS
+                ? CupertinoActivityIndicator()
+                : CircularProgressIndicator(),
+          );
         }
       },
     );

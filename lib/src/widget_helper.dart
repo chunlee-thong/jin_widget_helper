@@ -15,6 +15,7 @@ class UIHelper {
     return SizedBox(width: width);
   }
 
+  ///get bytes from asset that mostly use for google map marker
   static Future<Uint8List> getBytesFromAsset(String path, int width) async {
     ByteData data = await rootBundle.load(path);
     Codec codec = await instantiateImageCodec(data.buffer.asUint8List(),
@@ -25,10 +26,12 @@ class UIHelper {
         .asUint8List();
   }
 
+  ///Create a RoundRectangleBorder with given radius
   static RoundedRectangleBorder roundRect([double radius = 8]) {
     return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
   }
 
+  ///Create a border Radius
   static BorderRadius radius([double radius = 8]) {
     return BorderRadius.circular(radius);
   }

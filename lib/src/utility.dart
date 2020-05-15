@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'dart:math';
 
+///Convert degreen to radian because most of Flutter's Widget depends on Radian
 double degreeToRadian(double degree) {
   return degree * (-pi / 180);
 }
 
+///A Function to check network connection
 Future<bool> checkConnection() async {
   try {
     final result = await InternetAddress.lookup('google.com');
@@ -17,6 +19,7 @@ Future<bool> checkConnection() async {
   }
 }
 
+///get A random Image from Picsum with given dimension
 String randomStringImage([int dimension = 200]) {
   return "https://picsum.photos/$dimension";
 }

@@ -4,6 +4,7 @@ class ValueHandler<T> extends StatelessWidget {
   final ValueNotifier<T> valueNotifier;
   final Widget Function(T) child;
 
+  //A ValueListenableBuilder with cleaner look code
   const ValueHandler(
       {Key key, @required this.valueNotifier, @required this.child})
       : super(key: key);

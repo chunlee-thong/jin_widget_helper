@@ -10,6 +10,8 @@ class MiniListTile extends StatelessWidget {
   final EdgeInsets padding;
   final EdgeInsets margin;
   final Decoration decoration;
+
+  ///A custom listtile for simple customization
   const MiniListTile(
       {Key key,
       this.leading,

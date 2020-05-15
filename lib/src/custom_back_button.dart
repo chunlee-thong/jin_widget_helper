@@ -5,12 +5,20 @@ import 'package:flutter/material.dart';
 class CustomBackButton extends StatelessWidget {
   final Color iconColor;
   final IconData icon;
+
+  ///A String similar to AppBar's title
   final String header;
   final TextStyle headerStyle;
+
+  ///A callback when BackButton is Pressed, Default action is to Pop the context
   final Function onTap;
   final Color backgroundColor;
   final double marginLeft;
+
+  ///Alignment of the header
   final Alignment headerAlignment;
+
+  ///Create a Custom App Bar like Back Button with Header support
   CustomBackButton({
     this.iconColor,
     this.onTap,

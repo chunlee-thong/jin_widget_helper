@@ -10,7 +10,7 @@ extension DateUtils on DateTime {
 
   bool isTheSameDay(DateTime dateTime) {
     if (dateTime.day == this.day &&
-        dateTime.month == this.day &&
+        dateTime.month == this.month &&
         dateTime.year == this.year) {
       return true;
     }
@@ -128,6 +128,24 @@ extension WidgetExtension on Widget {
     if (this is Text) {
       return DefaultTextStyle(
         style: TextStyle(color: color),
+        child: this,
+      );
+    }
+    return this;
+  }
+
+  Widget style({
+    Color color = Colors.white,
+    FontWeight fontWeight = FontWeight.normal,
+    double fontSize = 14,
+  }) {
+    if (this is Text) {
+      return DefaultTextStyle(
+        style: TextStyle(
+          color: color,
+          fontWeight: fontWeight,
+          fontSize: fontSize,
+        ),
         child: this,
       );
     }

@@ -2,11 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ChoiceBottomSheet extends StatelessWidget {
+  ///When you tap on [options], it will return it's index value as a result
   final List<String> options;
   final String title;
+  final String cancelText;
 
-  //a cupertino bottom sheet
-  const ChoiceBottomSheet({Key key, this.options, @required this.title})
+  //Create a cupertino bottom sheet with list of option
+  const ChoiceBottomSheet(
+      {Key key, this.options, @required this.title, this.cancelText = "Cancel"})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class ChoiceBottomSheet extends StatelessWidget {
         );
       }).toList(),
       cancelButton: CupertinoActionSheetAction(
-        child: Text("Cancel"),
+        child: Text(cancelText),
         isDestructiveAction: true,
         isDefaultAction: true,
         onPressed: () {

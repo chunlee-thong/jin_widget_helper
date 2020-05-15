@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
 class ActionButton extends StatelessWidget {
+  ///recieve a ValueNotifier to indicate wether to show the loading or child
   final ValueNotifier<bool> isLoading;
   final Function onPressed;
+  //Button's background Color
   final Color color;
+  //Loading indicator's color
   final Color loadingColor;
   final EdgeInsets margin;
   final EdgeInsets padding;
   final ShapeBorder shape;
   final Widget child;
+
+  ///if [stretch] is `true`, Button will take all remaining horizontal space
   final bool stretch;
 
-  ///create a button with loading notifier
+  ///Create a button with loading notifier
   ActionButton({
     @required this.onPressed,
     @required this.child,
