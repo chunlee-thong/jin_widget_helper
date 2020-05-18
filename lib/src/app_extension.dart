@@ -126,7 +126,7 @@ extension WidgetExtension on Widget {
 
   Widget textColor([Color color = Colors.white]) {
     if (this is Text) {
-      return DefaultTextStyle(
+      return DefaultTextStyle.merge(
         style: TextStyle(color: color),
         child: this,
       );
