@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class GeneralMessageDialog extends StatelessWidget {
+class JinSimpleDialog extends StatelessWidget {
   final String title;
   final String content;
   final String confirmText;
 
   ///An alert dialog with title and content
-  GeneralMessageDialog({
+  JinSimpleDialog({
     this.confirmText = "OK",
     @required this.content,
     this.title = "Information",

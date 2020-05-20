@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 
-import 'utility.dart';
+import 'jin_utils.dart';
 
 class ConnectionChecker extends StatefulWidget {
   final Widget child;
@@ -39,7 +39,7 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
 
   void checkConnectionStream() async {
     try {
-      bool connection = await checkConnection();
+      bool connection = await JinUtils.checkConnection();
       if (widget.onConnectionChange != null) {
         await widget.onConnectionChange(connection);
       }

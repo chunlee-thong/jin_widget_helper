@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jin_widget_helper/src/jin_widget.dart';
 
 import '../jin_widget_helper.dart';
 
@@ -36,7 +35,7 @@ class StreamHandler<T> extends StatelessWidget {
             return Center(child: error(snapshot.error.toString()));
           return Center(child: Text(snapshot.error.toString()));
         } else {
-          return Center(child: loading ?? UIHelper.loadingChild);
+          return Center(child: loading ?? JinWidget.loadingChild);
         }
       },
     );

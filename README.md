@@ -104,12 +104,12 @@ PageNavigator.pushReplacement(context, HomePage());
 PageNavigator.pushAndRemove(context, RootPage());
 ```
 
-### UIHelper
+### JinWidget
 
 ```dart
-UIHelper.verticalSpace(12) //A SizedBox with value as height, default value is 8
-UIHelper.horizontalSpace(16) //A SizedBox with value as width, default value is 8
-Future<Uint8List> imageByte = await UIHelper.getBytesFromAsset("image asset path", 200); //200 is imagewidth
-RoundedRectangleBorder roundRectangle = UIHelper.roundRect(12);
-BorderRadius radius = UIHelper.radius(12); //default value is 8
+JinWidget.verticalSpace(12) //A SizedBox with value as height, default value is 8
+JinWidget.horizontalSpace(16) //A SizedBox with value as width, default value is 8
+Future<Uint8List> imageByte = await JinWidget.getBytesFromAsset("image asset path", 200); //200 is imagewidth
+RoundedRectangleBorder roundRectangle = JinWidget.roundRect(12);
+BorderRadius radius = JinWidget.radius(12); //default value is 8
 ```

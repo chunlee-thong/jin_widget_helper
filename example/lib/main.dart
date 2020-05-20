@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Jin Widget Helper',
       theme: ThemeData(
-        primarySwatch: ColorUtils.hexColorToMaterialColor(0xff08f7ff),
+        primarySwatch: JinColorUtils.hexColorToMaterialColor(0xff08f7ff),
       ),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
@@ -79,23 +79,23 @@ class _MyHomePageState extends State<MyHomePage> {
               header: "Jin Widget Helper",
               marginLeft: 8,
             ),
-            UIHelper.verticalSpace(16),
+            JinWidget.verticalSpace(16),
             //date format extension
             Text(
                 "Today date is ${DateTime.now().formatToLocalDate("dd MMMM yyyy hh:mm a")}"),
-            UIHelper.verticalSpace(16),
+            JinWidget.verticalSpace(16),
             //action button
             ActionButton(
               stretch: stretch,
               margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
               loadingColor: Colors.white,
-              color: ColorUtils.getColorFromCode("03e2ff"),
+              color: JinColorUtils.getColorFromCode("03e2ff"),
               isLoading: isLoading,
               onPressed: onButtonClick,
               child: Icon(Icons.adb),
               shape: StadiumBorder(),
             ),
-            UIHelper.verticalSpace(16).cssSpacing(margin: [0, 16]),
+            JinWidget.verticalSpace(16).cssSpacing(margin: [0, 16]),
             //streamhandler
             StreamHandler<int>(
               stream: streamController.stream,
@@ -120,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            UIHelper.verticalSpace(32),
+            JinWidget.verticalSpace(32),
             //small icon button
             SmallIconButton(
               icon: Icon(
@@ -133,18 +133,19 @@ class _MyHomePageState extends State<MyHomePage> {
               backgroundColor: Theme.of(context).primaryColor,
               onTap: _onIncrement,
             ),
-            UIHelper.verticalSpace(32),
+            JinWidget.verticalSpace(32),
             //Mini listtile
             MiniListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(randomStringImage()),
+                backgroundImage: NetworkImage(JinUtils.randomStringImage()),
               ),
               margin: EdgeInsets.zero,
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black12),
               ),
-              title: Text("Mini List tile title"),
+              title: Text(
+                  "This is a long mini listitle title that make check if it can be overflow"),
               subtitle: Text("subtitle"),
               trailing: Checkbox(
                 onChanged: (value) {},
@@ -156,10 +157,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //geenral message dialog
+          //general message dialog
           showDialog(
             context: context,
-            builder: (context) => GeneralMessageDialog(
+            builder: (context) => JinSimpleDialog(
               content: "Nice",
             ),
           );

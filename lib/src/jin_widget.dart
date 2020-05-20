@@ -1,12 +1,8 @@
 import 'dart:io';
-import 'dart:typed_data';
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-class UIHelper {
+class JinWidget {
   ///Create a sizedBox with set height
   static Widget verticalSpace([double height = 8]) {
     return SizedBox(height: height);
@@ -15,17 +11,6 @@ class UIHelper {
   ///Create a sizedBox with set width
   static Widget horizontalSpace([double width = 8]) {
     return SizedBox(width: width);
-  }
-
-  ///get bytes from asset that mostly use for google map marker
-  static Future<Uint8List> getBytesFromAsset(String path, int width) async {
-    ByteData data = await rootBundle.load(path);
-    Codec codec = await instantiateImageCodec(data.buffer.asUint8List(),
-        targetWidth: width);
-    FrameInfo fi = await codec.getNextFrame();
-    return (await fi.image.toByteData(format: ImageByteFormat.png))
-        .buffer
-        .asUint8List();
   }
 
   ///Create a RoundRectangleBorder with given radius

@@ -95,3 +95,10 @@
 ## [1.2.2+1] - 15 May 2020
 
 - Fix Future and Stream bugs
+
+## [1.3.0] - 20 May 2020
+
+- Breaking change on UIHelper (change to JinWidget)
+- Breaking change on ColorUtils (change to JinColorUtil)
+- Breaking change on GeneralMessageDailog (change to JinSimpleDialog)
+- Other code improvement

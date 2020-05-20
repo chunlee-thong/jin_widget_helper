@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ColorUtils {
+class JinColorUtils {
   ///Get color from String hex code
   static Color getColorFromCode(String code) {
     try {

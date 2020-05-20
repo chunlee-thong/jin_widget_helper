@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
+import 'package:jin_widget_helper/src/jin_widget.dart';
 
 class MiniListTile extends StatelessWidget {
   final Widget leading;
@@ -53,16 +54,17 @@ class MiniListTile extends StatelessWidget {
                 : CrossAxisAlignment.start,
             children: <Widget>[
               leading ?? const SizedBox(),
-              if (leading != null) UIHelper.horizontalSpace(12),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  titleWidget,
-                  UIHelper.verticalSpace(4),
-                  subTitleWidget,
-                ],
+              if (leading != null) JinWidget.horizontalSpace(12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    titleWidget,
+                    JinWidget.verticalSpace(4),
+                    subTitleWidget,
+                  ],
+                ),
               ),
-              Spacer(),
               trailingWidget,
             ],
           ),

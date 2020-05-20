@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:jin_widget_helper/src/utility.dart';
+import 'jin_utils.dart';
 
 extension DateUtils on DateTime {
   String formatDate([String format = "dd MMM yyyy"]) {
@@ -112,7 +112,7 @@ extension WidgetExtension on Widget {
 
   Widget rotate([double degree = 0]) {
     return Transform.rotate(
-      angle: degreeToRadian(degree),
+      angle: JinUtils.degreeToRadian(degree),
       child: this,
     );
   }
@@ -140,7 +140,7 @@ extension WidgetExtension on Widget {
     double fontSize = 14,
   }) {
     if (this is Text) {
-      return DefaultTextStyle(
+      return DefaultTextStyle.merge(
         style: TextStyle(
           color: color,
           fontWeight: fontWeight,
