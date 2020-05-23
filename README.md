@@ -109,7 +109,7 @@ PageNavigator.pushAndRemove(context, RootPage());
 ```dart
 JinWidget.verticalSpace(12) //A SizedBox with value as height, default value is 8
 JinWidget.horizontalSpace(16) //A SizedBox with value as width, default value is 8
-Future<Uint8List> imageByte = await JinWidget.getBytesFromAsset("image asset path", 200); //200 is imagewidth
+Future<Uint8List> imageByte = await JinUtils.getBytesFromAsset("image asset path", 200); //200 is imagewidth
 RoundedRectangleBorder roundRectangle = JinWidget.roundRect(12);
 BorderRadius radius = JinWidget.radius(12); //default value is 8
 ```

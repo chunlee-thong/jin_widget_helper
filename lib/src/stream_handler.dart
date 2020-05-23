@@ -33,7 +33,12 @@ class StreamHandler<T> extends StatelessWidget {
         } else if (snapshot.hasError) {
           if (error != null)
             return Center(child: error(snapshot.error.toString()));
-          return Center(child: Text(snapshot.error.toString()));
+          return Center(
+            child: Text(
+              snapshot.error.toString(),
+              textAlign: TextAlign.center,
+            ),
+          );
         } else {
           return Center(child: loading ?? JinWidget.loadingChild);
         }
