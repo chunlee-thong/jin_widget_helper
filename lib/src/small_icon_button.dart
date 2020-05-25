@@ -4,6 +4,7 @@ class SmallIconButton extends StatelessWidget {
   final Function onTap;
   final Widget icon;
   final EdgeInsets margin;
+  final EdgeInsets padding;
   final Color backgroundColor;
   final double borderRadius;
   final double elevation;
@@ -14,6 +15,7 @@ class SmallIconButton extends StatelessWidget {
     @required this.onTap,
     @required this.icon,
     this.margin = const EdgeInsets.all(8),
+    this.padding = const EdgeInsets.all(8),
     this.borderRadius = 8,
     this.backgroundColor = Colors.transparent,
     this.elevation = 0.0,
@@ -26,15 +28,15 @@ class SmallIconButton extends StatelessWidget {
       shape: shape,
       color: backgroundColor,
       elevation: elevation,
+      margin: margin,
       child: InkWell(
         onTap: onTap,
         customBorder: shape,
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: padding,
           child: icon,
         ),
       ),
-      margin: margin,
     );
   }
 }

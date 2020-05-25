@@ -7,6 +7,7 @@ class BadgeButton extends StatelessWidget {
   final TextStyle badgeTextStyle;
   final bool showBadge;
   final EdgeInsets margin;
+  final EdgeInsets padding;
   final Function onTap;
 
   ///Create a Icon button with badge
@@ -16,6 +17,7 @@ class BadgeButton extends StatelessWidget {
     this.badgeText = "",
     this.badgeTextStyle = const TextStyle(color: Colors.white, fontSize: 8),
     this.margin = const EdgeInsets.all(8),
+    this.padding = const EdgeInsets.all(8),
     this.badgeColor,
     this.onTap,
     this.showBadge = true,
@@ -29,7 +31,7 @@ class BadgeButton extends StatelessWidget {
           InkWell(
             onTap: onTap ?? () {},
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: padding,
               child: icon,
             ),
           ),

@@ -41,4 +41,9 @@ class JinUtils {
   static String randomStringImage([int dimension = 200]) {
     return "https://picsum.photos/$dimension";
   }
+
+  static String randomCategoryStringImage(
+      {int dimension = 200, String category = "photos"}) {
+    return "https://source.unsplash.com/${dimension}x$dimension/?$category";
+  }
 }

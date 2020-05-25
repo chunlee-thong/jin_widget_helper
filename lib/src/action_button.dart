@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:jin_widget_helper/jin_widget_helper.dart';
 
 class ActionButton extends StatelessWidget {
   ///recieve a ValueNotifier to indicate wether to show the loading or child
   final ValueNotifier<bool> isLoading;
   final Function onPressed;
+  final Function onLongPressed;
   //Button's background Color
   final Color color;
   //Loading indicator's color
@@ -12,6 +14,7 @@ class ActionButton extends StatelessWidget {
   final EdgeInsets padding;
   final ShapeBorder shape;
   final Widget child;
+  final Widget icon;
 
   ///if [stretch] is `true`, Button will take all remaining horizontal space
   final bool stretch;
@@ -22,11 +25,13 @@ class ActionButton extends StatelessWidget {
     @required this.child,
     this.isLoading,
     this.color,
+    this.icon,
     this.loadingColor = Colors.white,
     this.margin = const EdgeInsets.all(8),
-    this.padding = const EdgeInsets.all(12),
+    this.padding = const EdgeInsets.all(8),
     this.stretch = true,
     this.shape = const StadiumBorder(),
+    this.onLongPressed,
   });
   @override
   Widget build(BuildContext context) {
@@ -40,6 +45,8 @@ class ActionButton extends StatelessWidget {
           return RaisedButton(
             onPressed: loading ? () {} : onPressed,
             padding: padding,
+            onLongPress:
+                loading && onLongPressed == null ? () {} : onLongPressed,
             color: color ?? Theme.of(context).buttonColor,
             shape: shape,
             child: loading
@@ -51,7 +58,15 @@ class ActionButton extends StatelessWidget {
                       strokeWidth: 3.0,
                     ),
                   )
-                : child,
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      icon ?? SizedBox(),
+                      if (icon != null) SpaceX(8),
+                      child,
+                    ],
+                  ),
           );
         },
       ),

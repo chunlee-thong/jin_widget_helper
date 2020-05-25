@@ -91,8 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
               loadingColor: Colors.white,
               color: JinColorUtils.getColorFromCode("03e2ff"),
               isLoading: isLoading,
+              icon: Icon(Icons.add),
               onPressed: onButtonClick,
-              child: Icon(Icons.adb),
+              child: Text("View new page"),
               shape: StadiumBorder(),
             ),
             JinWidget.verticalSpace(16).cssSpacing(margin: [0, 16]),
@@ -137,7 +138,8 @@ class _MyHomePageState extends State<MyHomePage> {
             //Mini listtile
             MiniListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(JinUtils.randomStringImage()),
+                backgroundImage: NetworkImage(
+                    JinUtils.randomCategoryStringImage(category: "cat")),
               ),
               margin: EdgeInsets.zero,
               padding: EdgeInsets.all(8),

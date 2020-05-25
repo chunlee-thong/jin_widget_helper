@@ -7,6 +7,12 @@ class JinFormValidator {
     return null;
   }
 
+  static String validateField(
+      String value, String field, BuildContext context) {
+    if (value.trim().isEmpty) return "Please input $field";
+    return null;
+  }
+
   static String validateEmail(String value, BuildContext context) {
     if (value.trim().isEmpty) return "Please a input your email";
     return RegExp(

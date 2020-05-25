@@ -102,3 +102,8 @@
 - Breaking change on ColorUtils (change to JinColorUtil)
 - Breaking change on GeneralMessageDailog (change to JinSimpleDialog)
 - Other code improvement
+
+## [1.3.1] - 25 May 2020
+
+- Add icon field to ActionButton
+- Minor bug fix and improvement
