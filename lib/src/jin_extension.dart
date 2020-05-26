@@ -37,9 +37,23 @@ extension WidgetExtension on Widget {
     );
   }
 
+  Widget paddingAll([double padding = 8.0]) {
+    return Padding(
+      padding: EdgeInsets.all(padding),
+      child: this,
+    );
+  }
+
   Widget margin([EdgeInsets margin = const EdgeInsets.all(8)]) {
     return Container(
       margin: margin,
+      child: this,
+    );
+  }
+
+  Widget marginAll([double margin = 8.0]) {
+    return Container(
+      margin: EdgeInsets.all(margin),
       child: this,
     );
   }

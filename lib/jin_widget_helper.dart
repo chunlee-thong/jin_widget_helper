@@ -1,7 +1,7 @@
 library jin_widget_helper;
 
 export './src/action_button.dart';
-export './src/app_extension.dart';
+export './src/jin_extension.dart';
 export './src/badge_button.dart';
 export './src/choice_bottom_sheet.dart';
 export './src/jin_color_utils.dart';
