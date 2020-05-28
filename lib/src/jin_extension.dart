@@ -37,6 +37,7 @@ extension WidgetExtension on Widget {
     );
   }
 
+  ///add padding all to a widget
   Widget paddingAll([double padding = 8.0]) {
     return Padding(
       padding: EdgeInsets.all(padding),
@@ -51,6 +52,7 @@ extension WidgetExtension on Widget {
     );
   }
 
+  ///add margin all to a widget
   Widget marginAll([double margin = 8.0]) {
     return Container(
       margin: EdgeInsets.all(margin),
