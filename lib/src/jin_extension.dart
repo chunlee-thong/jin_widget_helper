@@ -191,3 +191,9 @@ extension TextStyleExtension on TextStyle {
     return this.copyWith(fontSize: size);
   }
 }
+
+extension ValueNotifierExtension on dynamic {
+  ValueNotifier<T> obs<T>() {
+    return ValueNotifier<T>(this);
+  }
+}
