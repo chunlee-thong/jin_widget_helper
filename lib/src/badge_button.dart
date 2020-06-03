@@ -26,36 +26,39 @@ class BadgeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      child: Stack(
-        children: <Widget>[
-          InkWell(
-            onTap: onTap ?? () {},
-            child: Padding(
-              padding: padding,
-              child: icon,
-            ),
-          ),
-          if (showBadge)
-            Positioned(
-              top: 4,
-              right: 4,
-              child: ClipOval(
-                child: Container(
-                  width: 14,
-                  height: 14,
-                  decoration: BoxDecoration(
-                    color: badgeColor ?? Colors.red,
-                  ),
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(2),
-                  child: Text(
-                    badgeText,
-                    style: badgeTextStyle,
-                  ),
-                ),
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onTap ?? () {},
+          child: Stack(
+            children: <Widget>[
+              Padding(
+                padding: padding,
+                child: icon,
               ),
-            )
-        ],
+              if (showBadge && badgeText.isNotEmpty)
+                Positioned(
+                  top: 4,
+                  right: 4,
+                  child: ClipOval(
+                    child: Container(
+                      width: 14,
+                      height: 14,
+                      decoration: BoxDecoration(
+                        color: badgeColor ?? Colors.red,
+                      ),
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(2),
+                      child: Text(
+                        badgeText,
+                        style: badgeTextStyle,
+                      ),
+                    ),
+                  ),
+                )
+            ],
+          ),
+        ),
       ),
     );
   }

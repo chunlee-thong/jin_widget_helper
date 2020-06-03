@@ -35,6 +35,7 @@ class ConnectionChecker extends StatefulWidget {
 class _ConnectionCheckerState extends State<ConnectionChecker> {
   StreamController<bool> connectionStream = StreamController();
   StreamSubscription subscription;
+  Connectivity connectivity = Connectivity();
   bool firstRun = true;
 
   void checkConnectionStream() async {
@@ -51,12 +52,12 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
 
   @override
   void initState() {
-    //checkConnectionStream();
-    subscription = Connectivity()
-        .onConnectivityChanged
-        .listen((ConnectivityResult result) {
-      if (widget.reactToConnectionChange || firstRun) {
-        firstRun = widget.reactToConnectionChange;
+    checkConnectionStream();
+    subscription =
+        connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
+      print("check connection");
+      if (widget.reactToConnectionChange && !firstRun) {
+        firstRun = false;
         checkConnectionStream();
       }
     });

@@ -28,7 +28,7 @@ class ActionButton extends StatelessWidget {
     this.icon,
     this.loadingColor = Colors.white,
     this.margin = const EdgeInsets.all(8),
-    this.padding = const EdgeInsets.all(8),
+    this.padding = const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
     this.stretch = true,
     this.shape = const StadiumBorder(),
     this.onLongPressed,

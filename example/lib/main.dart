@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ConnectionChecker(
         reactToConnectionChange: true,
         onConnectionChange: (value) {
-          print("Connection result: $value");
+          print("On Connection change: $value");
         },
         onNoInternet: (message) {
           return FlatButton.icon(
@@ -86,8 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
             JinWidget.verticalSpace(16),
             //action button
             ActionButton(
-              stretch: stretch,
-              margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+              stretch: false,
+              //margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
               loadingColor: Colors.white,
               color: JinColorUtils.getColorFromCode("03e2ff"),
               isLoading: isLoading,
