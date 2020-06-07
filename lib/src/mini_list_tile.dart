@@ -65,7 +65,11 @@ class MiniListTile extends StatelessWidget {
                   ],
                 ),
               ),
-              trailingWidget,
+              Flexible(
+                flex: 0,
+                child: trailingWidget,
+                fit: FlexFit.loose,
+              ),
             ],
           ),
         ),
