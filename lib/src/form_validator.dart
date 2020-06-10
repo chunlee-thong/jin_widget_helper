@@ -51,4 +51,13 @@ class JinFormValidator {
     if (value.trim().isEmpty) return "Please input your last name";
     return null;
   }
+
+  static String validateNumber(
+      String value, String field, BuildContext context) {
+    if (value.trim().isEmpty) return "Please input your $field";
+    if (int.parse(value) is int) {
+      return null;
+    }
+    return "Please input a valid number";
+  }
 }

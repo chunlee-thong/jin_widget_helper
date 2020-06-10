@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ValueHandler<T> extends StatelessWidget {
+class ValueObserver<T> extends StatelessWidget {
   final ValueNotifier<T> valueNotifier;
   final Widget Function(T) child;
 
   //A ValueListenableBuilder with cleaner look code
-  const ValueHandler(
+  const ValueObserver(
       {Key key, @required this.valueNotifier, @required this.child})
       : super(key: key);
   @override

@@ -16,5 +16,5 @@ export './src/stream_handler.dart';
 export './src/small_icon_button.dart';
 export './src/spacing.dart';
 export './src/jin_utils.dart';
-export './src/value_listenable_handler.dart';
+export './src/value_observer.dart';
 export './src/jin_widget.dart';

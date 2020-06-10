@@ -6,6 +6,7 @@ class ActionButton extends StatelessWidget {
   final ValueNotifier<bool> isLoading;
   final Function onPressed;
   final Function onLongPressed;
+  final double elevation;
   //Button's background Color
   final Color color;
   //Loading indicator's color
@@ -32,6 +33,7 @@ class ActionButton extends StatelessWidget {
     this.stretch = true,
     this.shape = const StadiumBorder(),
     this.onLongPressed,
+    this.elevation = 2.0,
   });
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,7 @@ class ActionButton extends StatelessWidget {
           return RaisedButton(
             onPressed: loading ? () {} : onPressed,
             padding: padding,
+            elevation: elevation,
             onLongPress:
                 loading && onLongPressed == null ? () {} : onLongPressed,
             color: color ?? Theme.of(context).buttonColor,

@@ -111,3 +111,9 @@
 ## [1.3.2] - 3 June 2020
 
 - Minor bug fix and improvement
+
+## [1.3.3] - 10 June 2020
+
+- Minor bug fix and improvement
+- Add validateNumber to FormValidator
+- Breaking change: ValueHandler has been rename to ValueObserver
