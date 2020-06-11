@@ -23,8 +23,8 @@ class CustomBackButton extends StatelessWidget {
     this.iconColor,
     this.onTap,
     this.header,
-    this.headerStyle = const TextStyle(
-        color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+    this.headerStyle =
+        const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
     this.icon,
     this.headerAlignment = Alignment.center,
     this.backgroundColor = Colors.transparent,

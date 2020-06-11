@@ -60,7 +60,7 @@ class MiniListTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     titleWidget,
-                    JinWidget.verticalSpace(4),
+                    if (subtitle != null) JinWidget.verticalSpace(4),
                     subTitleWidget,
                   ],
                 ),
