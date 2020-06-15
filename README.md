@@ -7,7 +7,7 @@ A package that contain many UI and Utility helper that help decrease your develo
 Add this to pubspec.yaml
 
 ```dart
-jin_widget_helper: ^1.3.4
+**jin_widget_helper**: ^1.3.4
 ```
 
 # Widgets
@@ -20,13 +20,14 @@ jin_widget_helper: ^1.3.4
 | CustomBackButton     | A custom back button with title (header)                                |
 | GeneralMessageDialog | A simple alert dialog                                                   |
 | SmallIconButton      | A small alternative to Flutter's IconButton                             |
+| SmallFlatButton      | A small alternative to Flutter's FlatButton                             |
 | StreamHandler        | A Streambuilder with less boilerplate code                              |
 | FutureHandler        | A FutureBuilder with less boilerplate code                              |
 | ChoiceBottomSheet    | A Cupertino bottom sheet                                                |
 | MiniListTle          | An easy customizable ListTile                                           |
 | ValueObserver        | A ValueListenableBuilder with lest boilerplate code                     |
-| SpaceX               | SizedBox with width (equivalent to UIHelper.horizontalSpace())          |
-| SpaceY               | SizedBox with height (equivalent to UIHelper.verticalSpace())           |
+| SpaceX               | SizedBox with width (equivalent to JinWidget.horizontalSpace())         |
+| SpaceY               | SizedBox with height (equivalent to JinWidget.verticalSpace())          |
 
 # Widget's Extension
 
@@ -106,13 +107,24 @@ validator: (value) => JinFormValidator.validateEmail(value, context),
 
 ### PageNavigator and JinNavigator
 
+PageNavigator support push, pushReplacement and pushAndRemove method
+
 ```dart
 PageNavigator.push(context, DetailPage());
 PageNavigator.pushReplacement(context, HomePage());
 PageNavigator.pushAndRemove(context, RootPage());
 ```
 
-#### JinNavigator can Push,PushReplacement,pushAndRemove without providing a context but you need to add JinNavigator.navigatorKey to MaterialApp
+JinNavigator also support push, pushReplacement, pushAndRemove without providing a context but you need to add JinNavigator.navigatorKey to MaterialApp
+
+```dart
+MaterialApp(
+    ...
+    navigatorKey: JinNavigator.navigatorKey,
+    ...
+    home: MyHomePage(),
+)
+```
 
 ```dart
 JinNavigator.push(DetailPage());
@@ -120,7 +132,7 @@ JinNavigator.pushReplacement(HomePage());
 JinNavigator.pushAndRemove(RootPage());
 ```
 
-#### JinNavigator also can show dialog without providing a context
+**JinNavigator also can show dialog without providing a context**
 
 ```dart
 var result = await JinNavigator.dialog(MyDialog());

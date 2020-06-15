@@ -12,7 +12,7 @@ class ValueObserver<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: valueNotifier,
-      builder: (context, data, _) {
+      builder: (context, T data, _) {
         return child(data);
       },
     );
