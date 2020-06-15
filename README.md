@@ -2,6 +2,14 @@
 
 A package that contain many UI and Utility helper that help decrease your development time on creating custom Widget.
 
+# Installation
+
+Add this to pubspec.yaml
+
+```dart
+jin_widget_helper: ^1.3.4
+```
+
 # Widgets
 
 | Widget               | Description                                                             |
@@ -96,12 +104,26 @@ validator: (value) => JinFormValidator.validateEmail(value, context),
 )
 ```
 
-### PageNavigator
+### PageNavigator and JinNavigator
 
 ```dart
 PageNavigator.push(context, DetailPage());
 PageNavigator.pushReplacement(context, HomePage());
 PageNavigator.pushAndRemove(context, RootPage());
+```
+
+#### JinNavigator can Push,PushReplacement,pushAndRemove without providing a context but you need to add JinNavigator.navigatorKey to MaterialApp
+
+```dart
+JinNavigator.push(DetailPage());
+JinNavigator.pushReplacement(HomePage());
+JinNavigator.pushAndRemove(RootPage());
+```
+
+#### JinNavigator also can show dialog without providing a context
+
+```dart
+var result = await JinNavigator.dialog(MyDialog());
 ```
 
 ### JinWidget

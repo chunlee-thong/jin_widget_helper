@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 class CustomBackButton extends StatelessWidget {
-  final Color iconColor;
-  final IconData icon;
+  final Icon icon;
 
   ///A String similar to AppBar's title
   final String header;
@@ -18,9 +17,10 @@ class CustomBackButton extends StatelessWidget {
   ///Alignment of the header
   final Alignment headerAlignment;
 
+  final double titleMargin = 56.0;
+
   ///Create a Custom App Bar like Back Button with Header support
   CustomBackButton({
-    this.iconColor,
     this.onTap,
     this.header,
     this.headerStyle =
@@ -51,12 +51,14 @@ class CustomBackButton extends StatelessWidget {
                     onTap: onTap ?? () => Navigator.of(context).pop(),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Icon(
-                        Platform.isIOS
-                            ? Icons.arrow_back_ios
-                            : Icons.arrow_back,
-                        color: iconColor ?? Theme.of(context).iconTheme.color,
-                      ),
+                      child: icon ??
+                          Icon(
+                            Platform.isIOS
+                                ? Icons.arrow_back_ios
+                                : Icons.arrow_back,
+                            size: 24,
+                            color: Theme.of(context).iconTheme.color,
+                          ),
                     ),
                   ),
                 ),
@@ -67,7 +69,9 @@ class CustomBackButton extends StatelessWidget {
                 alignment: headerAlignment,
                 child: Container(
                   margin: EdgeInsets.only(
-                      left: headerAlignment == Alignment.centerLeft ? 64 : 0),
+                      left: headerAlignment == Alignment.centerLeft
+                          ? titleMargin + marginLeft
+                          : 0),
                   child: Text(
                     header,
                     style: headerStyle,

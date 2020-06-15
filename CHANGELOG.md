@@ -116,4 +116,10 @@
 
 - Minor bug fix and improvement
 - Add validateNumber to FormValidator
+- Add SmallFlatButton
 - Breaking change: ValueHandler has been rename to ValueObserver
+
+## [1.3.4] - 15 June 2020
+
+- Minor bug fix and improvement
+- Add JinNavigator

@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Jin Widget Helper',
+      navigatorKey: JinNavigator.navigatorKey,
       theme: ThemeData(
         primarySwatch: JinColorUtils.hexColorToMaterialColor(0xff08f7ff),
       ),
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     isLoading.value = true;
     await Future.delayed(Duration(seconds: 1));
     isLoading.value = false;
-    PageNavigator.push(context, NewPage());
+    JinNavigator.push(NewPage());
   }
 
   void _onIncrement() async {
@@ -76,8 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
             //custom back button with header
             CustomBackButton(
               onTap: () {},
+              headerAlignment: Alignment.centerLeft,
               header: "Jin Widget Helper",
-              marginLeft: 8,
             ),
             JinWidget.verticalSpace(16),
             //date format extension
@@ -159,13 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //general message dialog
-          showDialog(
-            context: context,
-            builder: (context) => JinSimpleDialog(
-              content: "Nice",
-            ),
-          );
+          JinNavigator.dialog(JinSimpleDialog(content: "Nice"));
         },
         child: Icon(Icons.slideshow),
       ),
