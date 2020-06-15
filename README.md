@@ -7,7 +7,8 @@ A package that contain many UI and Utility helper that help decrease your develo
 Add this to pubspec.yaml
 
 ```dart
-**jin_widget_helper**: ^1.3.4
+dependencies:
+  jin_widget_helper: ^1.3.4
 ```
 
 # Widgets
