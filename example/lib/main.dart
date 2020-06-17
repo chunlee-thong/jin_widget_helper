@@ -88,13 +88,12 @@ class _MyHomePageState extends State<MyHomePage> {
             //action button
             ActionButton(
               stretch: false,
-              //margin: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
               loadingColor: Colors.white,
               color: JinColorUtils.getColorFromCode("03e2ff"),
               isLoading: isLoading,
               icon: Icon(Icons.add),
               onPressed: onButtonClick,
-              child: Text("View new page"),
+              child: Text("View Form Validation Page"),
               shape: StadiumBorder(),
             ),
             JinWidget.verticalSpace(16).cssSpacing(margin: [0, 16]),
@@ -148,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 border: Border.all(color: Colors.black12),
               ),
               title: Text(
-                  "This is a long mini listitle title that make check if it can be overflow"),
+                  "This is a long mini listitle title that use to check if it can be overflow"),
               subtitle: Text("subtitle"),
               trailing: Checkbox(
                 onChanged: (value) {},
@@ -160,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          JinNavigator.dialog(JinSimpleDialog(content: "Nice"));
+          JinNavigator.dialog(JinSimpleDialog(content: "Hello from my dialog"));
         },
         child: Icon(Icons.slideshow),
       ),

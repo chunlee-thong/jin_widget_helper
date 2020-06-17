@@ -11,6 +11,7 @@ class ActionButton extends StatelessWidget {
   final Color color;
   //Loading indicator's color
   final Color loadingColor;
+  final Widget loadingWidget;
   final EdgeInsets margin;
   final EdgeInsets padding;
   final ShapeBorder shape;
@@ -25,10 +26,11 @@ class ActionButton extends StatelessWidget {
     @required this.onPressed,
     @required this.child,
     this.isLoading,
+    this.loadingWidget,
     this.color,
     this.icon,
     this.loadingColor = Colors.white,
-    this.margin = const EdgeInsets.all(8),
+    this.margin = const EdgeInsets.symmetric(vertical: 16),
     this.padding = const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
     this.stretch = true,
     this.shape = const StadiumBorder(),
@@ -49,18 +51,19 @@ class ActionButton extends StatelessWidget {
             padding: padding,
             elevation: elevation,
             onLongPress:
-                loading && onLongPressed == null ? () {} : onLongPressed,
+                loading || onLongPressed == null ? () {} : onLongPressed,
             color: color ?? Theme.of(context).buttonColor,
             shape: shape,
             child: loading
-                ? Container(
-                    width: 20,
-                    height: 20,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(loadingColor),
-                      strokeWidth: 3.0,
-                    ),
-                  )
+                ? loadingWidget ??
+                    Container(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(loadingColor),
+                        strokeWidth: 3.0,
+                      ),
+                    )
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,

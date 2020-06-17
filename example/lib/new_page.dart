@@ -13,50 +13,76 @@ class _NewPageState extends State<NewPage> {
   int max = 99;
 
   int get randomness => max - Random().nextInt(max - min);
+  final formKey = GlobalKey<FormState>();
+
+  void onValidateForm() {
+    formKey.currentState.validate();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          CustomBackButton(
-            header: "New Page",
-            marginLeft: 4,
-          ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+      appBar: AppBar(title: Text("Form Validator page")),
+      body: Form(
+        key: formKey,
+        child: ListView(
+          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+          children: <Widget>[
+            TextFormField(
+              validator: (value) => JinFormValidator.validateEmail(value),
+              decoration: InputDecoration(
+                labelText: "Email",
+                border: OutlineInputBorder(),
               ),
-              itemCount: 10,
-              padding: EdgeInsets.zero,
-              itemBuilder: (context, index) {
-                return Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(4),
-                      child: Image.network(
-                        "https://picsum.photos/2$randomness",
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return Center(
-                            child: CircularProgressIndicator(
-                              value: loadingProgress.expectedTotalBytes != null
-                                  ? loadingProgress.cumulativeBytesLoaded /
-                                      loadingProgress.expectedTotalBytes
-                                  : null,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                );
-              },
             ),
-          ),
-        ],
+            JinWidget.verticalSpace(12),
+            TextFormField(
+              validator: (value) => JinFormValidator.validatePhoneNumber(value),
+              decoration: InputDecoration(
+                labelText: "Phone number",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            JinWidget.verticalSpace(12),
+            TextFormField(
+              validator: (value) =>
+                  JinFormValidator.validatePassword(value, length: 5),
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            JinWidget.verticalSpace(12),
+            TextFormField(
+              validator: (value) =>
+                  JinFormValidator.validateField(value, "description"),
+              decoration: InputDecoration(
+                labelText: "Description",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            JinWidget.verticalSpace(12),
+            TextFormField(
+              validator: (value) => JinFormValidator.validateNumber(
+                value,
+                "age",
+                min: 10,
+                max: 99,
+                isInteger: true,
+              ),
+              decoration: InputDecoration(
+                labelText: "Age",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            JinWidget.verticalSpace(12),
+            ActionButton(
+              child: Text("Validate"),
+              onPressed: onValidateForm,
+            ),
+          ],
+        ),
       ),
     );
   }
