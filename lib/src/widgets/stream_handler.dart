@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jin_widget_helper/src/jin_widget.dart';
-
-import '../jin_widget_helper.dart';
+import 'package:jin_widget_helper/src/utils/jin_widget.dart';
 
 class StreamHandler<T> extends StatelessWidget {
   final Stream stream;
@@ -16,12 +14,13 @@ class StreamHandler<T> extends StatelessWidget {
   final Widget Function(String) error;
 
   ///create a streambuilder with less boilerplate code
-  const StreamHandler(
-      {@required this.stream,
-      @required this.ready,
-      this.error,
-      this.loading,
-      this.initialData});
+  const StreamHandler({
+    @required this.stream,
+    @required this.ready,
+    this.error,
+    this.loading,
+    this.initialData,
+  });
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T>(
@@ -32,7 +31,9 @@ class StreamHandler<T> extends StatelessWidget {
           return ready(snapshot.data);
         } else if (snapshot.hasError) {
           if (error != null)
-            return Center(child: error(snapshot.error.toString()));
+            return Center(
+              child: error(snapshot.error.toString()),
+            );
           return Center(
             child: Text(
               snapshot.error.toString(),

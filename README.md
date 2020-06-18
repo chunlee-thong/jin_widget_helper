@@ -13,22 +13,23 @@ dependencies:
 
 # Widgets
 
-| Widget               | Description                                                             |
-| -------------------- | ----------------------------------------------------------------------- |
-| ActionButton         | A Simple RaisedButton with loading notifier                             |
-| BadgeButton          | A small icon button with badge (like notification badge)                |
-| ConnectionChecker    | A widget to check internet connection and provide onNoInternet callback |
-| CustomBackButton     | A custom back button with title (header)                                |
-| GeneralMessageDialog | A simple alert dialog                                                   |
-| SmallIconButton      | A small alternative to Flutter's IconButton                             |
-| SmallFlatButton      | A small alternative to Flutter's FlatButton                             |
-| StreamHandler        | A Streambuilder with less boilerplate code                              |
-| FutureHandler        | A FutureBuilder with less boilerplate code                              |
-| ChoiceBottomSheet    | A Cupertino bottom sheet                                                |
-| MiniListTle          | An easy customizable ListTile                                           |
-| ValueObserver        | A ValueListenableBuilder with lest boilerplate code                     |
-| SpaceX               | SizedBox with width (equivalent to JinWidget.horizontalSpace())         |
-| SpaceY               | SizedBox with height (equivalent to JinWidget.verticalSpace())          |
+| Widget                | Description                                                             |
+| --------------------- | ----------------------------------------------------------------------- |
+| ActionButton          | A Simple RaisedButton with loading notifier                             |
+| BadgeButton           | A small icon button with badge (like notification badge)                |
+| ConnectionChecker     | A widget to check internet connection and provide onNoInternet callback |
+| CustomBackButton      | A custom back button with title (header)                                |
+| JinSimpleDialog       | A simple alert dialog                                                   |
+| JinConfirmationDialog | A dialog with cancel and confirm action                                 |
+| SmallIconButton       | A small alternative to Flutter's IconButton                             |
+| SmallFlatButton       | A small alternative to Flutter's FlatButton                             |
+| StreamHandler         | A Streambuilder with less boilerplate code                              |
+| FutureHandler         | A FutureBuilder with less boilerplate code                              |
+| ChoiceBottomSheet     | A Cupertino bottom sheet                                                |
+| MiniListTle           | An easy customizable ListTile                                           |
+| ValueObserver         | A ValueListenableBuilder with lest boilerplate code                     |
+| SpaceX                | SizedBox with width (equivalent to JinWidget.horizontalSpace())         |
+| SpaceY                | SizedBox with height (equivalent to JinWidget.verticalSpace())          |
 
 # Widget's Extension
 

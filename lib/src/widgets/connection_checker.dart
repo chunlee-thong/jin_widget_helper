@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 
-import 'jin_utils.dart';
+import '../../jin_widget_helper.dart';
 
 class ConnectionChecker extends StatefulWidget {
   final Widget child;
@@ -53,8 +53,7 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
   @override
   void initState() {
     checkConnectionStream();
-    subscription =
-        connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
+    subscription = connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
       print("check connection");
       if (widget.reactToConnectionChange && !firstRun) {
         firstRun = false;

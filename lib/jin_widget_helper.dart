@@ -1,24 +1,27 @@
 library jin_widget_helper;
 
-export './src/action_button.dart';
-export './src/jin_extension.dart';
-export './src/badge_button.dart';
-export './src/choice_bottom_sheet.dart';
-export './src/jin_color_utils.dart';
-export './src/connection_checker.dart';
-export './src/custom_back_button.dart';
-export './src/form_validator.dart';
-export './src/future_handler.dart';
-export './src/jin_confirmation_dialog.dart';
-export './src/jin_simple_dialog.dart';
-export './src/jin_utils.dart';
-export './src/jin_navigator.dart';
-export './src/jin_platform_checker.dart';
-export './src/mini_list_tile.dart';
-export './src/page_navigator.dart';
-export './src/stream_handler.dart';
-export './src/small_icon_button.dart';
-export './src/small_flat_button.dart';
-export './src/spacing.dart';
-export './src/value_observer.dart';
-export './src/jin_widget.dart';
+//widgets
+export './src/widgets/action_button.dart';
+export './src/widgets/badge_button.dart';
+export './src/widgets/choice_bottom_sheet.dart';
+export './src/widgets/connection_checker.dart';
+export './src/widgets/custom_back_button.dart';
+export './src/widgets/future_handler.dart';
+export './src/widgets/jin_confirmation_dialog.dart';
+export './src/widgets/jin_simple_dialog.dart';
+export './src/widgets/jin_platform_checker.dart';
+export './src/widgets/mini_list_tile.dart';
+export './src/widgets/spacing.dart';
+export './src/widgets/small_icon_button.dart';
+export './src/widgets/small_flat_button.dart';
+export './src/widgets/stream_handler.dart';
+export './src/widgets/value_observer.dart';
+
+//utils
+export './src/utils/jin_extension.dart';
+export './src/utils/jin_color_utils.dart';
+export './src/utils/form_validator.dart';
+export './src/utils/jin_utils.dart';
+export './src/utils/jin_navigator.dart';
+export './src/utils/page_navigator.dart';
+export './src/utils/jin_widget.dart';

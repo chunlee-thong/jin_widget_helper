@@ -123,3 +123,9 @@
 
 - Minor bug fix and improvement
 - Add JinNavigator
+
+## [1.3.5] - 19 June 2020
+
+- Minor bug fix and improvement
+- Add JinPlatformChecker
+- Add JinConfirmationDialog

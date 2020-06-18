@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jin_widget_helper/jin_widget_helper.dart';
+import 'package:jin_widget_helper/src/widgets/spacing.dart';
 
 class ActionButton extends StatelessWidget {
   ///recieve a ValueNotifier to indicate wether to show the loading or child

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jin_widget_helper/jin_widget_helper.dart';
+import 'package:jin_widget_helper/src/widgets/jin_platform_checker.dart';
+import 'package:jin_widget_helper/src/utils/jin_extension.dart';
 
 class JinConfirmationDialog extends StatelessWidget {
   final String confirmText;
