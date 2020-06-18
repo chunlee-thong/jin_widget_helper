@@ -129,3 +129,4 @@
 - Minor bug fix and improvement
 - Add JinPlatformChecker
 - Add JinConfirmationDialog
+- Organize files

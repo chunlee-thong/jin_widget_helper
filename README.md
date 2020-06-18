@@ -8,7 +8,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.3.4
+  jin_widget_helper: ^1.3.5
 ```
 
 # Widgets
@@ -17,19 +17,20 @@ dependencies:
 | --------------------- | ----------------------------------------------------------------------- |
 | ActionButton          | A Simple RaisedButton with loading notifier                             |
 | BadgeButton           | A small icon button with badge (like notification badge)                |
+| ChoiceBottomSheet     | A Cupertino bottom sheet                                                |
 | ConnectionChecker     | A widget to check internet connection and provide onNoInternet callback |
 | CustomBackButton      | A custom back button with title (header)                                |
-| JinSimpleDialog       | A simple alert dialog                                                   |
+| FutureHandler         | A FutureBuilder with less boilerplate code                              |
 | JinConfirmationDialog | A dialog with cancel and confirm action                                 |
+| JinPlatformChecker    | A widget to provide a widget for android or ios platform                |
+| JinSimpleDialog       | A simple alert dialog                                                   |
+| MiniListTle           | An easy customizable ListTile                                           |
 | SmallIconButton       | A small alternative to Flutter's IconButton                             |
 | SmallFlatButton       | A small alternative to Flutter's FlatButton                             |
-| StreamHandler         | A Streambuilder with less boilerplate code                              |
-| FutureHandler         | A FutureBuilder with less boilerplate code                              |
-| ChoiceBottomSheet     | A Cupertino bottom sheet                                                |
-| MiniListTle           | An easy customizable ListTile                                           |
-| ValueObserver         | A ValueListenableBuilder with lest boilerplate code                     |
 | SpaceX                | SizedBox with width (equivalent to JinWidget.horizontalSpace())         |
 | SpaceY                | SizedBox with height (equivalent to JinWidget.verticalSpace())          |
+| StreamHandler         | A Streambuilder with less boilerplate code                              |
+| ValueObserver         | A ValueListenableBuilder with lest boilerplate code                     |
 
 # Widget's Extension
 
@@ -98,6 +99,14 @@ Color newColor = ColorUtils.fromRGB(8, 182, 155)
 MaterilColor newMaterialColor = ColorUtils.hexColorToMaterialColor(0xFF869CF4)
 ```
 
+### JinUtils
+
+```dart
+Future<Uint8List> imageByte = await JinUtils.getBytesFromAsset("image asset path", 200); //200 is imagewidth
+String carUrlImage =  JinUtils.randomCategoryStringImage(dimension: 200, category: "car"); //get image url with given dimension and category
+String randomUrlImage = JinUtils.randomStringImage(200); //get random image url with given dimension
+```
+
 ### FormValidator
 
 ```dart
@@ -145,7 +154,6 @@ var result = await JinNavigator.dialog(MyDialog());
 ```dart
 JinWidget.verticalSpace(12) //A SizedBox with value as height, default value is 8
 JinWidget.horizontalSpace(16) //A SizedBox with value as width, default value is 8
-Future<Uint8List> imageByte = await JinUtils.getBytesFromAsset("image asset path", 200); //200 is imagewidth
 RoundedRectangleBorder roundRectangle = JinWidget.roundRect(12);
 BorderRadius radius = JinWidget.radius(12); //default value is 8
 ```
