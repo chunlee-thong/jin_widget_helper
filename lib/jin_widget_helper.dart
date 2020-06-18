@@ -18,6 +18,7 @@ export './src/mini_list_tile.dart';
 export './src/page_navigator.dart';
 export './src/stream_handler.dart';
 export './src/small_icon_button.dart';
+export './src/small_flat_button.dart';
 export './src/spacing.dart';
 export './src/value_observer.dart';
 export './src/jin_widget.dart';

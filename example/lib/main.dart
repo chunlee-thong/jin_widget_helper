@@ -151,6 +151,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 value: true,
               ),
             ),
+            SmallFlatButton(
+              child: Text("Small FlatButton"),
+              onTap: () {},
+              textColor: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 16),
+              backgroundColor: Colors.red,
+            ),
           ],
         ),
       ),
