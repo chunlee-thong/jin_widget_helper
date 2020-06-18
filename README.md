@@ -126,7 +126,8 @@ PageNavigator.pushReplacement(context, HomePage());
 PageNavigator.pushAndRemove(context, RootPage());
 ```
 
-JinNavigator also support push, pushReplacement, pushAndRemove without providing a context but you need to add JinNavigator.navigatorKey to MaterialApp
+JinNavigator also support push, pushReplacement, pushAndRemove without providing a context
+but you need to add `dart JinNavigator.navigatorKey` to MaterialApp
 
 ```dart
 MaterialApp(
