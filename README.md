@@ -37,8 +37,8 @@ dependencies:
 ### padding, margin
 
 ```dart
-Text("Hello Flutter").padding(EdgeInsets.all(8.0)) // defaulat value is EdgeInsets.all(8.0)
-Text("Hello Flutter").margin(EdgeInsets.all(8.0)) // defaulat value is EdgeInsets.all(8.0)
+Text("Hello Flutter").padding(EdgeInsets.all(16.0)) // defaulat value is EdgeInsets.all(8.0)
+Text("Hello Flutter").margin(EdgeInsets.all(16.0)) // defaulat value is EdgeInsets.all(8.0)
 ```
 
 ### cssSpacing
@@ -89,6 +89,13 @@ DateTime.now().formatToLocalDate("dd mmm yyyy")
 String name = "chunlee".firstUpperCase() // => Chunlee
 ```
 
+### Object extension
+
+```dart
+var count = 1.obs<int>();
+//equivalent to: ValueNotifier count = ValueNotifier<int>(1);
+```
+
 # Utility Class
 
 ### ColorUtils
@@ -111,7 +118,7 @@ String randomUrlImage = JinUtils.randomStringImage(200); //get random image url 
 
 ```dart
 TextFormField(
-validator: (value) => JinFormValidator.validateEmail(value, context),
+validator: (value) => JinFormValidator.validateEmail(value),
 // there are mor validator
 )
 ```
