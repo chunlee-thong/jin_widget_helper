@@ -119,7 +119,7 @@ String randomUrlImage = JinUtils.randomStringImage(200); //get random image url 
 ```dart
 TextFormField(
 validator: (value) => JinFormValidator.validateEmail(value),
-// there are mor validator
+// check JinValidator class for more field validator
 )
 ```
 
