@@ -47,7 +47,8 @@ class _NewPageState extends State<NewPage> {
             ),
             JinWidget.verticalSpace(12),
             TextFormField(
-              validator: (value) => JinFormValidator.validatePassword(value, length: 5),
+              validator: (value) =>
+                  JinFormValidator.validatePassword(value, length: 5),
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Password",
@@ -56,7 +57,8 @@ class _NewPageState extends State<NewPage> {
             ),
             JinWidget.verticalSpace(12),
             TextFormField(
-              validator: (value) => JinFormValidator.validateField(value, "description"),
+              validator: (value) =>
+                  JinFormValidator.validateField(value, "description"),
               decoration: InputDecoration(
                 labelText: "Description",
                 border: OutlineInputBorder(),

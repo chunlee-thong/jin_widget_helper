@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ConnectionChecker(
-        reactToConnectionChange: true,
+        reactToConnectionChange: false,
         onConnectionChange: (value) {
           print("On Connection change: $value");
         },
@@ -82,7 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             JinWidget.verticalSpace(16),
             //date format extension
-            Text("Today date is ${DateTime.now().formatToLocalDate("dd MMMM yyyy hh:mm a")}"),
+            Text(
+                "Today date is ${DateTime.now().formatToLocalDate("dd MMMM yyyy hh:mm a")}"),
             JinWidget.verticalSpace(16),
             //action button
             ActionButton(
@@ -137,14 +138,16 @@ class _MyHomePageState extends State<MyHomePage> {
             //Mini listtile
             MiniListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(JinUtils.randomCategoryStringImage(category: "cat")),
+                backgroundImage: NetworkImage(
+                    JinUtils.randomCategoryStringImage(category: "cat")),
               ),
               margin: EdgeInsets.zero,
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black12),
               ),
-              title: Text("This is a long mini listitle title that use to check if it can be overflow"),
+              title: Text(
+                  "This is a long mini listitle title that use to check if it can be overflow"),
               subtitle: Text("subtitle"),
               trailing: Checkbox(
                 onChanged: (value) {},
@@ -170,7 +173,8 @@ class _MyHomePageState extends State<MyHomePage> {
             textColor: Colors.white,
             shape: StadiumBorder(),
             onPressed: () {
-              JinNavigator.dialog(JinSimpleDialog(content: "Hello from my dialog"));
+              JinNavigator.dialog(
+                  JinSimpleDialog(content: "Hello from my dialog"));
             },
             child: Text("Simple dialog"),
           ),

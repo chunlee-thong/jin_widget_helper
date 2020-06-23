@@ -36,10 +36,10 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
   StreamController<bool> connectionStream = StreamController();
   StreamSubscription subscription;
   Connectivity connectivity = Connectivity();
-  bool firstRun = true;
 
   void checkConnectionStream() async {
     try {
+      print("check connection");
       bool connection = await JinUtils.checkConnection();
       if (widget.onConnectionChange != null) {
         await widget.onConnectionChange(connection);
@@ -52,11 +52,14 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
 
   @override
   void initState() {
-    checkConnectionStream();
-    subscription = connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-      print("check connection");
-      if (widget.reactToConnectionChange && !firstRun) {
-        firstRun = false;
+    //if widget is not react to connection change, check the connection first becuase subscription stream will not working
+    if (!widget.reactToConnectionChange) {
+      checkConnectionStream();
+    }
+    subscription =
+        connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
+      //only check connection when widget is react to connectivity change
+      if (widget.reactToConnectionChange) {
         checkConnectionStream();
       }
     });

@@ -130,3 +130,8 @@
 - Add JinPlatformChecker
 - Add JinConfirmationDialog
 - Organize files
+
+## [1.3.5+1] - 23 June 2020
+
+- Fix ConnectionChecker bugs
+- Fix code format

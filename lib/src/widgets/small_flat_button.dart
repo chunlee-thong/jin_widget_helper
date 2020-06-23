@@ -24,7 +24,8 @@ class SmallFlatButton extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final shape = RoundedRectangleBorder(borderRadius: BorderRadius.circular(borderRadius));
+    final shape = RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(borderRadius));
     return Card(
       shape: shape,
       color: backgroundColor,

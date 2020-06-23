@@ -53,7 +53,8 @@ class ActionButton extends StatelessWidget {
             padding: padding,
             textColor: textColor ?? null,
             elevation: elevation,
-            onLongPress: loading || onLongPressed == null ? () {} : onLongPressed,
+            onLongPress:
+                loading || onLongPressed == null ? () {} : onLongPressed,
             color: color ?? Theme.of(context).buttonColor,
             shape: shape,
             child: loading

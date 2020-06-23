@@ -48,7 +48,9 @@ class MiniListTile extends StatelessWidget {
         child: Padding(
           padding: padding,
           child: Row(
-            crossAxisAlignment: subtitle == null ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+            crossAxisAlignment: subtitle == null
+                ? CrossAxisAlignment.center
+                : CrossAxisAlignment.start,
             children: <Widget>[
               leading ?? const SizedBox(),
               if (leading != null) JinWidget.horizontalSpace(12),
