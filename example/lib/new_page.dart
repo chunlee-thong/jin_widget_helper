@@ -8,7 +8,7 @@ class NewPage extends StatefulWidget {
   _NewPageState createState() => _NewPageState();
 }
 
-class _NewPageState extends State<NewPage> {
+class _NewPageState extends State<NewPage> with AfterBuildMixin {
   int min = 10;
   int max = 99;
 
@@ -17,6 +17,18 @@ class _NewPageState extends State<NewPage> {
 
   void onValidateForm() {
     formKey.currentState.validate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void afterBuild(BuildContext context) {
+    JinNavigator.dialog(JinSimpleDialog(
+      content: "This dialog is shown after widget built",
+    ));
   }
 
   @override

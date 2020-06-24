@@ -32,6 +32,27 @@ dependencies:
 | StreamHandler         | A Streambuilder with less boilerplate code                              |
 | ValueObserver         | A ValueListenableBuilder with lest boilerplate code                     |
 
+# Mixin
+
+### AfterBuildMixin
+
+```dart
+class _HomePageState extends State<NewPage> with AfterBuildMixin {
+
+  //this method will call after widget has been build
+  @override
+  void afterBuild(BuildContext context) {
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+```
+
 # Widget's Extension
 
 ### padding, margin
