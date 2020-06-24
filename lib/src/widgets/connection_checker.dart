@@ -52,7 +52,7 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
 
   @override
   void initState() {
-    //if widget is not react to connection change, check the connection first becuase subscription stream will not working
+    //if widget is not react to connection change, check the connection first because subscription stream will not working
     if (!widget.reactToConnectionChange) {
       checkConnectionStream();
     }

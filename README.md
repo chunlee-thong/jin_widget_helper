@@ -18,11 +18,12 @@ dependencies:
 | ActionButton          | A Simple RaisedButton with loading notifier                             |
 | BadgeButton           | A small icon button with badge (like notification badge)                |
 | ChoiceBottomSheet     | A Cupertino bottom sheet                                                |
+| ConditionalWidget     | Provide a widget base on condition true or false                        |
 | ConnectionChecker     | A widget to check internet connection and provide onNoInternet callback |
 | CustomBackButton      | A custom back button with title (header)                                |
 | FutureHandler         | A FutureBuilder with less boilerplate code                              |
 | JinConfirmationDialog | A dialog with cancel and confirm action                                 |
-| JinPlatformChecker    | A widget to provide a widget for android or ios platform                |
+| JinPlatformChecker    | Provide a widget base on Android or iOS platform                        |
 | JinSimpleDialog       | A simple alert dialog                                                   |
 | MiniListTle           | An easy customizable ListTile                                           |
 | SmallIconButton       | A small alternative to Flutter's IconButton                             |

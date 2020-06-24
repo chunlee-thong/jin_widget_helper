@@ -139,3 +139,4 @@
 ## [1.3.6] - 24 June 2020
 
 - Add AfterBuildMixin
+- Add ConditionalWidget
