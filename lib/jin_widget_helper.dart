@@ -4,6 +4,7 @@ library jin_widget_helper;
 export './src/widgets/action_button.dart';
 export './src/widgets/badge_button.dart';
 export './src/widgets/choice_bottom_sheet.dart';
+export './src/widgets/conditional_widget.dart';
 export './src/widgets/connection_checker.dart';
 export './src/widgets/custom_back_button.dart';
 export './src/widgets/future_handler.dart';

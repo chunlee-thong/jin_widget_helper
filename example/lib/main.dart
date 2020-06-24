@@ -30,17 +30,18 @@ class _MyHomePageState extends State<MyHomePage> {
   ValueNotifier<bool> isLoading = ValueNotifier(false);
   StreamController<int> streamController = StreamController.broadcast();
   int _counter = 0;
+  final listTileSelected = false.obs<bool>();
 
   void onButtonClick() async {
     isLoading.value = true;
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(milliseconds: 2000));
     isLoading.value = false;
     JinNavigator.push(NewPage());
   }
 
   void _onIncrement() async {
     streamController.add(null);
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(milliseconds: 200));
     _counter += 1;
     streamController.add(_counter);
   }
@@ -136,31 +137,41 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             JinWidget.verticalSpace(32),
             //Mini listtile
-            MiniListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage(
-                    JinUtils.randomCategoryStringImage(category: "cat")),
-              ),
-              margin: EdgeInsets.zero,
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black12),
-              ),
-              title: Text(
-                  "This is a long mini listitle title that use to check if it can be overflow"),
-              subtitle: Text("subtitle"),
-              trailing: Checkbox(
-                onChanged: (value) {},
-                value: true,
+            ValueObserver<bool>(
+              valueNotifier: listTileSelected,
+              child: (selected) => MiniListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      JinUtils.randomCategoryStringImage(category: "cat")),
+                ),
+                margin: EdgeInsets.zero,
+                padding: EdgeInsets.all(18),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black12),
+                ),
+                title: ConditionalWidget(
+                  condition: selected,
+                  onTrue: Text(
+                    "This is a long mini listitle title that use to check if it can be overflow",
+                  ),
+                  onFalse: Text("Title has been hidden"),
+                ),
+                subtitle: Text("Click the checkbox to show or hide title"),
+                trailing: Checkbox(
+                  onChanged: (value) {
+                    listTileSelected.value = value;
+                  },
+                  value: selected,
+                ),
               ),
             ),
             SmallFlatButton(
-              child: Text("Small FlatButton"),
+              child: Text("Small Flat Button"),
               onTap: () {},
               textColor: Colors.white,
               margin: EdgeInsets.symmetric(vertical: 16),
               backgroundColor: Colors.red,
-            ),
+            )
           ],
         ),
       ),
