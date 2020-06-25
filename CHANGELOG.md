@@ -136,7 +136,8 @@
 - Fix ConnectionChecker bugs
 - Fix code format
 
-## [1.3.6] - 24 June 2020
+## [1.3.6] - 25 June 2020
 
 - Add AfterBuildMixin
 - Add ConditionalWidget
+- Fix JinConfirmationDialog bugs

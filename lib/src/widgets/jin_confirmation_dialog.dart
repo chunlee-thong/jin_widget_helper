@@ -38,15 +38,15 @@ class JinConfirmationDialog extends StatelessWidget {
           child: Text(cancelText),
           isDestructiveAction: true,
           onPressed: () {
-            if (onCancel != null) onCancel();
             Navigator.of(context).pop(true);
+            if (onCancel != null) onCancel();
           },
         ),
         CupertinoDialogAction(
           child: Text(confirmText),
           onPressed: () {
-            if (onConfirm != null) onConfirm();
             Navigator.of(context).pop(true);
+            if (onConfirm != null) onConfirm();
           },
         ),
       ],
@@ -63,15 +63,15 @@ class JinConfirmationDialog extends StatelessWidget {
           textColor: Colors.red,
           child: Text(cancelText),
           onPressed: () {
-            if (onCancel != null) onCancel();
             Navigator.of(context).pop(false);
+            if (onCancel != null) onCancel();
           },
         ),
         FlatButton(
           child: Text(confirmText),
           onPressed: () {
-            if (onConfirm != null) onConfirm();
             Navigator.of(context).pop(true);
+            if (onConfirm != null) onConfirm();
           },
         ),
       ],
