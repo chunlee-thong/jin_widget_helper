@@ -38,9 +38,16 @@ extension WidgetExtension on Widget {
   }
 
   ///add padding all to a widget
-  Widget paddingAll([double padding = 8.0]) {
+  Widget paddingValue({
+    double all,
+    double vertical = 0,
+    double horizontal = 0,
+  }) {
+    EdgeInsets padding = all != null
+        ? EdgeInsets.all(all)
+        : EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical);
     return Padding(
-      padding: EdgeInsets.all(padding),
+      padding: padding,
       child: this,
     );
   }
@@ -52,10 +59,16 @@ extension WidgetExtension on Widget {
     );
   }
 
-  ///add margin all to a widget
-  Widget marginAll([double margin = 8.0]) {
+  Widget marginValue({
+    double all,
+    double vertical = 0,
+    double horizontal = 0,
+  }) {
+    EdgeInsets margin = all != null
+        ? EdgeInsets.all(all)
+        : EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical);
     return Container(
-      margin: EdgeInsets.all(margin),
+      margin: margin,
       child: this,
     );
   }
@@ -192,7 +205,7 @@ extension TextStyleExtension on TextStyle {
   }
 }
 
-extension ValueNotifierExtension on dynamic {
+extension ValueNotifierExtension on Object {
   ValueNotifier<T> obs<T>() {
     return ValueNotifier<T>(this);
   }

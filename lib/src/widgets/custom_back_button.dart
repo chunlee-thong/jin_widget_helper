@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class CustomBackButton extends StatelessWidget {
   final Icon icon;
+  final Color iconColor;
 
   ///A String similar to AppBar's title
   final String header;
@@ -29,6 +30,7 @@ class CustomBackButton extends StatelessWidget {
     this.headerAlignment = Alignment.center,
     this.backgroundColor = Colors.transparent,
     this.marginLeft = 4,
+    this.iconColor,
   });
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,8 @@ class CustomBackButton extends StatelessWidget {
                                 ? Icons.arrow_back_ios
                                 : Icons.arrow_back,
                             size: 24,
-                            color: Theme.of(context).iconTheme.color,
+                            color:
+                                iconColor ?? Theme.of(context).iconTheme.color,
                           ),
                     ),
                   ),

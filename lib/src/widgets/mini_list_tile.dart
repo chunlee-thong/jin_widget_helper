@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/src/utils/jin_widget.dart';
+import 'package:jin_widget_helper/src/widgets/spacing.dart';
 
 class MiniListTile extends StatelessWidget {
   final Widget leading;
@@ -67,6 +68,7 @@ class MiniListTile extends StatelessWidget {
                   ],
                 ),
               ),
+              SpaceX(),
               Flexible(
                 flex: 0,
                 child: trailingWidget,
