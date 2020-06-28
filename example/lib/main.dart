@@ -171,7 +171,16 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.white,
               margin: EdgeInsets.symmetric(vertical: 16),
               backgroundColor: Colors.red,
-            )
+            ),
+
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                color: Colors.black12,
+              ),
+              child: Text("Padding value and Margin Value")
+                  .paddingValue(horizontal: 16, vertical: 8),
+            ),
           ],
         ),
       ),

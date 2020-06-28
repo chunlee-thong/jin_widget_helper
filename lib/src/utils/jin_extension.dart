@@ -40,12 +40,24 @@ extension WidgetExtension on Widget {
   ///add padding all to a widget
   Widget paddingValue({
     double all,
-    double vertical = 0,
-    double horizontal = 0,
+    double vertical,
+    double horizontal,
   }) {
-    EdgeInsets padding = all != null
-        ? EdgeInsets.all(all)
-        : EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical);
+    if (all != null && (vertical != null || horizontal != null)) {
+      throw FlutterError(
+        "paddingValue Error: Can't provide both all and horizontal or vertical at the same time",
+      );
+    }
+    EdgeInsets padding;
+    if (horizontal != null || vertical != null) {
+      padding = EdgeInsets.symmetric(
+        vertical: vertical ?? 0.0,
+        horizontal: horizontal ?? 0.0,
+      );
+    } else {
+      padding = EdgeInsets.all(all ?? 0.0);
+    }
+
     return Padding(
       padding: padding,
       child: this,
@@ -61,12 +73,24 @@ extension WidgetExtension on Widget {
 
   Widget marginValue({
     double all,
-    double vertical = 0,
-    double horizontal = 0,
+    double vertical,
+    double horizontal,
   }) {
-    EdgeInsets margin = all != null
-        ? EdgeInsets.all(all)
-        : EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical);
+    if (all != null && (vertical != null || horizontal != null)) {
+      throw FlutterError(
+        "marginValue Error: Can't provide both all and horizontal or vertical at the same time",
+      );
+    }
+    EdgeInsets margin;
+    if (horizontal != null || vertical != null) {
+      margin = EdgeInsets.symmetric(
+        vertical: vertical ?? 0.0,
+        horizontal: horizontal ?? 0.0,
+      );
+    } else {
+      margin = EdgeInsets.all(all ?? 0.0);
+    }
+
     return Container(
       margin: margin,
       child: this,

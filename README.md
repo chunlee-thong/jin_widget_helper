@@ -1,5 +1,7 @@
 # jin_widget_helper
 
+[![pub package](https://img.shields.io/badge/pub-1.3.7-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
+
 A package that contain many UI and Utility helper that help decrease your development time on creating custom Widget.
 
 # Installation
@@ -8,7 +10,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.3.5
+  jin_widget_helper: ^1.3.7
 ```
 
 # Widgets
@@ -155,8 +157,7 @@ PageNavigator.pushReplacement(context, HomePage());
 PageNavigator.pushAndRemove(context, RootPage());
 ```
 
-JinNavigator also support push, pushReplacement, pushAndRemove without providing a context
-but you need to add **JinNavigator.navigatorKey** to MaterialApp
+JinNavigator also support push, pushReplacement, pushAndRemove without providing a context but you need to add **JinNavigator.navigatorKey** to MaterialApp
 
 ```dart
 MaterialApp(
