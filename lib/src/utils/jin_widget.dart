@@ -18,6 +18,26 @@ class JinWidget {
     return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
   }
 
+  static RoundedRectangleBorder roundRectTop([double radius = 8]) {
+    return RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(8)));
+  }
+
+  static RoundedRectangleBorder roundRectBottom([double radius = 8]) {
+    return RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)));
+  }
+
+  static RoundedRectangleBorder roundRectLeft([double radius = 8]) {
+    return RoundedRectangleBorder(
+        borderRadius: BorderRadius.horizontal(left: Radius.circular(8)));
+  }
+
+  static RoundedRectangleBorder roundRectRight([double radius = 8]) {
+    return RoundedRectangleBorder(
+        borderRadius: BorderRadius.horizontal(right: Radius.circular(8)));
+  }
+
   ///Create a border Radius
   static BorderRadius radius([double radius = 8]) {
     return BorderRadius.circular(radius);

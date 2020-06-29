@@ -10,6 +10,13 @@ class JinFormValidator {
     return null;
   }
 
+  static String validateUsername(String value) {
+    if (value.trim().isEmpty) return "Please a input your username";
+    return RegExp(r"^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$").hasMatch(value)
+        ? null
+        : "Please input valid username";
+  }
+
   static String validateNumber(
     String value,
     String field, {
