@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
+import 'package:jin_widget_helper_example/another_page.dart';
 import 'new_page.dart';
 
 void main() => runApp(MyApp());
@@ -167,7 +168,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SmallFlatButton(
               child: Text("Small Flat Button"),
-              onTap: () {},
+              onTap: () {
+                JinNavigator.push(AnotherPage());
+              },
               textColor: Colors.white,
               margin: EdgeInsets.symmetric(vertical: 16),
               backgroundColor: Colors.red,

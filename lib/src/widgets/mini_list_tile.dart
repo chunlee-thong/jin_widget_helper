@@ -21,8 +21,8 @@ class MiniListTile extends StatelessWidget {
     this.decoration,
     this.onTap,
     this.trailing,
-    this.padding = const EdgeInsets.all(8),
-    this.margin = const EdgeInsets.all(8),
+    this.padding = const EdgeInsets.all(16.0),
+    this.margin = const EdgeInsets.all(0.0),
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -32,12 +32,13 @@ class MiniListTile extends StatelessWidget {
     );
 
     final subTitleWidget = DefaultTextStyle(
-      style: Theme.of(context).textTheme.caption,
+      style:
+          Theme.of(context).textTheme.bodyText2.copyWith(color: Colors.black54),
       child: subtitle ?? const SizedBox(),
     );
 
     final trailingWidget = DefaultTextStyle(
-      style: Theme.of(context).textTheme.caption,
+      style: Theme.of(context).textTheme.bodyText2,
       child: trailing ?? const SizedBox(),
     );
 
@@ -51,15 +52,16 @@ class MiniListTile extends StatelessWidget {
           child: Row(
             crossAxisAlignment: subtitle == null
                 ? CrossAxisAlignment.center
-                : CrossAxisAlignment.start,
+                : CrossAxisAlignment.center,
             children: <Widget>[
               if (leading != null) ...[
                 leading,
-                JinWidget.horizontalSpace(12),
+                JinWidget.horizontalSpace(16),
               ] else
                 const SizedBox(),
               Expanded(
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     titleWidget,
