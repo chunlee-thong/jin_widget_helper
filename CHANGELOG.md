@@ -141,3 +141,9 @@
 - Add AfterBuildMixin
 - Add ConditionalWidget
 - Fix JinConfirmationDialog bugs
+
+## [1.3.7] - 3 July 2020
+
+- Add more Formvalidator
+- Add marginValue and paddingValue
+- Fix ConnectionChecker's bug on iOS

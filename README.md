@@ -63,6 +63,9 @@ class _HomePageState extends State<NewPage> with AfterBuildMixin {
 ```dart
 Text("Hello Flutter").padding(EdgeInsets.all(16.0)) // defaulat value is EdgeInsets.all(8.0)
 Text("Hello Flutter").margin(EdgeInsets.all(16.0)) // defaulat value is EdgeInsets.all(8.0)
+///As a value
+Text("Hello Flutter").marginValue(all: 12)
+Text("Hello Flutter").paddingValue(horizontal: 12, vertical: 8)
 ```
 
 ### cssSpacing
