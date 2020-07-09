@@ -8,9 +8,12 @@ class ChoiceBottomSheet extends StatelessWidget {
   final String cancelText;
 
   //Create a cupertino bottom sheet with list of option
-  const ChoiceBottomSheet(
-      {Key key, this.options, @required this.title, this.cancelText = "Cancel"})
-      : super(key: key);
+  const ChoiceBottomSheet({
+    Key key,
+    this.options,
+    @required this.title,
+    this.cancelText = "Cancel",
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return CupertinoActionSheet(

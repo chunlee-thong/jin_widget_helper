@@ -14,33 +14,45 @@ class JinWidget {
   }
 
   ///Create a RoundRectangleBorder with given radius
-  static RoundedRectangleBorder roundRect([double radius = 8]) {
-    return RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
+  static RoundedRectangleBorder roundRect([double _radius = 8]) {
+    return RoundedRectangleBorder(borderRadius: radius(_radius));
   }
 
-  static RoundedRectangleBorder roundRectTop([double radius = 8]) {
-    return RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(8)));
+  static RoundedRectangleBorder roundRectTop([double _radius = 8]) {
+    return RoundedRectangleBorder(borderRadius: radiusTop(_radius));
   }
 
-  static RoundedRectangleBorder roundRectBottom([double radius = 8]) {
-    return RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(8)));
+  static RoundedRectangleBorder roundRectBottom([double _radius = 8]) {
+    return RoundedRectangleBorder(borderRadius: radiuBottom(_radius));
   }
 
-  static RoundedRectangleBorder roundRectLeft([double radius = 8]) {
-    return RoundedRectangleBorder(
-        borderRadius: BorderRadius.horizontal(left: Radius.circular(8)));
+  static RoundedRectangleBorder roundRectLeft([double _radius = 8]) {
+    return RoundedRectangleBorder(borderRadius: radiusLeft(_radius));
   }
 
-  static RoundedRectangleBorder roundRectRight([double radius = 8]) {
-    return RoundedRectangleBorder(
-        borderRadius: BorderRadius.horizontal(right: Radius.circular(8)));
+  static RoundedRectangleBorder roundRectRight([double _radius = 8]) {
+    return RoundedRectangleBorder(borderRadius: radiusRight(_radius));
   }
 
   ///Create a border Radius
-  static BorderRadius radius([double radius = 8]) {
-    return BorderRadius.circular(radius);
+  static BorderRadius radius([double _radius = 8]) {
+    return BorderRadius.circular(_radius);
+  }
+
+  static BorderRadius radiusTop([double _radius = 8]) {
+    return BorderRadius.vertical(top: Radius.circular(_radius));
+  }
+
+  static BorderRadius radiuBottom([double _radius = 8]) {
+    return BorderRadius.vertical(bottom: Radius.circular(_radius));
+  }
+
+  static BorderRadius radiusLeft([double _radius = 8]) {
+    return BorderRadius.horizontal(left: Radius.circular(_radius));
+  }
+
+  static BorderRadius radiusRight([double _radius = 8]) {
+    return BorderRadius.horizontal(right: Radius.circular(_radius));
   }
 
   static final loadingChild = Platform.isIOS

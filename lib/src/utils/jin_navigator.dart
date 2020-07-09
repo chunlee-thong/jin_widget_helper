@@ -24,7 +24,7 @@ class JinNavigator {
   static Future pushAndRemove(Widget page) async {
     return await Navigator.of(getContext).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => page),
-      (dynamic) => false,
+      (_) => false,
     );
   }
 

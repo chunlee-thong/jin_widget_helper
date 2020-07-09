@@ -5,9 +5,11 @@ class ValueObserver<T> extends StatelessWidget {
   final Widget Function(T) child;
 
   //A ValueListenableBuilder with cleaner look code
-  const ValueObserver(
-      {Key key, @required this.valueNotifier, @required this.child})
-      : super(key: key);
+  const ValueObserver({
+    Key key,
+    @required this.valueNotifier,
+    @required this.child,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
