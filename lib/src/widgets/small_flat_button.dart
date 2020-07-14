@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../jin_widget_helper.dart';
+
 class SmallFlatButton extends StatelessWidget {
   final Function onTap;
   final Widget child;
@@ -9,6 +11,7 @@ class SmallFlatButton extends StatelessWidget {
   final double borderRadius;
   final double elevation;
   final Color textColor;
+  final Widget icon;
 
   ///A FlatButton with respectively small margin and shape
   const SmallFlatButton({
@@ -21,6 +24,7 @@ class SmallFlatButton extends StatelessWidget {
     this.backgroundColor = Colors.transparent,
     this.elevation = 0.0,
     this.textColor = Colors.black,
+    this.icon,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,15 @@ class SmallFlatButton extends StatelessWidget {
           child: DefaultTextStyle.merge(
             style:
                 Theme.of(context).textTheme.button.copyWith(color: textColor),
-            child: child,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                icon ?? SizedBox(),
+                if (icon != null) SpaceX(8),
+                child,
+              ],
+            ),
           ),
         ),
       ),

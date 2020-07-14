@@ -168,6 +168,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SmallFlatButton(
               child: Text("Small Flat Button"),
+              icon: Icon(Icons.refresh),
               onTap: () {
                 JinNavigator.push(AnotherPage());
               },

@@ -15,8 +15,20 @@ class _AnotherPageState extends State<AnotherPage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            JinAccordion(
+              onToggle: (value) {
+                print("Expand: $value");
+              },
+              title: Text("Title"),
+              children: <Widget>[
+                Text("I am a child"),
+                RaisedButton(
+                  child: Text("clik me"),
+                  onPressed: () {},
+                )
+              ],
+            ),
             MiniListTile(
               title: Text("My New group"),
               subtitle: Text("My subtitle"),
