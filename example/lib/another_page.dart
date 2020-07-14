@@ -21,6 +21,8 @@ class _AnotherPageState extends State<AnotherPage> {
                 print("Expand: $value");
               },
               title: Text("Title"),
+              showIcon: true,
+              iconPosition: IconPosition.End,
               children: <Widget>[
                 Text("I am a child"),
                 RaisedButton(

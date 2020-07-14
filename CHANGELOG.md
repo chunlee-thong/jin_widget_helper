@@ -147,3 +147,7 @@
 - Add more Formvalidator
 - Add marginValue and paddingValue
 - Fix ConnectionChecker's bug on iOS
+
+## [1.3.8] - 3 July 2020
+
+- Add JinAccordian

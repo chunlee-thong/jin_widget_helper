@@ -10,7 +10,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.3.7
+  jin_widget_helper: ^1.3.8
 ```
 
 # Widgets
@@ -24,6 +24,7 @@ dependencies:
 | ConnectionChecker     | A widget to check internet connection and provide onNoInternet callback |
 | CustomBackButton      | A custom back button with title (header)                                |
 | FutureHandler         | A FutureBuilder with less boilerplate code                              |
+| JinAccordian          | A customizable ExpansionTile                                            |
 | JinConfirmationDialog | A dialog with cancel and confirm action                                 |
 | JinPlatformChecker    | Provide a widget base on Android or iOS platform                        |
 | JinSimpleDialog       | A simple alert dialog                                                   |
@@ -193,6 +194,3 @@ BorderRadius radius = JinWidget.radius(12); //default value is 8
 ```
 
 # Todo
-
-- rework ActionButton
-- fix MiniLisiTile

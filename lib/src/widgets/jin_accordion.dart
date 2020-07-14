@@ -2,6 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../../jin_widget_helper.dart';
+
+enum IconPosition {
+  Start,
+  End,
+}
+
 class JinAccordion extends StatefulWidget {
   final Widget title;
   final Widget icon;
@@ -10,11 +17,14 @@ class JinAccordion extends StatefulWidget {
   final Duration animationDuration;
   final double headerElevation;
   final Color headerBackgroundColor;
+  final Color childrenBackgroundColor;
   final EdgeInsets titlePadding;
   final EdgeInsets margin;
   final EdgeInsets childrenPadding;
   final Function(bool) onToggle;
   final bool initiallyExpand;
+  final bool showIcon;
+  final IconPosition iconPosition;
 
   const JinAccordion({
     Key key,
@@ -30,6 +40,9 @@ class JinAccordion extends StatefulWidget {
     this.headerElevation,
     this.headerBackgroundColor,
     this.initiallyExpand = false,
+    this.showIcon = true,
+    this.iconPosition = IconPosition.End,
+    this.childrenBackgroundColor,
   }) : super(key: key);
   @override
   _JinAccordionState createState() => _JinAccordionState();
@@ -59,7 +72,7 @@ class _JinAccordionState extends State<JinAccordion>
     controller =
         AnimationController(vsync: this, duration: widget.animationDuration);
     size = CurvedAnimation(curve: widget.curve, parent: controller);
-    rotation = Tween<double>(begin: 0.0, end: pi / 6).animate(controller);
+    rotation = Tween<double>(begin: 0.0, end: 0.5).animate(controller);
     isExpand = widget.initiallyExpand;
     super.initState();
   }
@@ -72,6 +85,11 @@ class _JinAccordionState extends State<JinAccordion>
 
   @override
   Widget build(BuildContext context) {
+    final icon = RotationTransition(
+      turns: rotation,
+      child: widget.icon,
+      alignment: Alignment.center,
+    );
     return Container(
       margin: widget.margin,
       child: Column(
@@ -84,23 +102,29 @@ class _JinAccordionState extends State<JinAccordion>
               color: widget.headerBackgroundColor ?? null,
               padding: widget.titlePadding ?? const EdgeInsets.all(16),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: widget.iconPosition == IconPosition.Start
+                    ? MainAxisAlignment.start
+                    : MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  if (widget.iconPosition == IconPosition.Start &&
+                      widget.showIcon) ...[
+                    icon,
+                    SpaceX(),
+                  ],
                   DefaultTextStyle.merge(
                     child: widget.title,
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  RotationTransition(
-                    turns: rotation,
-                    child: widget.icon,
-                  ),
+                  if (widget.iconPosition == IconPosition.End &&
+                      widget.showIcon) ...[icon],
                 ],
               ),
             ),
           ),
           SizeTransition(
             sizeFactor: size,
-            child: Padding(
+            child: Container(
+              color: widget.childrenBackgroundColor ?? null,
               padding: widget.childrenPadding,
               child: Column(
                 children: widget.children,
