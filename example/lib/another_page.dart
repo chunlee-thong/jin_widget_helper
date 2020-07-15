@@ -51,6 +51,9 @@ class _AnotherPageState extends State<AnotherPage> {
               ),
               onTap: () {},
             ),
+            JinExpandableText(
+                subStringLength: 12,
+                text: "It is a long established fact that a reader will be"),
           ],
         ),
       ),
