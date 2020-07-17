@@ -234,3 +234,8 @@ extension ValueNotifierExtension on Object {
     return ValueNotifier<T>(this);
   }
 }
+
+extension ContextExtension on BuildContext {
+  Size get screenSize => MediaQuery.of(this).size;
+  TextTheme get textTheme => Theme.of(this).textTheme;
+}

@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import '../../jin_widget_helper.dart';
 
 enum IconPosition {

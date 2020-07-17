@@ -151,3 +151,8 @@
 ## [1.3.8] - 3 July 2020
 
 - Add JinAccordian
+
+## [1.3.9] - 3 July 2020
+
+- Add JinExpandableText
+- Add support for web platform
