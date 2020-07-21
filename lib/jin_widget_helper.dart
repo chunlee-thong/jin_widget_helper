@@ -10,6 +10,7 @@ export './src/widgets/custom_back_button.dart';
 export './src/widgets/future_handler.dart';
 export './src/widgets/jin_accordion.dart';
 export './src/widgets/jin_confirmation_dialog.dart';
+export './src/widgets/jin_expandable_card.dart';
 export './src/widgets/jin_expandable_text.dart';
 export './src/widgets/jin_simple_dialog.dart';
 export './src/widgets/jin_platform_checker.dart';

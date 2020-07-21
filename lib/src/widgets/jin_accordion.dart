@@ -70,7 +70,6 @@ class _JinAccordionState extends State<JinAccordion>
         AnimationController(vsync: this, duration: widget.animationDuration);
     size = CurvedAnimation(curve: widget.curve, parent: controller);
     rotation = Tween<double>(begin: 0.0, end: 0.5).animate(controller);
-    isExpand = widget.initiallyExpand;
     super.initState();
   }
 
@@ -84,7 +83,10 @@ class _JinAccordionState extends State<JinAccordion>
   Widget build(BuildContext context) {
     final icon = RotationTransition(
       turns: rotation,
-      child: widget.icon,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: widget.icon,
+      ),
       alignment: Alignment.center,
     );
     return Container(
@@ -108,9 +110,11 @@ class _JinAccordionState extends State<JinAccordion>
                     icon,
                     SpaceX(),
                   ],
-                  DefaultTextStyle.merge(
-                    child: widget.title,
-                    style: Theme.of(context).textTheme.subtitle1,
+                  Flexible(
+                    child: DefaultTextStyle.merge(
+                      child: widget.title,
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
                   ),
                   if (widget.iconPosition == IconPosition.End &&
                       widget.showIcon) ...[icon],

@@ -25,6 +25,7 @@ dependencies:
 | CustomBackButton      | A custom back button with title (header)                                |
 | FutureHandler         | A FutureBuilder with less boilerplate code                              |
 | JinAccordian          | A customizable ExpansionTile                                            |
+| JinExpandableCard     | A card with top and bottom widget                                       |
 | JinConfirmationDialog | A dialog with cancel and confirm action                                 |
 | JinPlatformChecker    | Provide a widget base on Android or iOS platform                        |
 | JinSimpleDialog       | A simple alert dialog                                                   |

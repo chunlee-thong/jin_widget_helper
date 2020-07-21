@@ -152,7 +152,8 @@
 
 - Add JinAccordian
 
-## [1.3.9] - 3 July 2020
+## [1.3.9] - 21 July 2020
 
 - Add JinExpandableText
+- Add JinExpandableCard
 - Add support for web platform
