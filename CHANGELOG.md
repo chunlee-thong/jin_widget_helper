@@ -157,3 +157,7 @@
 - Add JinExpandableText
 - Add JinExpandableCard
 - Add support for web platform
+
+## [1.4.0] - 21 July 2020
+
+- Add NoSplashFactory
