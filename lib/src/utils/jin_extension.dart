@@ -239,3 +239,14 @@ extension ContextExtension on BuildContext {
   Size get screenSize => MediaQuery.of(this).size;
   TextTheme get textTheme => Theme.of(this).textTheme;
 }
+
+extension DurationExtension on Duration {
+  String formatDuration() {
+    //if the digit is single digit, add 0 in front of it
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    //
+    String twoDigitMinutes = twoDigits(this.inMinutes.remainder(60));
+    String twoDigitSeconds = twoDigits(this.inSeconds.remainder(60));
+    return "${twoDigits(this.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
+  }
+}
