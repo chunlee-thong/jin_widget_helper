@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+///build a widget depend on provided [condition]
 class ConditionalWidget extends StatelessWidget {
   final bool condition;
   final Widget onTrue;

@@ -4,6 +4,7 @@ class JinNavigator {
   static final navigatorKey = GlobalKey<NavigatorState>();
   static get getContext => navigatorKey.currentState.overlay.context;
 
+  ///Push the navigator to widget's route
   static Future push<T>(Widget page, {bool fullsreenDialog = false}) async {
     return await Navigator.of(getContext).push<T>(MaterialPageRoute(
       builder: (context) => page,
@@ -28,6 +29,7 @@ class JinNavigator {
     );
   }
 
+  ///show a dialog
   static Future<T> dialog<T>(Widget dialog) async {
     return await showDialog<T>(
       context: getContext,

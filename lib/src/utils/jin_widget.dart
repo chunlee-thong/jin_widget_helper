@@ -55,7 +55,7 @@ class JinWidget {
     return BorderRadius.horizontal(right: Radius.circular(_radius));
   }
 
-  static final loadingChild = Platform.isIOS
+  static final platformLoading = Platform.isIOS
       ? CupertinoActivityIndicator()
       : CircularProgressIndicator();
 }

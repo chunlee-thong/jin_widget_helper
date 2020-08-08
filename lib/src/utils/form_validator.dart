@@ -61,7 +61,7 @@ class JinFormValidator {
   static String validatePhoneNumber(String value,
       {String countryCode = "+855"}) {
     if (value.trim().isEmpty) return "Please input your phone number";
-    String pattern = r'(^(?:[+855])?[0-9]{9,17}$)';
+    String pattern = r'(^(?:[+855])?[0-9]{8,17}$)';
     bool isValidate = RegExp(pattern).hasMatch(value.replaceAll(" ", ""));
     return isValidate ? null : "Please input a valid phone number";
   }

@@ -158,6 +158,7 @@
 - Add JinExpandableCard
 - Add support for web platform
 
-## [1.4.0] - 21 July 2020
+## [1.4.0] - 8 August 2020
 
 - Add NoSplashFactory
+- All Widget improvement

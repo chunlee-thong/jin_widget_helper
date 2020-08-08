@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+///Provide a widget child depend on the Platform, Currently support [iOS] and [Android]
 class JinPlatformChecker extends StatelessWidget {
   final Widget androidWidget;
   final Widget iosWidget;

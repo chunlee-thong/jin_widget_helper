@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../jin_widget_helper.dart';
 
+///Wrap the text with ellipsis style provided bu [subStringLength]
 class JinExpandableText extends StatefulWidget {
   final EdgeInsets margin;
   final EdgeInsets padding;

@@ -6,6 +6,7 @@ enum IconPosition {
   End,
 }
 
+///Custom accordion that similar to Flutter's [ExpansionTile]
 class JinAccordion extends StatefulWidget {
   final Widget title;
   final Widget icon;
@@ -28,7 +29,7 @@ class JinAccordion extends StatefulWidget {
     @required this.title,
     @required this.children,
     this.margin = const EdgeInsets.all(0.0),
-    this.childrenPadding = const EdgeInsets.all(16.0),
+    this.childrenPadding = const EdgeInsets.all(12.0),
     this.icon = const Icon(Icons.keyboard_arrow_down),
     this.curve = Curves.linear,
     this.animationDuration = const Duration(milliseconds: 200),
@@ -84,7 +85,7 @@ class _JinAccordionState extends State<JinAccordion>
     final icon = RotationTransition(
       turns: rotation,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(0),
         child: widget.icon,
       ),
       alignment: Alignment.center,

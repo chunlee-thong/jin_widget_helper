@@ -9,5 +9,6 @@ mixin AfterBuildMixin<T extends StatefulWidget> on State<T> {
     super.initState();
   }
 
+  ///this method will run after widget tree has been built
   void afterBuild(BuildContext context);
 }

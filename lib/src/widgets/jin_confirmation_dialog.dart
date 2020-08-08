@@ -11,7 +11,7 @@ class JinConfirmationDialog extends StatelessWidget {
   final VoidCallback onCancel;
   final VoidCallback onConfirm;
 
-  ///An alert dialog with title and content
+  ///A dialog that provide onCancel and Confirm action
   JinConfirmationDialog({
     this.confirmText = "OK",
     this.cancelText = "Cancel",
