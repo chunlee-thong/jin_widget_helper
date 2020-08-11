@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 class SpaceX extends StatelessWidget {
   final double width;
 
-  //Create a horizontal blank space
+  ///Create a horizontal blank space
   const SpaceX([this.width = 8]);
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,8 @@ class SpaceX extends StatelessWidget {
 
 class SpaceY extends StatelessWidget {
   final double height;
-  //Create a vertical blank space
+
+  ///Create a vertical blank space
   const SpaceY([this.height = 8]);
   @override
   Widget build(BuildContext context) {
