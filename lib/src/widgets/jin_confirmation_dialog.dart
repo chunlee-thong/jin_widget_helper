@@ -55,7 +55,9 @@ class JinConfirmationDialog extends StatelessWidget {
 
   Widget _buildAndroidDialog(BuildContext context) {
     return AlertDialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
       title: Text(title),
       content: content,
       actions: <Widget>[

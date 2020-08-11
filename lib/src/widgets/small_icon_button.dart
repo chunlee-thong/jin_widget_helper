@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jin_widget_helper/jin_widget_helper.dart';
 
 class SmallIconButton extends StatelessWidget {
   final Function onTap;
@@ -24,7 +23,10 @@ class SmallIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final shape = RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(borderRadius));
+      borderRadius: BorderRadius.circular(
+        borderRadius,
+      ),
+    );
     return Card(
       shape: shape,
       color: backgroundColor,
