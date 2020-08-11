@@ -162,3 +162,7 @@
 
 - Add NoSplashFactory
 - All Widget improvement
+
+## [1.4.1] - 8 August 2020
+
+- Add PaginatedListView

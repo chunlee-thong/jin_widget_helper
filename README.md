@@ -1,6 +1,6 @@
 # jin_widget_helper
 
-[![pub package](https://img.shields.io/badge/pub-1.4.0-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
+[![pub package](https://img.shields.io/badge/pub-1.4.1-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
 
 A package that contain many UI and Utility helper that help decrease your development time on creating custom Widget.
 
@@ -10,7 +10,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.4.0
+  jin_widget_helper: ^1.4.1
 ```
 
 # Widgets
@@ -30,6 +30,7 @@ dependencies:
 | JinPlatformChecker    | Provide a widget base on Android or iOS platform                        |
 | JinSimpleDialog       | A simple alert dialog                                                   |
 | MiniListTle           | An easy customizable ListTile                                           |
+| PaginatedListView     | A Listview.Builder with pagination support                              |
 | SmallIconButton       | A small alternative to Flutter's IconButton                             |
 | SmallFlatButton       | A small alternative to Flutter's FlatButton                             |
 | SpaceX                | SizedBox with width (equivalent to JinWidget.horizontalSpace())         |

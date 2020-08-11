@@ -15,6 +15,7 @@ export './src/widgets/jin_expandable_text.dart';
 export './src/widgets/jin_simple_dialog.dart';
 export './src/widgets/jin_platform_checker.dart';
 export './src/widgets/mini_list_tile.dart';
+export './src/widgets/paginate_list_view.dart';
 export './src/widgets/spacing.dart';
 export './src/widgets/small_icon_button.dart';
 export './src/widgets/small_flat_button.dart';
