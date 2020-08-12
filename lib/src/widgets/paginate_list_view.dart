@@ -4,7 +4,6 @@ class PaginatedListView extends StatefulWidget {
   final int itemCount;
   final ScrollPhysics physics;
   final Axis scrollDirection;
-  final bool primary;
   final bool shrinkWrap;
   final Widget Function(BuildContext, int) itemBuilder;
   final EdgeInsets padding;
@@ -24,7 +23,6 @@ class PaginatedListView extends StatefulWidget {
     @required this.itemBuilder,
     @required this.onGetMoreData,
     this.physics = const ClampingScrollPhysics(),
-    this.primary,
     this.shrinkWrap = false,
     this.hasMoreData = true,
     this.loadingWidget = const CircularProgressIndicator(),
@@ -64,7 +62,6 @@ class _PaginatedListViewState extends State<PaginatedListView> {
       itemCount: widget.itemCount + 1,
       controller: scrollController,
       padding: widget.padding ?? EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-      primary: widget.primary,
       scrollDirection: widget.scrollDirection,
       physics: widget.physics,
       shrinkWrap: widget.shrinkWrap,
