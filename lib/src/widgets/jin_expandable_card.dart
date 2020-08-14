@@ -9,8 +9,6 @@ class JinExpandableCard extends StatefulWidget {
   final EdgeInsets margin;
   final Curve curve;
   final bool isExpand;
-  final Color color;
-  final double elevation;
   const JinExpandableCard({
     Key key,
     @required this.topChild,
@@ -20,15 +18,12 @@ class JinExpandableCard extends StatefulWidget {
     this.padding = const EdgeInsets.all(16),
     this.curve = Curves.linear,
     this.margin = EdgeInsets.zero,
-    this.color,
-    this.elevation = 2.0,
   }) : super(key: key);
   @override
   _JinExpandableCardState createState() => _JinExpandableCardState();
 }
 
-class _JinExpandableCardState extends State<JinExpandableCard>
-    with SingleTickerProviderStateMixin {
+class _JinExpandableCardState extends State<JinExpandableCard> with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<double> size;
 
@@ -63,10 +58,8 @@ class _JinExpandableCardState extends State<JinExpandableCard>
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
       margin: widget.margin,
-      elevation: widget.elevation,
-      color: widget.color,
       child: InkWell(
         onTap: toggle,
         child: Padding(
