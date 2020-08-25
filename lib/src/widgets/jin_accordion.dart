@@ -14,9 +14,9 @@ class JinAccordion extends StatefulWidget {
   final Curve curve;
   final Duration animationDuration;
   final double headerElevation;
-  final Color headerBackgroundColor;
+  final Decoration headerDecoration;
   final Color childrenBackgroundColor;
-  final EdgeInsets titlePadding;
+  final EdgeInsets headerPadding;
   final EdgeInsets margin;
   final EdgeInsets childrenPadding;
   final Function(bool) onToggle;
@@ -34,9 +34,9 @@ class JinAccordion extends StatefulWidget {
     this.curve = Curves.linear,
     this.animationDuration = const Duration(milliseconds: 200),
     this.onToggle,
-    this.titlePadding,
+    this.headerPadding,
     this.headerElevation,
-    this.headerBackgroundColor,
+    this.headerDecoration,
     this.initiallyExpand = false,
     this.showIcon = true,
     this.iconPosition = IconPosition.End,
@@ -97,8 +97,8 @@ class _JinAccordionState extends State<JinAccordion> with SingleTickerProviderSt
             onTap: onToggle,
             child: Container(
               width: MediaQuery.of(context).size.width,
-              color: widget.headerBackgroundColor ?? null,
-              padding: widget.titlePadding ?? const EdgeInsets.all(16),
+              decoration: widget.headerDecoration ?? BoxDecoration(),
+              padding: widget.headerPadding ?? const EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: widget.iconPosition == IconPosition.Start
                     ? MainAxisAlignment.start

@@ -166,3 +166,7 @@
 ## [1.4.1] - 8 August 2020
 
 - Add PaginatedListView
+
+## [1.4.2] - 25 August 2020
+
+- Minor change on JinAccordion and JinExpandableCard
