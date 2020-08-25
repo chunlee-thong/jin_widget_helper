@@ -60,21 +60,18 @@ class _JinExpandableCardState extends State<JinExpandableCard> with SingleTicker
   Widget build(BuildContext context) {
     return Container(
       margin: widget.margin,
-      child: InkWell(
-        onTap: toggle,
-        child: Padding(
-          padding: widget.padding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              widget.topChild,
-              SizeTransition(
-                child: widget.bottomChild,
-                sizeFactor: size,
-              ),
-            ],
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          InkWell(
+            child: widget.topChild,
+            onTap: toggle,
           ),
-        ),
+          SizeTransition(
+            child: widget.bottomChild,
+            sizeFactor: size,
+          ),
+        ],
       ),
     );
   }

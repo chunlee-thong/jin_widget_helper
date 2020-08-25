@@ -42,17 +42,17 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         children: <Widget>[
-          Card(
-            child: JinAccordion(
-              iconPosition: IconPosition.Start,
-              title: Text("What do you want to do?"),
-              children: <Widget>[
-                Text("Hello world"),
-              ],
-            ),
+          JinAccordion(
+            initiallyExpand: true,
+            iconPosition: IconPosition.Start,
+            title: Text("What do you want to do?"),
+            children: <Widget>[
+              Text("Hello world"),
+            ],
           ),
           JinExpandableCard(
-            topChild: Text("HELLO"),
+            isExpand: true,
+            topChild: MiniListTile(title: Text("HELLO")),
             bottomChild: RaisedButton(
               onPressed: () {},
               child: Text("Nice"),

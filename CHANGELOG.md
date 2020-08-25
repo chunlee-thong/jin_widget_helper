@@ -170,3 +170,7 @@
 ## [1.4.2] - 25 August 2020
 
 - Minor change on JinAccordion and JinExpandableCard
+
+## [1.4.2+1] - 25 August 2020
+
+- Minor change on JinAccordion and JinExpandableCard
