@@ -69,7 +69,14 @@ class _JinAccordionState extends State<JinAccordion> with SingleTickerProviderSt
     controller = AnimationController(vsync: this, duration: widget.animationDuration);
     size = CurvedAnimation(curve: widget.curve, parent: controller);
     rotation = Tween<double>(begin: 0.0, end: 0.5).animate(controller);
+    if (widget.initiallyExpand) controller.forward();
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(JinAccordion oldWidget) {
+    if (widget.initiallyExpand != oldWidget.initiallyExpand) onToggle();
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
