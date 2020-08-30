@@ -18,7 +18,7 @@ class SmallFlatButton extends StatelessWidget {
     Key key,
     @required this.onTap,
     @required this.child,
-    this.margin = const EdgeInsets.all(8),
+    this.margin = const EdgeInsets.all(0),
     this.padding = const EdgeInsets.all(8),
     this.borderRadius = 8,
     this.backgroundColor = Colors.transparent,
@@ -41,8 +41,9 @@ class SmallFlatButton extends StatelessWidget {
         child: Padding(
           padding: padding,
           child: DefaultTextStyle.merge(
-            style:
-                Theme.of(context).textTheme.button.copyWith(color: textColor),
+            style: Theme.of(context).textTheme.button.copyWith(
+                  color: textColor,
+                ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,

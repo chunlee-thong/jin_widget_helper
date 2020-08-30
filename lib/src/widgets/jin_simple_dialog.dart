@@ -6,12 +6,14 @@ class JinSimpleDialog extends StatelessWidget {
   final String title;
   final String content;
   final String confirmText;
+  final Function onConfirm;
 
   ///An alert dialog with title and content
   JinSimpleDialog({
     this.confirmText = "OK",
     @required this.content,
     this.title = "Information",
+    this.onConfirm,
   });
 
   @override
@@ -30,6 +32,7 @@ class JinSimpleDialog extends StatelessWidget {
         CupertinoDialogAction(
           child: Text(confirmText),
           onPressed: () {
+            if (onConfirm != null) onConfirm();
             Navigator.of(context).pop(true);
           },
         ),
@@ -46,6 +49,7 @@ class JinSimpleDialog extends StatelessWidget {
         FlatButton(
           child: Text(confirmText),
           onPressed: () {
+            if (onConfirm != null) onConfirm();
             Navigator.of(context).pop(true);
           },
         ),

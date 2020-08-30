@@ -42,21 +42,16 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         children: <Widget>[
-          JinAccordion(
-            initiallyExpand: true,
-            iconPosition: IconPosition.Start,
-            title: Text("What do you want to do?"),
-            children: <Widget>[
-              Text("Hello world"),
-            ],
-          ),
-          JinExpandableCard(
-            isExpand: true,
-            topChild: MiniListTile(title: Text("HELLO")),
-            bottomChild: RaisedButton(
-              onPressed: () {},
+          MiniListTile(
+            leading: Icon(Icons.aspect_ratio),
+            title: Text("Nice"),
+            subtitle: Text("this is a subtitle"),
+            trailing: SmallFlatButton(
               child: Text("Nice"),
+              onTap: () {},
+              icon: Icon(Icons.add),
             ),
+            onTap: () {},
           ),
         ],
       ),

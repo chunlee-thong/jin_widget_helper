@@ -30,9 +30,10 @@ class JinNavigator {
   }
 
   ///show a dialog
-  static Future<T> dialog<T>(Widget dialog) async {
+  static Future<T> dialog<T>(Widget dialog, {bool barrierDismissable}) async {
     return await showDialog<T>(
       context: getContext,
+      barrierDismissible: barrierDismissable,
       builder: (context) => dialog,
     );
   }

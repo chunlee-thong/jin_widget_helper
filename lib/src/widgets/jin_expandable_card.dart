@@ -9,6 +9,7 @@ class JinExpandableCard extends StatefulWidget {
   final EdgeInsets margin;
   final Curve curve;
   final bool isExpand;
+  final Function(bool) onToggle;
   const JinExpandableCard({
     Key key,
     @required this.topChild,
@@ -18,27 +19,34 @@ class JinExpandableCard extends StatefulWidget {
     this.padding = const EdgeInsets.all(16),
     this.curve = Curves.linear,
     this.margin = EdgeInsets.zero,
+    this.onToggle,
   }) : super(key: key);
   @override
   _JinExpandableCardState createState() => _JinExpandableCardState();
 }
 
-class _JinExpandableCardState extends State<JinExpandableCard> with SingleTickerProviderStateMixin {
+class _JinExpandableCardState extends State<JinExpandableCard>
+    with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<double> size;
 
   void toggle() {
     if (controller.isAnimating) {
     } else if (controller.isCompleted) {
+      if (widget.onToggle != null) widget.onToggle(false);
       controller.reverse();
     } else {
+      if (widget.onToggle != null) widget.onToggle(true);
       controller.forward();
     }
   }
 
   @override
   void initState() {
-    controller = AnimationController(vsync: this, duration: widget.duration);
+    controller = AnimationController(
+      vsync: this,
+      duration: widget.duration,
+    );
     size = CurvedAnimation(curve: widget.curve, parent: controller);
     if (widget.isExpand) controller.forward();
     super.initState();

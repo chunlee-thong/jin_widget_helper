@@ -46,7 +46,8 @@ class JinAccordion extends StatefulWidget {
   _JinAccordionState createState() => _JinAccordionState();
 }
 
-class _JinAccordionState extends State<JinAccordion> with SingleTickerProviderStateMixin {
+class _JinAccordionState extends State<JinAccordion>
+    with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<double> size;
   Animation<double> rotation;
@@ -66,7 +67,8 @@ class _JinAccordionState extends State<JinAccordion> with SingleTickerProviderSt
 
   @override
   void initState() {
-    controller = AnimationController(vsync: this, duration: widget.animationDuration);
+    controller =
+        AnimationController(vsync: this, duration: widget.animationDuration);
     size = CurvedAnimation(curve: widget.curve, parent: controller);
     rotation = Tween<double>(begin: 0.0, end: 0.5).animate(controller);
     if (widget.initiallyExpand) controller.forward();
@@ -111,7 +113,8 @@ class _JinAccordionState extends State<JinAccordion> with SingleTickerProviderSt
                     ? MainAxisAlignment.start
                     : MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  if (widget.iconPosition == IconPosition.Start && widget.showIcon) ...[
+                  if (widget.iconPosition == IconPosition.Start &&
+                      widget.showIcon) ...[
                     icon,
                     SpaceX(),
                   ],
@@ -121,7 +124,8 @@ class _JinAccordionState extends State<JinAccordion> with SingleTickerProviderSt
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
-                  if (widget.iconPosition == IconPosition.End && widget.showIcon) ...[icon],
+                  if (widget.iconPosition == IconPosition.End &&
+                      widget.showIcon) ...[icon],
                 ],
               ),
             ),

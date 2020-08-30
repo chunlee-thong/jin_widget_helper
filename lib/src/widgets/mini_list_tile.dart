@@ -11,6 +11,7 @@ class MiniListTile extends StatelessWidget {
   final EdgeInsets padding;
   final EdgeInsets margin;
   final Decoration decoration;
+  final CrossAxisAlignment aligment;
 
   ///A custom listtile for simple customization
   const MiniListTile({
@@ -23,6 +24,7 @@ class MiniListTile extends StatelessWidget {
     this.trailing,
     this.padding = const EdgeInsets.all(16.0),
     this.margin = const EdgeInsets.all(0.0),
+    this.aligment,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -50,15 +52,12 @@ class MiniListTile extends StatelessWidget {
         child: Padding(
           padding: padding,
           child: Row(
-            crossAxisAlignment: subtitle == null
-                ? CrossAxisAlignment.center
-                : CrossAxisAlignment.center,
+            crossAxisAlignment: aligment ?? CrossAxisAlignment.center,
             children: <Widget>[
               if (leading != null) ...[
                 leading,
                 JinWidget.horizontalSpace(16),
-              ] else
-                const SizedBox(),
+              ],
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

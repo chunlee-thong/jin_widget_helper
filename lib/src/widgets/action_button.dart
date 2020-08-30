@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jin_widget_helper/jin_widget_helper.dart';
 import 'package:jin_widget_helper/src/widgets/spacing.dart';
 
 class ActionButton extends StatelessWidget {
@@ -45,7 +46,7 @@ class ActionButton extends StatelessWidget {
       width: stretch ? double.infinity : null,
       color: Colors.transparent,
       margin: margin,
-      child: ValueListenableBuilder(
+      child: ValueListenableBuilder<bool>(
         valueListenable: isLoading ?? ValueNotifier(false),
         builder: (context, loading, _) {
           return RaisedButton(
@@ -57,25 +58,27 @@ class ActionButton extends StatelessWidget {
                 loading || onLongPressed == null ? () {} : onLongPressed,
             color: color ?? Theme.of(context).buttonColor,
             shape: shape,
-            child: loading
-                ? loadingWidget ??
-                    Container(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(loadingColor),
-                        strokeWidth: 3.0,
-                      ),
-                    )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      icon ?? SizedBox(),
-                      if (icon != null) SpaceX(8),
-                      child,
-                    ],
+            child: ConditionalWidget(
+              condition: loading,
+              onFalse: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  icon ?? SizedBox(),
+                  if (icon != null) SpaceX(8),
+                  child,
+                ],
+              ),
+              onTrue: loadingWidget ??
+                  Container(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(loadingColor),
+                      strokeWidth: 3.0,
+                    ),
                   ),
+            ),
           );
         },
       ),
