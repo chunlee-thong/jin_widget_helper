@@ -10,7 +10,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.4.3
+  jin_widget_helper: ^1.4.3+1
 ```
 
 # Widgets

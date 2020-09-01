@@ -178,3 +178,7 @@
 ## [1.4.3] - 30 August 2020
 
 - Improvement on all widget
+
+## [1.4.3+1] - 30 August 2020
+
+- Fix bug on Jin dialog

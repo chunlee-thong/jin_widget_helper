@@ -13,8 +13,7 @@ class JinNavigator {
   }
 
   ///short handed push replacement navigator
-  static Future pushReplacement(Widget page,
-      {bool fullsreenDialog = false}) async {
+  static Future pushReplacement(Widget page, {bool fullsreenDialog = false}) async {
     return await Navigator.of(getContext).pushReplacement(MaterialPageRoute(
       builder: (context) => page,
       fullscreenDialog: fullsreenDialog,
@@ -30,7 +29,7 @@ class JinNavigator {
   }
 
   ///show a dialog
-  static Future<T> dialog<T>(Widget dialog, {bool barrierDismissable}) async {
+  static Future<T> dialog<T>(Widget dialog, {bool barrierDismissable = true}) async {
     return await showDialog<T>(
       context: getContext,
       barrierDismissible: barrierDismissable,
