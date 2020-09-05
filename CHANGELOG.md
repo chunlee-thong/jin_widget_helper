@@ -1,3 +1,8 @@
+## [1.4.4] - 9 September 2020
+
+- add separator to MiniListTile
+- update changelog
+
 ## [1.4.3+1] - 30 August 2020
 
 - Fix bug on Jin dialog

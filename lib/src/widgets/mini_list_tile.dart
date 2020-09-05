@@ -12,6 +12,7 @@ class MiniListTile extends StatelessWidget {
   final EdgeInsets margin;
   final Decoration decoration;
   final CrossAxisAlignment aligment;
+  final Widget separator;
 
   ///A custom listtile for simple customization
   const MiniListTile({
@@ -25,6 +26,7 @@ class MiniListTile extends StatelessWidget {
     this.padding = const EdgeInsets.all(16.0),
     this.margin = const EdgeInsets.all(0.0),
     this.aligment,
+    this.separator,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -47,37 +49,42 @@ class MiniListTile extends StatelessWidget {
     return Container(
       decoration: decoration,
       margin: margin,
-      child: InkWell(
-        onTap: onTap ?? null,
-        child: Padding(
-          padding: padding,
-          child: Row(
-            crossAxisAlignment: aligment ?? CrossAxisAlignment.center,
-            children: <Widget>[
-              if (leading != null) ...[
-                leading,
-                JinWidget.horizontalSpace(16),
-              ],
-              Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    titleWidget,
-                    if (subtitle != null) JinWidget.verticalSpace(4),
-                    subTitleWidget,
+      child: Column(
+        children: [
+          InkWell(
+            onTap: onTap ?? null,
+            child: Padding(
+              padding: padding,
+              child: Row(
+                crossAxisAlignment: aligment ?? CrossAxisAlignment.center,
+                children: <Widget>[
+                  if (leading != null) ...[
+                    leading,
+                    JinWidget.horizontalSpace(16),
                   ],
-                ),
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        titleWidget,
+                        if (subtitle != null) JinWidget.verticalSpace(4),
+                        subTitleWidget,
+                      ],
+                    ),
+                  ),
+                  SpaceX(),
+                  Flexible(
+                    flex: 0,
+                    child: trailingWidget,
+                    fit: FlexFit.loose,
+                  ),
+                ],
               ),
-              SpaceX(),
-              Flexible(
-                flex: 0,
-                child: trailingWidget,
-                fit: FlexFit.loose,
-              ),
-            ],
+            ),
           ),
-        ),
+          if (separator != null) separator,
+        ],
       ),
     );
   }

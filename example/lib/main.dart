@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         children: <Widget>[
           MiniListTile(
+            aligment: CrossAxisAlignment.start,
             leading: Icon(Icons.aspect_ratio),
             title: Text("Nice"),
             subtitle: Text("this is a subtitle"),
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icon(Icons.add),
             ),
             onTap: () {},
+            separator: Divider(height: 0),
           ),
         ],
       ),
