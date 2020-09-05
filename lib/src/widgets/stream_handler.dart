@@ -45,7 +45,7 @@ class StreamHandler<T> extends StatelessWidget {
             ),
           );
         } else {
-          return Center(child: loading ?? JinWidget.platformLoading);
+          return Center(child: loading ?? JinWidget.platformLoadingWidget);
         }
       },
     );
