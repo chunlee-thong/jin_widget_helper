@@ -12,6 +12,11 @@ class JinNavigator {
     ));
   }
 
+  static Future pushNamed<T>(String name, {Object argument}) async {
+    return await Navigator.of(getContext)
+        .pushNamed<T>(name, arguments: argument);
+  }
+
   ///short handed push replacement navigator
   static Future pushReplacement(Widget page,
       {bool fullsreenDialog = false}) async {
