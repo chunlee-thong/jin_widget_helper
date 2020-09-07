@@ -51,9 +51,9 @@ class _JinAccordionState extends State<JinAccordion>
   AnimationController controller;
   Animation<double> size;
   Animation<double> rotation;
-  bool isExpand;
 
   void onToggle() {
+    bool isExpand;
     if (controller.isAnimating) {
     } else if (controller.isCompleted) {
       controller.reverse();

@@ -61,7 +61,8 @@ class _PaginatedListViewState extends State<PaginatedListView> {
     return ListView.builder(
       itemCount: widget.itemCount + 1,
       controller: scrollController,
-      padding: widget.padding ?? EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+      padding:
+          widget.padding ?? EdgeInsets.symmetric(vertical: 16, horizontal: 12),
       scrollDirection: widget.scrollDirection,
       physics: widget.physics,
       shrinkWrap: widget.shrinkWrap,
@@ -69,7 +70,9 @@ class _PaginatedListViewState extends State<PaginatedListView> {
         //check if we reach the end of the list
         if (index == widget.itemCount) {
           //check if we have more data to fetch
-          return widget.hasMoreData ? Center(child: widget.loadingWidget) : const SizedBox();
+          return widget.hasMoreData
+              ? Center(child: widget.loadingWidget)
+              : const SizedBox();
         }
         return widget.itemBuilder(context, index);
       },
