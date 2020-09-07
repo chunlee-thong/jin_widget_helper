@@ -55,6 +55,24 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () {},
             separator: Divider(height: 0),
           ),
+          JinAccordion(
+            margin: EdgeInsets.all(16),
+            initiallyExpand: false,
+            headerPadding:
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            headerDecoration: BoxDecoration(
+              color: Colors.amber,
+              borderRadius: JinWidget.radius(32),
+            ),
+            icon: Icon(Icons.arrow_drop_down, size: 24, color: Colors.grey),
+            title: Text("title"),
+            children: [
+              Text("title"),
+              Text("title"),
+              Text("title"),
+              Text("title"),
+            ],
+          )
         ],
       ),
     );

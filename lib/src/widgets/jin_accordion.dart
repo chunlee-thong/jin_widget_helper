@@ -14,7 +14,7 @@ class JinAccordion extends StatefulWidget {
   final Curve curve;
   final Duration animationDuration;
   final double headerElevation;
-  final Decoration headerDecoration;
+  final BoxDecoration headerDecoration;
   final Color childrenBackgroundColor;
   final EdgeInsets headerPadding;
   final EdgeInsets margin;
@@ -97,6 +97,7 @@ class _JinAccordionState extends State<JinAccordion>
       ),
       alignment: Alignment.center,
     );
+
     return Container(
       margin: widget.margin,
       child: Column(
@@ -104,9 +105,13 @@ class _JinAccordionState extends State<JinAccordion>
         children: <Widget>[
           InkWell(
             onTap: onToggle,
-            child: Container(
+            customBorder: RoundedRectangleBorder(
+              borderRadius:
+                  widget.headerDecoration?.borderRadius ?? JinWidget.radius(0),
+            ),
+            child: Ink(
               width: MediaQuery.of(context).size.width,
-              decoration: widget.headerDecoration ?? BoxDecoration(),
+              decoration: widget.headerDecoration,
               padding: widget.headerPadding ?? const EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: widget.iconPosition == IconPosition.Start
