@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 
 class JinWidget {
   ///Create a sizedBox with set height
+  @Deprecated("this method is deprecated, please using SpaceY instead")
   static Widget verticalSpace([double height = 8]) {
     return SizedBox(height: height);
   }
 
   ///Create a sizedBox with set width
+  @Deprecated("this method is deprecated, please using SpaceX instead")
   static Widget horizontalSpace([double width = 8]) {
     return SizedBox(width: width);
   }

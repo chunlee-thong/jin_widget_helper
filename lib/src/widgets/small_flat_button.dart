@@ -12,6 +12,7 @@ class SmallFlatButton extends StatelessWidget {
   final double elevation;
   final Color textColor;
   final Widget icon;
+  final BorderSide borderSide;
 
   ///A FlatButton with respectively small margin and shape
   const SmallFlatButton({
@@ -25,11 +26,14 @@ class SmallFlatButton extends StatelessWidget {
     this.elevation = 0.0,
     this.textColor = Colors.black,
     this.icon,
+    this.borderSide,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final shape = RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(borderRadius));
+      borderRadius: BorderRadius.circular(borderRadius),
+      side: borderSide ?? BorderSide.none,
+    );
     return Card(
       shape: shape,
       color: backgroundColor,

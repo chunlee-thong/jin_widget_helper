@@ -8,12 +8,16 @@ class JinExpandableText extends StatefulWidget {
   final EdgeInsets padding;
   final String text;
   final int subStringLength;
+  final String seeMoreText;
+  final String seeLessText;
   const JinExpandableText({
     Key key,
     @required this.text,
     this.subStringLength = 50,
     this.margin,
     this.padding,
+    this.seeMoreText = "See more",
+    this.seeLessText = "See less",
   }) : super(key: key);
 
   @override
@@ -59,7 +63,7 @@ class _JinExpandableTextState extends State<JinExpandableText>
                     });
                   },
                   icon: Text(
-                    isExpanded ? "See less" : "See more",
+                    isExpanded ? widget.seeLessText : widget.seeMoreText,
                     style: TextStyle(color: Colors.blue),
                   ),
                 ),

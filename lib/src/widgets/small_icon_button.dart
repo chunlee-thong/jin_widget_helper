@@ -8,6 +8,7 @@ class SmallIconButton extends StatelessWidget {
   final Color backgroundColor;
   final double borderRadius;
   final double elevation;
+  final BorderSide borderSide;
 
   ///An IconButton with respectively small margin and shape
   const SmallIconButton({
@@ -19,13 +20,13 @@ class SmallIconButton extends StatelessWidget {
     this.borderRadius = 8,
     this.backgroundColor = Colors.transparent,
     this.elevation = 0.0,
+    this.borderSide,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final shape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(
-        borderRadius,
-      ),
+      borderRadius: BorderRadius.circular(borderRadius),
+      side: borderSide ?? BorderSide.none,
     );
     return Card(
       shape: shape,

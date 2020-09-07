@@ -1,4 +1,8 @@
-## [1.4.4] - 9 September 2020
+## [1.4.4] - 7 September 2020
+
+- All Widget improvement
+
+## [1.4.4] - 6 September 2020
 
 - add separator to MiniListTile
 - update changelog

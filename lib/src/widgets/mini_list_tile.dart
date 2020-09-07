@@ -60,7 +60,7 @@ class MiniListTile extends StatelessWidget {
                 children: <Widget>[
                   if (leading != null) ...[
                     leading,
-                    JinWidget.horizontalSpace(16),
+                    SpaceX(16),
                   ],
                   Expanded(
                     child: Column(
@@ -68,7 +68,7 @@ class MiniListTile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         titleWidget,
-                        if (subtitle != null) JinWidget.verticalSpace(4),
+                        if (subtitle != null) SpaceX(4),
                         subTitleWidget,
                       ],
                     ),

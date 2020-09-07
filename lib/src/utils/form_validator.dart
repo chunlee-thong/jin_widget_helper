@@ -65,19 +65,4 @@ class JinFormValidator {
     bool isValidate = RegExp(pattern).hasMatch(value.replaceAll(" ", ""));
     return isValidate ? null : "Please input a valid phone number";
   }
-
-  static String validateCountry(String value) {
-    if (value.trim().isEmpty) return "Please input your country";
-    return null;
-  }
-
-  static String validateFirstName(String value) {
-    if (value.trim().isEmpty) return "Please input your first name";
-    return null;
-  }
-
-  static String validateLastName(String value) {
-    if (value.trim().isEmpty) return "Please input your last name";
-    return null;
-  }
 }

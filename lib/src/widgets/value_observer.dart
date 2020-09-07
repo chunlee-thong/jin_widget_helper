@@ -12,7 +12,7 @@ class ValueObserver<T> extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
+    return ValueListenableBuilder<T>(
       valueListenable: valueNotifier,
       builder: (context, T data, _) {
         return child(data);
