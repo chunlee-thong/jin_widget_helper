@@ -1,3 +1,8 @@
+## [1.4.5] - 9 September 2020
+
+- All Widget improvement
+- Add BorderSide to SmallIconButton and SmallFlatButton
+
 ## [1.4.4] - 7 September 2020
 
 - All Widget improvement

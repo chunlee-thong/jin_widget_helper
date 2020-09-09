@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'dart:io' as io show Platform;
 import 'package:flutter/material.dart';
 
 ///Provide a widget child depend on the Platform, Currently support [iOS] and [Android]
@@ -20,7 +19,9 @@ class JinPlatformChecker extends StatelessWidget {
 
   Widget buildPlatformChecker() {
     if (iosWidget != null) {
-      return Platform.isIOS || Platform.isMacOS ? iosWidget : androidWidget;
+      return io.Platform.isIOS || io.Platform.isMacOS
+          ? iosWidget
+          : androidWidget;
     }
     return androidWidget;
   }
