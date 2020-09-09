@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:io' as io show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +57,7 @@ class JinWidget {
     return BorderRadius.horizontal(right: Radius.circular(_radius));
   }
 
-  static final platformLoadingWidget = Platform.isIOS
+  static final platformLoadingWidget = io.Platform.isIOS
       ? CupertinoActivityIndicator()
       : CircularProgressIndicator();
 }
