@@ -1,3 +1,8 @@
+## [1.4.6] - 14 September 2020
+
+- All Widget improvement
+- Add pop method to JinNavigator
+
 ## [1.4.5] - 9 September 2020
 
 - All Widget improvement
