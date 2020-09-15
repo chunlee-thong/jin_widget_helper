@@ -23,7 +23,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
   @override
   void initState() {
     super.initState();
@@ -42,37 +42,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         children: <Widget>[
-          MiniListTile(
-            aligment: CrossAxisAlignment.start,
-            leading: Icon(Icons.aspect_ratio),
-            title: Text("Nice"),
-            subtitle: Text("this is a subtitle"),
-            trailing: SmallFlatButton(
-              child: Text("Nice"),
-              onTap: () {},
-              icon: Icon(Icons.add),
+          Form(
+            key: formKey,
+            child: ActionButton(
+              child: Text("Click Me"),
+              loadingNotifier: loadingNotifier,
+              onPressed: () {
+                () async {
+                  await Future.delayed(Duration(seconds: 3));
+                  throw "Shit we got an error";
+                }.indicateLoading(
+                    loadingNotifier: loadingNotifier,
+                    onError: (error) {
+                      JinNavigator.dialog(JinSimpleDialog(content: error));
+                    });
+              },
             ),
-            onTap: () {},
-            separator: Divider(height: 0),
           ),
-          JinAccordion(
-            margin: EdgeInsets.all(16),
-            initiallyExpand: false,
-            headerPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            headerDecoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: JinWidget.radius(32),
-            ),
-            icon: Icon(Icons.arrow_drop_down, size: 24, color: Colors.grey),
-            title: Text("title"),
-            children: [
-              Text("title"),
-              Text("title"),
-              Text("title"),
-              Text("title"),
-            ],
-          )
         ],
       ),
     );

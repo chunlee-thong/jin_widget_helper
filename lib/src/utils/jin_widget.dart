@@ -57,7 +57,12 @@ class JinWidget {
     return BorderRadius.horizontal(right: Radius.circular(_radius));
   }
 
-  static final platformLoadingWidget = io.Platform.isIOS
-      ? CupertinoActivityIndicator()
-      : CircularProgressIndicator();
+  static Widget platformLoadingWidget({Color color}) {
+    return io.Platform.isIOS
+        ? CupertinoActivityIndicator()
+        : color != null
+            ? CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(color))
+            : CircularProgressIndicator();
+  }
 }

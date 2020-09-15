@@ -1,3 +1,11 @@
+## [1.4.7] - 14 September 2020
+
+- BREAKING CHANGE:
+  - ActionButton isLoading change to loadingNotifier
+  - ActionButton stretch change to fullWidth
+- JinWidget.PlatFormLoading now has color params
+- new Mixin: FormPageMixin: provide formKey and loadingNotifier
+
 ## [1.4.6] - 14 September 2020
 
 - All Widget improvement

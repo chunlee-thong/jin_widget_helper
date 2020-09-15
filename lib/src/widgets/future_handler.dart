@@ -41,7 +41,7 @@ class FutureHandler<T> extends StatelessWidget {
             ),
           );
         } else {
-          return Center(child: loading ?? JinWidget.platformLoadingWidget);
+          return Center(child: loading ?? JinWidget.platformLoadingWidget());
         }
       },
     );
