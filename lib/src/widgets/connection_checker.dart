@@ -81,20 +81,18 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
     } else {
       child = Text(widget.message);
     }
-    return Container(
-      child: StreamBuilder<bool>(
-        stream: connectionStream.stream,
-        builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data) return widget.child;
-            return Center(child: child);
-          } else if (snapshot.hasError) {
-            return Center(child: child);
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        },
-      ),
+    return StreamBuilder<bool>(
+      stream: connectionStream.stream,
+      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+        if (snapshot.hasData) {
+          if (snapshot.data) return widget.child;
+          return Center(child: child);
+        } else if (snapshot.hasError) {
+          return Center(child: child);
+        } else {
+          return Center(child: CircularProgressIndicator());
+        }
+      },
     );
   }
 }
