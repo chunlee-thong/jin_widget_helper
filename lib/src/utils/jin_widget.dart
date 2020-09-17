@@ -25,7 +25,7 @@ class JinWidget {
   }
 
   static RoundedRectangleBorder roundRectBottom([double _radius = 8]) {
-    return RoundedRectangleBorder(borderRadius: radiuBottom(_radius));
+    return RoundedRectangleBorder(borderRadius: radiusBottom(_radius));
   }
 
   static RoundedRectangleBorder roundRectLeft([double _radius = 8]) {
@@ -45,7 +45,7 @@ class JinWidget {
     return BorderRadius.vertical(top: Radius.circular(_radius));
   }
 
-  static BorderRadius radiuBottom([double _radius = 8]) {
+  static BorderRadius radiusBottom([double _radius = 8]) {
     return BorderRadius.vertical(bottom: Radius.circular(_radius));
   }
 
