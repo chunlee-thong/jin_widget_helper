@@ -250,3 +250,18 @@ extension DurationExtension on Duration {
     return "${twoDigits(this.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
   }
 }
+
+extension LoadingExtension on Function {
+  Future<void> indicateLoading(
+      {@required ValueNotifier<bool> loadingNotifier,
+      Function(String) onError}) async {
+    try {
+      loadingNotifier.value = true;
+      await this();
+    } catch (e) {
+      onError(e.toString());
+    } finally {
+      loadingNotifier.value = false;
+    }
+  }
+}
