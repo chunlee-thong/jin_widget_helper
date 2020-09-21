@@ -41,42 +41,7 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
         title: Text("Jin Widget Helper Example"),
       ),
       body: ListView(
-        children: <Widget>[
-          Form(
-            key: formKey,
-            child: Column(
-              children: [
-                PasswordTextFieldBuilder(
-                  builder: (obsecure) => TextFormField(
-                    obscureText: obsecure,
-                    decoration: InputDecoration(
-                      suffixIcon: SmallIconButton(
-                        icon: Icon(
-                          obsecure ? Icons.visibility : Icons.visibility_off,
-                        ),
-                        onTap: togglePasswordObsecure,
-                      ),
-                    ),
-                  ),
-                ),
-                ActionButton(
-                  child: Text("Click Me"),
-                  loadingNotifier: loadingNotifier,
-                  onPressed: () {
-                    () async {
-                      await Future.delayed(Duration(seconds: 3));
-                      throw "Shit we got an error";
-                    }.indicateLoading(
-                        loadingNotifier: loadingNotifier,
-                        onError: (error) {
-                          JinNavigator.dialog(JinSimpleDialog(content: error));
-                        });
-                  },
-                ),
-              ],
-            ),
-          ),
-        ],
+        children: <Widget>[],
       ),
     );
   }

@@ -110,7 +110,6 @@ class _JinAccordionState extends State<JinAccordion>
                   widget.headerDecoration?.borderRadius ?? JinWidget.radius(0),
             ),
             child: Ink(
-              width: MediaQuery.of(context).size.width,
               decoration: widget.headerDecoration,
               padding: widget.headerPadding ?? const EdgeInsets.all(16),
               child: Row(

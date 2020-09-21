@@ -75,20 +75,23 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
 
   @override
   Widget build(BuildContext context) {
-    Widget child;
+    Widget noInternetWidget;
     if (widget.onNoInternet != null) {
-      child = widget.onNoInternet(widget.message);
+      noInternetWidget = widget.onNoInternet(widget.message);
     } else {
-      child = Text(widget.message);
+      noInternetWidget = Text(
+        widget.message,
+        textAlign: TextAlign.center,
+      );
     }
     return StreamBuilder<bool>(
       stream: connectionStream.stream,
       builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
         if (snapshot.hasData) {
           if (snapshot.data) return widget.child;
-          return Center(child: child);
+          return Center(child: noInternetWidget);
         } else if (snapshot.hasError) {
-          return Center(child: child);
+          return Center(child: noInternetWidget);
         } else {
           return Center(child: CircularProgressIndicator());
         }
