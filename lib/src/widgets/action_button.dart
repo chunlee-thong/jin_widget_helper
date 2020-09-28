@@ -49,13 +49,12 @@ class ActionButton extends StatelessWidget {
       child: ValueListenableBuilder<bool>(
         valueListenable: loadingNotifier ?? ValueNotifier(false),
         builder: (context, loading, _) {
-          return RaisedButton(
+          return MaterialButton(
             onPressed: loading ? () {} : onPressed,
             padding: padding,
-            textColor: textColor ?? null,
+            textColor: textColor,
             elevation: elevation,
-            onLongPress:
-                loading || onLongPressed == null ? null : onLongPressed,
+            onLongPress: loading ? () {} : onLongPressed,
             color: color ?? Theme.of(context).buttonColor,
             shape: shape,
             child: ConditionalWidget(

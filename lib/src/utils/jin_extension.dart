@@ -187,7 +187,7 @@ extension WidgetExtension on Widget {
     return this;
   }
 
-  Widget style({
+  Widget applyStyle({
     Color color = Colors.white,
     FontWeight fontWeight = FontWeight.normal,
     double fontSize = 14,

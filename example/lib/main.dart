@@ -11,6 +11,8 @@ class MyApp extends StatelessWidget {
       navigatorKey: JinNavigator.navigatorKey,
       theme: ThemeData(
         primarySwatch: JinColorUtils.hexColorToMaterialColor(0xff08f7ff),
+        buttonColor: Colors.red,
+        typography: Typography.material2018(),
       ),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
@@ -40,10 +42,16 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
       appBar: AppBar(
         title: Text("Jin Widget Helper Example"),
       ),
-      body: ListView(
-        children: <Widget>[
-          ActionButton(onPressed: null, child: Text("Click"),)
-        ],
+      body: Center(
+        child: ActionButton(
+          loadingNotifier: loadingNotifier,
+          onPressed: () async {
+            loadingNotifier.value = true;
+            await Future.delayed(Duration(seconds: 2));
+            loadingNotifier.value = false;
+          },
+          child: Text("Click").applyStyle(fontSize: 14),
+        ),
       ),
     );
   }

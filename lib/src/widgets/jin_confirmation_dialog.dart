@@ -38,7 +38,7 @@ class JinConfirmationDialog extends StatelessWidget {
           child: Text(cancelText),
           isDestructiveAction: true,
           onPressed: () {
-            Navigator.of(context).pop(true);
+            Navigator.of(context).pop(false);
             if (onCancel != null) onCancel();
           },
         ),
