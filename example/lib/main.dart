@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
 
@@ -42,16 +44,68 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
       appBar: AppBar(
         title: Text("Jin Widget Helper Example"),
       ),
-      body: Center(
-        child: ActionButton(
-          loadingNotifier: loadingNotifier,
-          onPressed: () async {
-            loadingNotifier.value = true;
-            await Future.delayed(Duration(seconds: 2));
-            loadingNotifier.value = false;
-          },
-          child: Text("Click").applyStyle(fontSize: 14),
-        ),
+      body: Column(
+        children: [
+          JinMediaCard(
+            onTap: () => {},
+            mediaFlexSize: 2,
+            height: (screenSize) => screenSize.width / 3,
+            mediaBuilder: MediaBuilder(
+              child: Image.network(
+                JinUtils.randomStringImage(),
+                fit: BoxFit.cover,
+              ),
+              color: Colors.black12,
+              width: (screenWidth) => screenWidth / 3,
+            ),
+            infoBuilder: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Hello Mark"),
+                Text(
+                    "Hello mark description long text that i want to say Hello mark description long text that i want to say"),
+                Text("Nice mark"),
+                Text("Nice mark"),
+              ],
+            ),
+          ),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+              ),
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return JinMediaCard(
+                  alignment: Axis.vertical,
+                  onTap: () => {},
+                  height: (screenSize) => 0,
+                  mediaBuilder: MediaBuilder(
+                    child: Image.network(
+                      JinUtils.randomStringImage(),
+                      fit: BoxFit.fill,
+                    ),
+                    color: Colors.black12,
+                    width: (screenWidth) => screenWidth,
+                  ),
+                  infoBuilder: Flexible(
+                    flex: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ...List.generate(Random().nextInt(4), (index) {
+                          return Text("Hello Mark");
+                        })
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
