@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: JinNavigator.navigatorKey,
       theme: ThemeData(
         primarySwatch: JinColorUtils.hexColorToMaterialColor(0xff08f7ff),
-        buttonColor: Colors.red,
+        buttonColor: Colors.green,
         typography: Typography.material2018(),
       ),
       debugShowCheckedModeBanner: false,
@@ -28,6 +29,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
+  void onClick() async {
+    try {
+      await Future.delayed(Duration(seconds: 2));
+      throw "erorr";
+    } catch (e) {
+      JinNavigator.dialog(JinSimpleDialog(content: "Hello"));
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -44,68 +54,18 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
       appBar: AppBar(
         title: Text("Jin Widget Helper Example"),
       ),
-      body: Column(
-        children: [
-          JinMediaCard(
-            onTap: () => {},
-            mediaFlexSize: 2,
-            height: (screenSize) => screenSize.width / 3,
-            mediaBuilder: MediaBuilder(
-              child: Image.network(
-                JinUtils.randomStringImage(),
-                fit: BoxFit.cover,
-              ),
-              color: Colors.black12,
-              width: (screenWidth) => screenWidth / 3,
-            ),
-            infoBuilder: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Hello Mark"),
-                Text(
-                    "Hello mark description long text that i want to say Hello mark description long text that i want to say"),
-                Text("Nice mark"),
-                Text("Nice mark"),
-              ],
-            ),
-          ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
-              ),
-              itemCount: 6,
-              itemBuilder: (context, index) {
-                return JinMediaCard(
-                  alignment: Axis.vertical,
-                  onTap: () => {},
-                  height: (screenSize) => 0,
-                  mediaBuilder: MediaBuilder(
-                    child: Image.network(
-                      JinUtils.randomStringImage(),
-                      fit: BoxFit.fill,
-                    ),
-                    color: Colors.black12,
-                    width: (screenWidth) => screenWidth,
-                  ),
-                  infoBuilder: Flexible(
-                    flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ...List.generate(Random().nextInt(4), (index) {
-                          return Text("Hello Mark");
-                        })
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
+      body: Center(
+        child: JinLoadingButton(
+          margin: EdgeInsets.symmetric(horizontal: 32),
+          platform: ButtonPlatForm.Cupertino,
+          child: Text("Click"),
+          icon: Icon(Icons.add),
+          onPressed: () async => onClick(),
+          fullWidth: true,
+          color: Colors.green,
+          filled: false,
+          loadingColor: Colors.white,
+        ),
       ),
     );
   }

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 class CustomBackButton extends StatelessWidget {
@@ -24,8 +22,10 @@ class CustomBackButton extends StatelessWidget {
   CustomBackButton({
     this.onTap,
     this.header,
-    this.headerStyle =
-        const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    this.headerStyle = const TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+    ),
     this.icon,
     this.headerAlignment = Alignment.center,
     this.backgroundColor = Colors.transparent,
@@ -51,18 +51,10 @@ class CustomBackButton extends StatelessWidget {
                     focusColor: Colors.white70,
                     customBorder: StadiumBorder(),
                     onTap: onTap ?? () => Navigator.of(context).pop(),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: icon ??
-                          Icon(
-                            Platform.isIOS
-                                ? Icons.arrow_back_ios
-                                : Icons.arrow_back,
-                            size: 24,
-                            color:
-                                iconColor ?? Theme.of(context).iconTheme.color,
-                          ),
-                    ),
+                    child: icon ??
+                        BackButton(
+                          color: iconColor ?? Theme.of(context).iconTheme.color,
+                        ),
                   ),
                 ),
               ),
