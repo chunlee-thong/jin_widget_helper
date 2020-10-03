@@ -33,5 +33,6 @@ export './src/utils/jin_extension.dart';
 export './src/utils/jin_navigator.dart';
 export './src/utils/jin_utils.dart';
 export './src/utils/jin_widget.dart';
+export './src/utils/loading_mixin.dart';
 export './src/utils/no_splash_factory.dart';
 export './src/utils/page_navigator.dart';
