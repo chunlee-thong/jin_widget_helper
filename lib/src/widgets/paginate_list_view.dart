@@ -5,8 +5,10 @@ class PaginatedListView extends StatefulWidget {
   final ScrollPhysics physics;
   final Axis scrollDirection;
   final bool shrinkWrap;
+  final Widget divider;
   final Widget Function(BuildContext, int) itemBuilder;
   final EdgeInsets padding;
+  final Widget onEmpty;
 
   ///callback for getting more data when ScrollController reach mex scrolExtends
   final Function onGetMoreData;
@@ -28,6 +30,8 @@ class PaginatedListView extends StatefulWidget {
     this.loadingWidget = const CircularProgressIndicator(),
     this.padding,
     this.scrollDirection = Axis.vertical,
+    this.divider,
+    this.onEmpty,
   }) : super(key: key);
   @override
   _PaginatedListViewState createState() => _PaginatedListViewState();
@@ -58,7 +62,11 @@ class _PaginatedListViewState extends State<PaginatedListView> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    if (widget.onEmpty != null && widget.itemCount == 0) {
+      return widget.onEmpty;
+    }
+    return ListView.separated(
+      separatorBuilder: (context, index) => widget.divider ?? SizedBox(),
       itemCount: widget.itemCount + 1,
       controller: scrollController,
       padding: widget.padding ??
