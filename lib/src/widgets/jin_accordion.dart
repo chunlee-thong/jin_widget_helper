@@ -22,6 +22,7 @@ class JinAccordion extends StatefulWidget {
   final Function(bool) onToggle;
   final bool initiallyExpand;
   final bool showIcon;
+  final bool animatedOnStart;
   final IconPosition iconPosition;
 
   const JinAccordion({
@@ -41,6 +42,7 @@ class JinAccordion extends StatefulWidget {
     this.showIcon = true,
     this.iconPosition = IconPosition.End,
     this.childrenBackgroundColor,
+    this.animatedOnStart = false,
   }) : super(key: key);
   @override
   _JinAccordionState createState() => _JinAccordionState();
@@ -71,7 +73,9 @@ class _JinAccordionState extends State<JinAccordion>
         AnimationController(vsync: this, duration: widget.animationDuration);
     size = CurvedAnimation(curve: widget.curve, parent: controller);
     rotation = Tween<double>(begin: 0.0, end: 0.5).animate(controller);
-    if (widget.initiallyExpand) controller.forward();
+    if (widget.initiallyExpand) {
+      widget.animatedOnStart ? controller.forward() : controller.value = 1.0;
+    }
     super.initState();
   }
 

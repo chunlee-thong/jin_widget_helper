@@ -37,6 +37,7 @@ class CustomBackButton extends StatelessWidget {
     return SafeArea(
       bottom: false,
       child: Container(
+        color: backgroundColor,
         alignment: Alignment.center,
         height: AppBar().preferredSize.height,
         child: Stack(
@@ -51,10 +52,14 @@ class CustomBackButton extends StatelessWidget {
                     focusColor: Colors.white70,
                     customBorder: StadiumBorder(),
                     onTap: onTap ?? () => Navigator.of(context).pop(),
-                    child: icon ??
-                        BackButton(
-                          color: iconColor ?? Theme.of(context).iconTheme.color,
-                        ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: icon ??
+                          BackButton(
+                            color:
+                                iconColor ?? Theme.of(context).iconTheme.color,
+                          ),
+                    ),
                   ),
                 ),
               ),
