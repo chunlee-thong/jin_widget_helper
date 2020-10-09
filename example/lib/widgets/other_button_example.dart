@@ -7,6 +7,14 @@ class OtherButtonExample extends StatefulWidget {
 }
 
 class _OtherButtonExampleState extends State<OtherButtonExample> {
+  final isLoading = false.obs<bool>();
+
+  @override
+  void dispose() {
+    isLoading.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,38 +24,73 @@ class _OtherButtonExampleState extends State<OtherButtonExample> {
             CustomBackButton(
               header: "Custom Back Button Header",
               icon: Icon(Icons.arrow_back),
-              backgroundColor: Colors.blue,
+              backgroundColor: Colors.lightBlueAccent,
             ),
             SpaceY(),
             buildButtonCategory(
               name: "Small Icon Button",
-              button: SmallIconButton(
-                icon: Icon(Icons.add_a_photo_rounded, color: Colors.white),
-                margin: EdgeInsets.symmetric(vertical: 4),
-                onTap: () {},
-                backgroundColor: Colors.orangeAccent,
-              ),
+              buttons: [
+                SmallIconButton(
+                  icon: Icon(Icons.add_a_photo_rounded, color: Colors.white),
+                  margin: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                  onTap: () {},
+                  backgroundColor: Colors.orangeAccent,
+                ),
+                SmallIconButton(
+                  icon: Icon(Icons.add_alarm_rounded),
+                  margin: EdgeInsets.symmetric(vertical: 4),
+                  onTap: () {},
+                ),
+              ],
             ),
             buildButtonCategory(
               name: "Small Flat Button",
-              button: SmallFlatButton(
-                icon: Icon(Icons.add_a_photo_rounded, color: Colors.white),
-                child: Text("Click me"),
-                margin: EdgeInsets.symmetric(vertical: 4),
-                onTap: () {},
-                backgroundColor: Colors.lightGreen,
-              ),
+              buttons: [
+                SmallFlatButton(
+                  icon: Icon(Icons.add_a_photo_rounded, color: Colors.white),
+                  child: Text("Click me"),
+                  margin: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                  onTap: () {},
+                  backgroundColor: Colors.lightGreen,
+                ),
+                SmallFlatButton(
+                  child: Text("No Icon"),
+                  margin: EdgeInsets.symmetric(vertical: 4),
+                  onTap: () {},
+                ),
+              ],
             ),
             buildButtonCategory(
               name: "Badge Button",
-              button: BadgeButton(
-                icon: Icon(Icons.notifications, color: Colors.blue),
-                margin: EdgeInsets.symmetric(vertical: 4),
-                onTap: () {},
-                badgeText: "10",
-                showBadge: true,
-                badgeColor: Colors.red,
-              ),
+              buttons: [
+                BadgeButton(
+                  icon: Icon(Icons.notifications, color: Colors.blue),
+                  margin: EdgeInsets.symmetric(vertical: 4),
+                  onTap: () {},
+                  badgeText: "10",
+                  showBadge: true,
+                  badgeColor: Colors.red,
+                )
+              ],
+            ),
+            buildButtonCategory(
+              name: "Action Button",
+              buttons: [
+                ActionButton(
+                  loadingNotifier: isLoading,
+                  icon: Icon(Icons.notifications, color: Colors.white),
+                  margin: EdgeInsets.symmetric(vertical: 4),
+                  onPressed: () async {
+                    isLoading.value = true;
+                    await Future.delayed(Duration(seconds: 2));
+                    isLoading.value = false;
+                  },
+                  child: Text("Click me"),
+                  color: Colors.red,
+                  textColor: Colors.white,
+                  fullWidth: false,
+                )
+              ],
             ),
           ],
         ),
@@ -55,12 +98,15 @@ class _OtherButtonExampleState extends State<OtherButtonExample> {
     );
   }
 
-  Widget buildButtonCategory({String name, Widget button}) {
+  Widget buildButtonCategory({String name, List<Widget> buttons}) {
     return Column(
       children: [
-        Text(name),
+        Text(name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
         SpaceY(),
-        button,
+        Row(
+          children: buttons.map((button) => Flexible(child: button)).toList(),
+          mainAxisAlignment: MainAxisAlignment.center,
+        ),
         Divider(),
       ],
     );

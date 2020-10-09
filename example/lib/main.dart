@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
+import 'package:jin_widget_helper_example/widgets/jin_extension_example.dart';
 import 'package:jin_widget_helper_example/widgets/jin_loading_button_example.dart';
 import 'package:jin_widget_helper_example/widgets/other_button_example.dart';
 
@@ -35,6 +36,14 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
     PageNavigator.push(context, page);
   }
 
+  final List<ExampleButton> examples = [
+    ExampleButton(
+        name: "JinLoadingButton example", child: JinLoadingButtonExample()),
+    ExampleButton(
+        name: "Other Buttons example example", child: OtherButtonExample()),
+    ExampleButton(name: "JinExtension Example", child: JinExtensionExample()),
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -55,20 +64,22 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
         padding: EdgeInsets.symmetric(horizontal: 32),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ActionButton(
-              child: Text("JinLoadingButton example"),
-              margin: EdgeInsets.symmetric(vertical: 8),
-              onPressed: () => onViewPage(JinLoadingButtonExample()),
-            ),
-            ActionButton(
-              child: Text("Other Buttons example"),
-              margin: EdgeInsets.symmetric(vertical: 8),
-              onPressed: () => onViewPage(OtherButtonExample()),
-            ),
-          ],
+          children: examples.map((example) {
+            return ActionButton(
+              child: Text(example.name),
+              margin: EdgeInsets.only(top: 16),
+              onPressed: () => onViewPage(example.child),
+            );
+          }).toList(),
         ),
       ),
     );
   }
+}
+
+class ExampleButton {
+  String name;
+  Widget child;
+
+  ExampleButton({this.name, this.child});
 }

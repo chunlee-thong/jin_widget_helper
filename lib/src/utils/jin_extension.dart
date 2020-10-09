@@ -3,8 +3,12 @@ import 'package:intl/intl.dart';
 import 'jin_utils.dart';
 
 extension DateUtils on DateTime {
-  String formatDate([String format = "dd MMM yyyy"]) {
-    var formatter = DateFormat(format);
+  String formatDate([String format = "dd MMM yyyy", Locale locale]) {
+    String localeCode;
+    if (locale != null) {
+      localeCode = locale.languageCode;
+    }
+    var formatter = DateFormat(format, localeCode);
     return formatter.format(this);
   }
 
@@ -133,26 +137,26 @@ extension WidgetExtension on Widget {
     if (padding.isNotEmpty)
       switch (padding.length) {
         case 1:
-          definePadding = EdgeInsets.all(margin.elementAt(0));
+          definePadding = EdgeInsets.all(padding.elementAt(0));
           break;
         case 2:
           definePadding = EdgeInsets.symmetric(
-              vertical: margin.elementAt(0), horizontal: margin.elementAt(1));
+              vertical: padding.elementAt(0), horizontal: padding.elementAt(1));
           break;
 
         case 3:
-          defineMargin = EdgeInsets.only(
-              top: margin.elementAt(0),
-              right: margin.elementAt(1),
-              bottom: margin.elementAt(2));
+          definePadding = EdgeInsets.only(
+              top: padding.elementAt(0),
+              right: padding.elementAt(1),
+              bottom: padding.elementAt(2));
           break;
 
         default:
           definePadding = EdgeInsets.only(
-              top: margin.elementAt(0),
-              right: margin.elementAt(1),
-              bottom: margin.elementAt(2),
-              left: margin.elementAt(3));
+              top: padding.elementAt(0),
+              right: padding.elementAt(1),
+              bottom: padding.elementAt(2),
+              left: padding.elementAt(3));
           break;
       }
 
