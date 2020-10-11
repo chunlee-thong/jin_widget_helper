@@ -20,7 +20,7 @@ class BadgeButton extends StatelessWidget {
     this.padding = const EdgeInsets.all(8),
     this.badgeColor,
     this.onTap,
-    this.showBadge = true,
+    @required this.showBadge,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ class MiniListTile extends StatelessWidget {
   final Function onTap;
   final EdgeInsets padding;
   final EdgeInsets margin;
-  final Decoration decoration;
+  final BoxDecoration decoration;
   final CrossAxisAlignment aligment;
   final Widget separator;
 

@@ -28,7 +28,7 @@ extension DateUtils on DateTime {
 }
 
 extension StringExtension on String {
-  String firstUpperCase() {
+  String capitalize() {
     return this[0].toUpperCase() + this.substring(1, this.length);
   }
 }

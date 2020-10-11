@@ -32,6 +32,7 @@ class _JinExpandableCardState extends State<JinExpandableCard>
 
   void toggle() {
     if (controller.isAnimating) {
+      return;
     } else if (controller.isCompleted) {
       if (widget.onToggle != null) widget.onToggle(false);
       controller.reverse();

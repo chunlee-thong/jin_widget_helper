@@ -36,7 +36,7 @@ class StreamHandler<T> extends StatelessWidget {
         } else if (snapshot.hasError) {
           if (error != null)
             return Center(
-              child: error(snapshot.error.toString()),
+              child: error(snapshot.error),
             );
           return Center(
             child: Text(

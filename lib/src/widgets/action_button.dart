@@ -5,7 +5,7 @@ import 'package:jin_widget_helper/src/widgets/spacing.dart';
 class ActionButton extends StatelessWidget {
   ///recieve a ValueNotifier to indicate wether to show the loading or child
   final ValueNotifier<bool> loadingNotifier;
-  final void Function() onPressed;
+  final VoidCallback onPressed;
   final Function onLongPressed;
   final double elevation;
   //Button's background Color

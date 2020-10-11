@@ -21,6 +21,7 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             JinLoadingButton(
               onPressed: doingOperation,

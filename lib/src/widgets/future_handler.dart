@@ -11,7 +11,7 @@ class FutureHandler<T> extends StatelessWidget {
   final T initialData;
 
   ///On snapshot error callback
-  final Widget Function(String) error;
+  final Widget Function(dynamic) error;
 
   ///Create a futurebuilder with less boilerplate code
   const FutureHandler({
@@ -32,7 +32,7 @@ class FutureHandler<T> extends StatelessWidget {
         } else if (snapshot.hasError) {
           if (error != null)
             return Center(
-              child: error(snapshot.error.toString()),
+              child: error(snapshot.error),
             );
           return Center(
             child: Text(

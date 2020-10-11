@@ -27,6 +27,8 @@ dependencies:
 | JinAccordian          | A customizable ExpansionTile                                            |
 | JinExpandableCard     | A card with top and bottom widget                                       |
 | JinConfirmationDialog | A dialog with cancel and confirm action                                 |
+| JinMediaCard          | A customizable Card with media (usually image)                          |
+| JinLoadingButton      | A Loading button without using ValueNotifier                            |
 | JinPlatformChecker    | Provide a widget base on Android or iOS platform                        |
 | JinSimpleDialog       | A simple alert dialog                                                   |
 | MiniListTle           | An easy customizable ListTile                                           |
@@ -189,8 +191,6 @@ var result = await JinNavigator.dialog(MyDialog());
 ### JinWidget
 
 ```dart
-JinWidget.verticalSpace(12) //A SizedBox with value as height, default value is 8
-JinWidget.horizontalSpace(16) //A SizedBox with value as width, default value is 8
 RoundedRectangleBorder roundRectangle = JinWidget.roundRect(12);
 BorderRadius radius = JinWidget.radius(12); //default value is 8
 ```

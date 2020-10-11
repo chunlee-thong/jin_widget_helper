@@ -39,7 +39,7 @@ class CustomBackButton extends StatelessWidget {
       child: Container(
         color: backgroundColor,
         alignment: Alignment.center,
-        height: AppBar().preferredSize.height,
+        height: kToolbarHeight,
         child: Stack(
           children: <Widget>[
             Align(
