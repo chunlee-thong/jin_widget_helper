@@ -15,30 +15,34 @@ dependencies:
 
 # Widgets
 
-| Widget                | Description                                                             |
-| --------------------- | ----------------------------------------------------------------------- |
-| ActionButton          | A Simple RaisedButton with loading notifier                             |
-| BadgeButton           | A small icon button with badge (like notification badge)                |
-| ChoiceBottomSheet     | A Cupertino bottom sheet                                                |
-| ConditionalWidget     | Provide a widget base on condition true or false                        |
-| ConnectionChecker     | A widget to check internet connection and provide onNoInternet callback |
-| CustomBackButton      | A custom back button with title (header)                                |
-| FutureHandler         | A FutureBuilder with less boilerplate code                              |
-| JinAccordian          | A customizable ExpansionTile                                            |
-| JinExpandableCard     | A card with top and bottom widget                                       |
-| JinConfirmationDialog | A dialog with cancel and confirm action                                 |
-| JinMediaCard          | A customizable Card with media (usually image)                          |
-| JinLoadingButton      | A Loading button without using ValueNotifier                            |
-| JinPlatformChecker    | Provide a widget base on Android or iOS platform                        |
-| JinSimpleDialog       | A simple alert dialog                                                   |
-| MiniListTle           | An easy customizable ListTile                                           |
-| PaginatedListView     | A Listview.Builder with pagination support                              |
-| SmallIconButton       | A small alternative to Flutter's IconButton                             |
-| SmallFlatButton       | A small alternative to Flutter's FlatButton                             |
-| SpaceX                | SizedBox with width (equivalent to JinWidget.horizontalSpace())         |
-| SpaceY                | SizedBox with height (equivalent to JinWidget.verticalSpace())          |
-| StreamHandler         | A Streambuilder with less boilerplate code                              |
-| ValueObserver         | A ValueListenableBuilder with lest boilerplate code                     |
+| Widget                                  | Description                                                             |
+| --------------------------------------- | ----------------------------------------------------------------------- |
+| [ActionButton][otherbuttoexample]       | A Simple RaisedButton with loading notifier                             |
+| [BadgeButton][otherbuttoexample]        | A small icon button with badge (like notification badge)                |
+| ChoiceBottomSheet                       | A Cupertino bottom sheet                                                |
+| ConditionalWidget                       | Provide a widget base on condition true or false                        |
+| ConnectionChecker                       | A widget to check internet connection and provide onNoInternet callback |
+| [CustomBackButton][otherbuttoexample]   | A custom back button with title (header)                                |
+| FutureHandler                           | A FutureBuilder with less boilerplate code                              |
+| JinAccordian                            | A customizable ExpansionTile                                            |
+| JinExpandableCard                       | A card with top and bottom widget                                       |
+| JinConfirmationDialog                   | A dialog with cancel and confirm action                                 |
+| [JinMediaCard][jinmediacardurl]         | A customizable Card with media                                          |
+| [JinLoadingButton][jinloadingbuttonurl] | A Loading button without using ValueNotifier                            |
+| JinPlatformChecker                      | Provide a widget base on Android or iOS platform                        |
+| JinSimpleDialog                         | A simple alert dialog                                                   |
+| MiniListTle                             | An easy customizable ListTile                                           |
+| PaginatedListView                       | A Listview.separated with pagination support                            |
+| [SmallIconButton][otherbuttoexample]    | A small alternative to Flutter's IconButton                             |
+| [SmallFlatButton][otherbuttoexample]    | A small alternative to Flutter's FlatButton                             |
+| SpaceX                                  | SizedBox with only width                                                |
+| SpaceY                                  | SizedBox with only height                                               |
+| StreamHandler                           | A Streambuilder with less boilerplate code                              |
+| ValueObserver                           | A ValueListenableBuilder with lest boilerplate code                     |
+
+[jinloadingbuttonurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/widgets/jin_loading_button_example.dart
+[otherbuttonurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/widgets/other_button_example.dart
+[jinmediacardurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/widgets/jin_media_card_example.dart
 
 # Mixin
 
@@ -118,7 +122,7 @@ DateTime.now().formatToLocalDate("dd mmm yyyy")
 ### String extension
 
 ```dart
-String name = "chunlee".firstUpperCase() // => Chunlee
+String name = "chunlee".capitalize() // => Chunlee
 ```
 
 ### Object extension
@@ -194,5 +198,3 @@ var result = await JinNavigator.dialog(MyDialog());
 RoundedRectangleBorder roundRectangle = JinWidget.roundRect(12);
 BorderRadius radius = JinWidget.radius(12); //default value is 8
 ```
-
-# Todo

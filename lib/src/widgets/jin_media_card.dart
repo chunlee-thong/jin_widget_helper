@@ -64,7 +64,7 @@ class JinMediaCard extends StatelessWidget {
 
     return Container(
       margin: margin,
-      height: height(size),
+      height: height?.call(size),
       width: width?.call(size) ?? size.width,
       decoration: containerDecoration,
       child: Material(
@@ -90,10 +90,13 @@ class JinMediaCard extends StatelessWidget {
                     children: [
                       Expanded(
                         child: mediaBuilder,
-                        flex: mediaFlexSize ?? 2,
+                        flex: mediaFlexSize ?? 1,
                       ),
                       SizedBox(height: mainAxisSpacing),
-                      infoBuilder,
+                      Flexible(
+                        child: infoBuilder,
+                        flex: 1,
+                      ),
                     ],
                   ),
           ),
@@ -106,14 +109,14 @@ class JinMediaCard extends StatelessWidget {
 class MediaBuilder extends StatelessWidget {
   final double Function(double screenWidth) width;
   final Color color;
-  final double radius;
+  final BorderRadius radius;
   final Widget child;
   const MediaBuilder({
     Key key,
     @required this.width,
     @required this.child,
     this.color = Colors.transparent,
-    this.radius = 0.0,
+    this.radius = BorderRadius.zero,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -122,7 +125,7 @@ class MediaBuilder extends StatelessWidget {
       width: width(screenWidth),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: JinWidget.radius(radius),
+        borderRadius: radius,
       ),
       alignment: Alignment.center,
       child: SizedBox.expand(child: child),

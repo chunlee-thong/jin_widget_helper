@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
 import 'package:jin_widget_helper_example/widgets/jin_extension_example.dart';
 import 'package:jin_widget_helper_example/widgets/jin_loading_button_example.dart';
+import 'package:jin_widget_helper_example/widgets/jin_media_card_example.dart';
 import 'package:jin_widget_helper_example/widgets/other_button_example.dart';
 
 void main() => runApp(MyApp());
@@ -42,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
     ExampleButton(
         name: "Other Buttons example example", child: OtherButtonExample()),
     ExampleButton(name: "JinExtension Example", child: JinExtensionExample()),
+    ExampleButton(name: "JinMediaCardExample", child: JinMediaCardExample()),
   ];
 
   @override
