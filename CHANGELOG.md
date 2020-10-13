@@ -1,3 +1,17 @@
+## [1.4.8] - 28 September 2020
+
+- Add JinMediaCard
+- Add JinLoadingButton
+- Add LoadingMixin - a mixin with a bool ValueNotifier and toggleLoading function
+- Add divider and onEmpty to PaginatedListview
+- StreamHanndler And FutureHanlder error param now is a dynamic instead of string
+- Fix CustomBackButton doesn't work properly
+- Fix cssSpacing
+- Add Locale to formatDate
+- more extension improvement
+- Update more example
+- Update README for example
+
 ## [1.4.7] - 28 September 2020
 
 - BREAKING CHANGE:

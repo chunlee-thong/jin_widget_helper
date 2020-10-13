@@ -15,7 +15,7 @@ class StreamHandler<T> extends StatelessWidget {
   final T initialData;
 
   ///On snapshot error callback
-  final Widget Function(String) error;
+  final Widget Function(dynamic) error;
 
   ///create a streambuilder with less boilerplate code
   const StreamHandler({
