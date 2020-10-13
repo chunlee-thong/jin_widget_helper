@@ -9,12 +9,16 @@ class JinLoadingButtonExample extends StatefulWidget {
 }
 
 class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
+  JinLoadingDialog jinLoadingDialog;
   Future<void> doingOperation() async {
+    jinLoadingDialog.show(child: Text("Loading..."));
     await Future.delayed(Duration(seconds: 3));
+    jinLoadingDialog.hide();
   }
 
   @override
   Widget build(BuildContext context) {
+    jinLoadingDialog = JinLoadingDialog(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("JinLoadingButton example"),
