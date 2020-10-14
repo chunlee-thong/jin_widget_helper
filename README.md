@@ -17,12 +17,12 @@ dependencies:
 
 | Widget                                  | Description                                                             |
 | --------------------------------------- | ----------------------------------------------------------------------- |
-| [ActionButton][otherbuttoexample]       | A Simple RaisedButton with loading notifier                             |
-| [BadgeButton][otherbuttoexample]        | A small icon button with badge (like notification badge)                |
+| [ActionButton][otherbuttonurl]          | A Simple RaisedButton with loading notifier                             |
+| [BadgeButton][otherbuttonurl]           | A small icon button with badge (like notification badge)                |
 | ChoiceBottomSheet                       | A Cupertino bottom sheet                                                |
 | ConditionalWidget                       | Provide a widget base on condition true or false                        |
 | ConnectionChecker                       | A widget to check internet connection and provide onNoInternet callback |
-| [CustomBackButton][otherbuttoexample]   | A custom back button with title (header)                                |
+| [CustomBackButton][otherbuttonurl]      | A custom back button with title (header)                                |
 | FutureHandler                           | A FutureBuilder with less boilerplate code                              |
 | JinAccordian                            | A customizable ExpansionTile                                            |
 | JinExpandableCard                       | A card with top and bottom widget                                       |
@@ -33,8 +33,8 @@ dependencies:
 | JinSimpleDialog                         | A simple alert dialog                                                   |
 | MiniListTle                             | An easy customizable ListTile                                           |
 | PaginatedListView                       | A Listview.separated with pagination support                            |
-| [SmallIconButton][otherbuttoexample]    | A small alternative to Flutter's IconButton                             |
-| [SmallFlatButton][otherbuttoexample]    | A small alternative to Flutter's FlatButton                             |
+| [SmallIconButton][otherbuttonurl]       | A small alternative to Flutter's IconButton                             |
+| [SmallFlatButton][otherbuttonurl]       | A small alternative to Flutter's FlatButton                             |
 | SpaceX                                  | SizedBox with only width                                                |
 | SpaceY                                  | SizedBox with only height                                               |
 | StreamHandler                           | A Streambuilder with less boilerplate code                              |
