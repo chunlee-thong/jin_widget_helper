@@ -20,4 +20,8 @@ class PageNavigator {
       (dynamic) => false,
     );
   }
+
+  static void pop<T>(BuildContext context, [T result]) {
+    Navigator.of(context).pop(result);
+  }
 }

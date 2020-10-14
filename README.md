@@ -29,7 +29,7 @@ dependencies:
 | [JinConfirmationDialog][sheet-dialog]      | A dialog with cancel and confirm action                                 |
 | [JinMediaCard][jinmediacardurl]            | A customizable Card with media                                          |
 | [JinLoadingButton][jinloadingbuttonurl]    | A Loading button without using ValueNotifier                            |
-| [JinLoadingDialog]                         | A Class for showing dialog                                              |
+| [JinLoadingDialog][sheet-dialog]           | A Class for showing dialog                                              |
 | JinPlatformChecker                         | Provide a widget base on Android or iOS platform                        |
 | [JinSimpleDialog][sheet-dialog]            | A simple alert dialog                                                   |
 | MiniListTile                               | An easy customizable ListTile                                           |

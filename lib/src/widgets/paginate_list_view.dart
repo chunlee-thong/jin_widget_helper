@@ -11,7 +11,7 @@ class PaginatedListView extends StatefulWidget {
   final Widget onEmpty;
 
   ///callback for getting more data when ScrollController reach mex scrolExtends
-  final Function onGetMoreData;
+  final Future<void> Function() onGetMoreData;
 
   ///condition to check if we still have more data to fetch
   ///Example: currentItems == totalItems or currentPage == totalPages
@@ -24,11 +24,11 @@ class PaginatedListView extends StatefulWidget {
     @required this.itemCount,
     @required this.itemBuilder,
     @required this.onGetMoreData,
+    this.hasMoreData = false,
     this.physics = const ClampingScrollPhysics(),
     this.shrinkWrap = false,
-    this.hasMoreData = true,
     this.loadingWidget = const CircularProgressIndicator(),
-    this.padding,
+    this.padding = const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
     this.scrollDirection = Axis.vertical,
     this.divider,
     this.onEmpty,
@@ -39,13 +39,19 @@ class PaginatedListView extends StatefulWidget {
 
 class _PaginatedListViewState extends State<PaginatedListView> {
   ScrollController scrollController;
-
+  bool _isLoading = false;
   void scrollListener() {
     if (scrollController.offset >= scrollController.position.maxScrollExtent) {
-      if (widget.hasMoreData) {
-        widget.onGetMoreData();
-      }
+      if (widget.hasMoreData) onLoadingMoreData();
     }
+  }
+
+  void onLoadingMoreData() async {
+    //Prevent from loading more data if we're currenty loading
+    if (_isLoading == true) return;
+    _isLoading = true;
+    await widget.onGetMoreData();
+    _isLoading = false;
   }
 
   @override
@@ -69,11 +75,7 @@ class _PaginatedListViewState extends State<PaginatedListView> {
       separatorBuilder: (context, index) => widget.divider ?? SizedBox(),
       itemCount: widget.itemCount + 1,
       controller: scrollController,
-      padding: widget.padding ??
-          EdgeInsets.symmetric(
-            vertical: 16,
-            horizontal: 12,
-          ),
+      padding: widget.padding,
       scrollDirection: widget.scrollDirection,
       physics: widget.physics,
       shrinkWrap: widget.shrinkWrap,
