@@ -27,8 +27,8 @@ class CupertinoOptionActionSheet extends StatelessWidget {
         return CupertinoActionSheetAction(
           child: Text(option),
           onPressed: () {
-            onSelected?.call(option, index);
             Navigator.pop(context, index);
+            onSelected?.call(option, index);
           },
         );
       }).toList(),

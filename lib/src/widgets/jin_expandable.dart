@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 ///A widget that provide that can hide bottomContent
-class JinExpandableCard extends StatefulWidget {
+class JinExpandable extends StatefulWidget {
   final Widget topChild;
   final Widget bottomChild;
   final Duration duration;
   final EdgeInsets padding;
   final EdgeInsets margin;
   final Curve curve;
-  final bool isExpand;
+  final bool initiallyExpand;
   final Function(bool) onToggle;
-  const JinExpandableCard({
+  const JinExpandable({
     Key key,
     @required this.topChild,
     @required this.bottomChild,
-    this.isExpand = false,
+    this.initiallyExpand = false,
     this.duration = const Duration(milliseconds: 200),
     this.padding = const EdgeInsets.all(16),
     this.curve = Curves.linear,
@@ -22,10 +22,10 @@ class JinExpandableCard extends StatefulWidget {
     this.onToggle,
   }) : super(key: key);
   @override
-  _JinExpandableCardState createState() => _JinExpandableCardState();
+  _JinExpandableState createState() => _JinExpandableState();
 }
 
-class _JinExpandableCardState extends State<JinExpandableCard>
+class _JinExpandableState extends State<JinExpandable>
     with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<double> size;
@@ -49,7 +49,7 @@ class _JinExpandableCardState extends State<JinExpandableCard>
       duration: widget.duration,
     );
     size = CurvedAnimation(curve: widget.curve, parent: controller);
-    if (widget.isExpand) controller.forward();
+    if (widget.initiallyExpand) controller.forward();
     super.initState();
   }
 
@@ -60,8 +60,8 @@ class _JinExpandableCardState extends State<JinExpandableCard>
   }
 
   @override
-  void didUpdateWidget(JinExpandableCard oldWidget) {
-    if (widget.isExpand != oldWidget.isExpand) toggle();
+  void didUpdateWidget(JinExpandable oldWidget) {
+    if (widget.initiallyExpand != oldWidget.initiallyExpand) toggle();
     super.didUpdateWidget(oldWidget);
   }
 
@@ -69,6 +69,7 @@ class _JinExpandableCardState extends State<JinExpandableCard>
   Widget build(BuildContext context) {
     return Container(
       margin: widget.margin,
+      padding: widget.padding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

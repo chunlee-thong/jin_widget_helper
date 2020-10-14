@@ -1,4 +1,8 @@
-## [1.4.8] - 28 September 2020
+## [1.5.0] - 28 September 2020
+
+- BREAKING CHANGE:
+
+  - JinExpandableCard now rename to JinExpandable
 
 - Add JinMediaCard
 - Add JinLoadingButton
