@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
+import 'package:rxdart/rxdart.dart';
 
 class FutureAndStreamHandlerExample extends StatefulWidget {
   FutureAndStreamHandlerExample({Key key}) : super(key: key);
@@ -13,7 +14,7 @@ class FutureAndStreamHandlerExample extends StatefulWidget {
 
 class _FutureAndStreamHandlerExampleState
     extends State<FutureAndStreamHandlerExample> {
-  StreamController<int> numberController = StreamController();
+  BehaviorSubject<int> numberController = BehaviorSubject();
   Future<int> numberFuture;
 
   Future<int> fetchMyNumber() async {
@@ -77,6 +78,9 @@ class _FutureAndStreamHandlerExampleState
               padding: const EdgeInsets.all(32.0),
               child: StreamHandler<int>(
                 stream: numberController.stream,
+                onError: (error) {
+                  print(error.toString());
+                },
                 loading: CircularProgressIndicator(),
                 error: (error) => Column(
                   children: [
