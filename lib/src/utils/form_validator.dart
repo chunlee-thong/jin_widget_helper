@@ -1,16 +1,18 @@
 ///Rename the class from `FormValidator` tom `JinFormValidator` with reduce the conflic class Name wihthin the project if there's a custom validator
 class JinFormValidator {
-  static String validateSimpleField(String value) {
-    if (value.trim().isEmpty) return "Please input required field";
+  static String validateRequired(String value,
+      {String message = "Please input required field"}) {
+    if (value.trim().isEmpty) return message;
     return null;
   }
 
-  static String validateField(String value, String field) {
-    if (value.trim().isEmpty) return "Please input your $field";
+  static String validateRequiredField(String value, String field,
+      {String message}) {
+    if (value.trim().isEmpty) return message ?? "Please input your $field";
     return null;
   }
 
-  static String validateUsername(String value) {
+  static String validateUsername(String value, {String message}) {
     if (value.trim().isEmpty) return "Please a input your username";
     return RegExp(r"^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$").hasMatch(value)
         ? null

@@ -1,4 +1,4 @@
-## [1.5.0] - 28 September 2020
+## [1.5.0] - 15 Obtober 2020
 
 - BREAKING CHANGE:
 
@@ -8,7 +8,8 @@
 - Add JinLoadingButton
 - Add LoadingMixin - a mixin with a bool ValueNotifier and toggleLoading function
 - Add divider and onEmpty to PaginatedListview
-- StreamHanndler And FutureHanlder error param now is a dynamic instead of string
+- StreamHandler And FutureHandler error param now is a dynamic instead of string
+- Add onError field to StreamHandler
 - Fix CustomBackButton doesn't work properly
 - Fix cssSpacing
 - Add Locale to formatDate

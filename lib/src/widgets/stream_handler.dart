@@ -19,6 +19,7 @@ class StreamHandler<T> extends StatefulWidget {
   ///On snapshot error callback
   final Widget Function(dynamic) error;
 
+  ///A function call when stream has an error
   final Function(dynamic) onError;
 
   ///create a streambuilder with less boilerplate code
@@ -40,10 +41,8 @@ class _StreamHandlerState<T> extends State<StreamHandler<T>> {
   @override
   void initState() {
     if (widget.onError != null) {
-      widget.stream.asBroadcastStream().listen((data) {}, onError: (error) {
-        widget.onError(error);
-      });
-      //subscription.onError();
+      subscription = widget.stream.asBroadcastStream().listen((data) {});
+      subscription.onError((error) => widget.onError(error));
     }
     super.initState();
   }
@@ -75,7 +74,8 @@ class _StreamHandlerState<T> extends State<StreamHandler<T>> {
           );
         } else {
           return Center(
-              child: widget.loading ?? JinWidget.platformLoadingWidget());
+            child: widget.loading ?? JinWidget.platformLoadingWidget(),
+          );
         }
       },
     );

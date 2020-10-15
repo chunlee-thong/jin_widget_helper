@@ -15,6 +15,9 @@ class _PaginatedWidgetExampleState extends State<PaginatedWidgetExample> {
   ResourceModel resourceModel;
   BehaviorSubject<List<ResourceData>> resourceController = BehaviorSubject();
   int currentPage = 1;
+
+  bool usingGrid = true;
+
   Future<void> fetchAllResources() async {
     try {
       await Future.delayed(Duration(seconds: 2));
@@ -55,6 +58,20 @@ class _PaginatedWidgetExampleState extends State<PaginatedWidgetExample> {
         child: StreamHandler<List<ResourceData>>(
           stream: resourceController.stream,
           ready: (data) {
+            if (usingGrid) {
+              return PaginatedGridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemCount: data.length,
+                hasMoreData: currentPage <= resourceModel?.totalPages ?? 10,
+                onGetMoreData: fetchAllResources,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: Center(child: Text(data[index].name)),
+                  );
+                },
+              );
+            }
             return PaginatedListView(
               itemCount: data.length,
               hasMoreData: currentPage <= resourceModel?.totalPages ?? 10,

@@ -71,6 +71,30 @@ class _HomePageState extends State<NewPage> with AfterBuildMixin {
 
 ```
 
+### FormMixin
+
+#### field and attribute
+
+- **formKey**: a key for form
+- **loadingNotifier**: a bool ValueNotifier
+- **passwordObsecureNotifier**: a bool ValueNotitifer for toggling password obsecure field
+- **isFormValidated**: a bool return by validate **formKey**
+
+#### method
+
+- **toggleLoading**: toggle _loadingNotifier_
+- **togglePasswordObsecure**: toggle _passwordObsecureNotifier_
+
+```dart
+class _HomePageState extends State<NewPage> with FormMixin {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+```
+
 # Widget's Extension
 
 ### padding, margin

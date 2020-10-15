@@ -90,7 +90,11 @@ class _PaginatedGridViewState extends State<PaginatedGridView> {
                       child: Center(child: widget.loadingWidget),
                     )
                   : const SizedBox(),
-              onFalse: const SizedBox(),
+
+              /// Add height to preserve loading widget height
+              onFalse: const SizedBox(
+                height: 0,
+              ),
             );
           },
         ),
