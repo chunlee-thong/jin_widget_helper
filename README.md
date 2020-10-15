@@ -20,8 +20,8 @@ dependencies:
 | [ActionButton][otherbuttonurl]             | A Simple RaisedButton with loading notifier                             |
 | [BadgeButton][otherbuttonurl]              | A small icon button with badge (like notification badge)                |
 | [CupertinoOptionActionSheet][sheet-dialog] | A Cupertino bottom sheet with option                                    |
-| ConditionalWidget                          | Provide a widget base on condition true or false                        |
-| ConnectionChecker                          | A widget to check internet connection and provide onNoInternet callback |
+| [ConditionalWidget][other]                 | Provide a widget base on condition true or false                        |
+| [ConnectionChecker][other]                 | A widget to check internet connection and provide onNoInternet callback |
 | [CustomBackButton][otherbuttonurl]         | A custom back button with title (header)                                |
 | [FutureHandler][streamfutureurl]           | A FutureBuilder with less boilerplate code                              |
 | [JinAccordian][accordin-expandable]        | A customizable ExpansionTile                                            |
@@ -30,16 +30,16 @@ dependencies:
 | [JinMediaCard][jinmediacardurl]            | A customizable Card with media                                          |
 | [JinLoadingButton][jinloadingbuttonurl]    | A Loading button without using ValueNotifier                            |
 | [JinLoadingDialog][sheet-dialog]           | A Class for showing dialog                                              |
-| JinPlatformChecker                         | Provide a widget base on Android or iOS platform                        |
+| [JinPlatformChecker][other]                | Provide a widget base on Android or iOS platform                        |
 | [JinSimpleDialog][sheet-dialog]            | A simple alert dialog                                                   |
-| MiniListTile                               | An easy customizable ListTile                                           |
-| PaginatedListView                          | A Listview.separated with pagination support                            |
+| [MiniListTile][other]                      | An easy customizable ListTile                                           |
+| [PaginatedListView][paginated]             | A Listview.separated with pagination support                            |
 | [SmallIconButton][otherbuttonurl]          | A small alternative to Flutter's IconButton                             |
 | [SmallFlatButton][otherbuttonurl]          | A small alternative to Flutter's FlatButton                             |
-| SpaceX                                     | SizedBox with only width                                                |
-| SpaceY                                     | SizedBox with only height                                               |
+| [SpaceX][other]                            | SizedBox with only width                                                |
+| [SpaceY][other]                            | SizedBox with only height                                               |
 | [StreamHandler][streamfutureurl]           | A Streambuilder with less boilerplate code                              |
-| ValueObserver                              | A ValueListenableBuilder with lest boilerplate code                     |
+| [ValueObserver][other]                     | A ValueListenableBuilder with lest boilerplate code                     |
 
 [jinloadingbuttonurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/jin_loading_button_example.dart
 [otherbuttonurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/other_button_example.dart
@@ -47,6 +47,8 @@ dependencies:
 [streamfutureurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/future_stream_handler_example.dart
 [accordin-expandable]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/jin_accordion_and_jin_expandable_card.dart
 [sheet-dialog]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/dialog_sheet_example.dart
+[paginated]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/paginated_widget_example.dart
+[other]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/other_widget_example.dart
 
 # Mixin
 

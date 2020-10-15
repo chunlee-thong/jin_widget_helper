@@ -16,6 +16,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   dio: any
   rxdart: ^0.24.1
+  toast: ^0.1.5
 
 dev_dependencies:
   flutter_test:
