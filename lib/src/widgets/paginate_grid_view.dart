@@ -34,7 +34,6 @@ class _PaginatedGridViewState extends State<PaginatedGridView> {
   ScrollController scrollController;
   final ValueNotifier isLoading = ValueNotifier<bool>(false);
   void scrollListener() {
-    //print(scrollController.position.maxScrollExtent);
     if (scrollController.offset >= scrollController.position.maxScrollExtent) {
       if (widget.hasMoreData) {
         onLoadingMoreData();
@@ -90,11 +89,7 @@ class _PaginatedGridViewState extends State<PaginatedGridView> {
                       child: Center(child: widget.loadingWidget),
                     )
                   : const SizedBox(),
-
-              /// Add height to preserve loading widget height
-              onFalse: const SizedBox(
-                height: 0,
-              ),
+              onFalse: const SizedBox(),
             );
           },
         ),

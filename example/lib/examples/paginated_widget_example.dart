@@ -61,7 +61,9 @@ class _PaginatedWidgetExampleState extends State<PaginatedWidgetExample> {
             if (usingGrid) {
               return PaginatedGridView(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                  crossAxisCount: 2,
+                  childAspectRatio: 1,
+                ),
                 itemCount: data.length,
                 hasMoreData: currentPage <= resourceModel?.totalPages ?? 10,
                 onGetMoreData: fetchAllResources,

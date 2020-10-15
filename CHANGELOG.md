@@ -6,6 +6,7 @@
 
 - Add JinMediaCard
 - Add JinLoadingButton
+- Add PaginatedGridView
 - Add LoadingMixin - a mixin with a bool ValueNotifier and toggleLoading function
 - Add divider and onEmpty to PaginatedListview
 - StreamHandler And FutureHandler error param now is a dynamic instead of string
