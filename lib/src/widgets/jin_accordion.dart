@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../jin_widget_helper.dart';
 
 enum IconPosition {
@@ -70,8 +71,10 @@ class _JinAccordionState extends State<JinAccordion>
 
   @override
   void initState() {
-    controller =
-        AnimationController(vsync: this, duration: widget.animationDuration);
+    controller = AnimationController(
+      vsync: this,
+      duration: widget.animationDuration,
+    );
     size = CurvedAnimation(curve: widget.curve, parent: controller);
     rotation = Tween<double>(begin: 0.0, end: 0.5).animate(controller);
     if (widget.initiallyExpand) {

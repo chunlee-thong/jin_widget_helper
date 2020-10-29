@@ -62,10 +62,7 @@ class _StreamHandlerState<T> extends State<StreamHandler<T>> {
         if (snapshot.hasData) {
           return widget.ready(snapshot.data);
         } else if (snapshot.hasError) {
-          if (widget.error != null)
-            return Center(
-              child: widget.error(snapshot.error),
-            );
+          if (widget.error != null) return widget.error(snapshot.error);
           return Center(
             child: Text(
               snapshot.error.toString(),
@@ -73,9 +70,8 @@ class _StreamHandlerState<T> extends State<StreamHandler<T>> {
             ),
           );
         } else {
-          return Center(
-            child: widget.loading ?? JinWidget.platformLoadingWidget(),
-          );
+          if (widget.loading != null) return widget.loading;
+          return Center(child: JinWidget.platformLoadingWidget());
         }
       },
     );

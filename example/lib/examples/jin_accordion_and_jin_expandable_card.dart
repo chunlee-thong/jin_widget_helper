@@ -20,7 +20,7 @@ class _JinAccordionAndJinExpandableState
         child: Column(
           children: [
             JinAccordion(
-              initiallyExpand: false,
+              initiallyExpand: true,
               icon: Icon(Icons.arrow_circle_down_rounded),
               onToggle: (value) {},
               iconPosition: IconPosition.End,
