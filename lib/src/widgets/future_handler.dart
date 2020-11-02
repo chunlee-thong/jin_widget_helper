@@ -30,10 +30,7 @@ class FutureHandler<T> extends StatelessWidget {
         if (snapshot.hasData) {
           return ready(snapshot.data);
         } else if (snapshot.hasError) {
-          if (error != null)
-            return Center(
-              child: error(snapshot.error),
-            );
+          if (error != null) return error(snapshot.error);
           return Center(
             child: Text(
               snapshot.error.toString(),
@@ -41,7 +38,8 @@ class FutureHandler<T> extends StatelessWidget {
             ),
           );
         } else {
-          return Center(child: loading ?? JinWidget.platformLoadingWidget());
+          if (loading != null) return loading;
+          return Center(child: JinWidget.platformLoadingWidget());
         }
       },
     );

@@ -77,6 +77,11 @@ class _OtherWidgetsExampleState extends State<OtherWidgetsExample> {
                 return Text("You have click $value time");
               },
             ),
+            SpaceY(24),
+            Text(
+              Duration(minutes: 3, seconds: 32, milliseconds: 245)
+                  .formatDuration(hasMillisecond: true),
+            ),
           ],
         ),
       ),

@@ -1,3 +1,10 @@
+## [1.5.1] - 02 November 2021
+
+- Fix [JinAccordion issue](https://github.com/chunlee-thong/jin_widget_helper/issues/3)
+- Extension improvement
+- improve StreamHandler and FutureHandler error widget
+- update dependency package
+
 ## [1.5.0] - 15 Obtober 2020
 
 - BREAKING CHANGE:

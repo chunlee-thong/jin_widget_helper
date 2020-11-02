@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'jin_utils.dart';
 
 extension DateUtils on DateTime {
@@ -21,8 +22,12 @@ extension DateUtils on DateTime {
     return false;
   }
 
-  String formatToLocalDate([String format = "dd MMM yyyy"]) {
-    var formatter = DateFormat(format);
+  String formatToLocalDate([String format = "dd MMM yyyy", Locale locale]) {
+    String localeCode;
+    if (locale != null) {
+      localeCode = locale.languageCode;
+    }
+    var formatter = DateFormat(format, localeCode);
     return formatter.format(this.toLocal());
   }
 }
@@ -245,27 +250,23 @@ extension ContextExtension on BuildContext {
 }
 
 extension DurationExtension on Duration {
-  String formatDuration() {
+  String formatDuration({
+    bool hasHour = true,
+    bool hasMillisecond = false,
+  }) {
     //if the digit is single digit, add 0 in front of it
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     //
     String twoDigitMinutes = twoDigits(this.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(this.inSeconds.remainder(60));
-    return "${twoDigits(this.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
-  }
-}
+    String twoDigitMillisecond = twoDigits(this.inMilliseconds.remainder(1000));
 
-extension LoadingExtension on Function {
-  Future<void> indicateLoading(
-      {@required ValueNotifier<bool> loadingNotifier,
-      Function(String) onError}) async {
-    try {
-      loadingNotifier.value = true;
-      await this();
-    } catch (e) {
-      onError(e.toString());
-    } finally {
-      loadingNotifier.value = false;
+    if (hasMillisecond) {
+      return "$twoDigitMinutes:$twoDigitSeconds:$twoDigitMillisecond";
+    } else if (hasHour) {
+      return "${twoDigits(this.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
+    } else {
+      return "$twoDigitMinutes:$twoDigitSeconds";
     }
   }
 }
