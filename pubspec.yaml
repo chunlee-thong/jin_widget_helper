@@ -1,6 +1,6 @@
 name: jin_widget_helper
 description: A Flutter package that contain many UI and Utility helper that help decrease your development time on creating custom Widget.
-version: 1.5.1
+version: 1.5.2
 homepage: https://github.com/Chunlee17/jin_widget_helper
 
 environment:

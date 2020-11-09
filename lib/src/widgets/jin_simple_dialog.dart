@@ -32,7 +32,7 @@ class JinSimpleDialog extends StatelessWidget {
         CupertinoDialogAction(
           child: Text(confirmText),
           onPressed: () {
-            if (onConfirm != null) onConfirm();
+            onConfirm?.call();
             Navigator.of(context).pop(true);
           },
         ),
@@ -49,7 +49,7 @@ class JinSimpleDialog extends StatelessWidget {
         FlatButton(
           child: Text(confirmText),
           onPressed: () {
-            if (onConfirm != null) onConfirm();
+            onConfirm?.call();
             Navigator.of(context).pop(true);
           },
         ),

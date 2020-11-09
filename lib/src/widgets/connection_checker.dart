@@ -42,9 +42,7 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
   void checkConnectionStream() async {
     try {
       bool connection = await JinUtils.checkConnection();
-      if (widget.onConnectionChange != null) {
-        await widget.onConnectionChange(connection);
-      }
+      await widget.onConnectionChange?.call(connection);
       connectionStream.add(connection);
     } catch (e) {
       connectionStream.addError(e.toString());
@@ -94,7 +92,7 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
         } else if (snapshot.hasError) {
           return Center(child: noInternetWidget);
         } else {
-          return Center(child: CircularProgressIndicator());
+          return Center(child: JinWidget.platformLoadingWidget());
         }
       },
     );

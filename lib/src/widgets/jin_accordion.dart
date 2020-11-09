@@ -75,11 +75,11 @@ class _JinAccordionState extends State<JinAccordion>
       vsync: this,
       duration: widget.animationDuration,
     );
-    size = CurvedAnimation(curve: widget.curve, parent: controller);
-    rotation = Tween<double>(begin: 0.0, end: 0.5).animate(controller);
     if (widget.initiallyExpand) {
       widget.animatedOnStart ? controller.forward() : controller.value = 1.0;
     }
+    size = CurvedAnimation(curve: widget.curve, parent: controller);
+    rotation = Tween<double>(begin: 0.0, end: 0.5).animate(controller);
     super.initState();
   }
 

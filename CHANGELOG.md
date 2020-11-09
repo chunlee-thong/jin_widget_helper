@@ -1,6 +1,12 @@
-## [1.5.1] - 02 November 2021
+## [1.5.2] - 09 November 2021
 
 - Fix [JinAccordion issue](https://github.com/chunlee-thong/jin_widget_helper/issues/3)
+- add startIcon and endIcon to [JinLoadingButton][jinloadingbuttonurl]
+- add width and height to [JinLoadingButton][jinloadingbuttonurl]
+- CustomBackButton widget improvement
+
+## [1.5.1] - 02 November 2021
+
 - Extension improvement
 - improve StreamHandler and FutureHandler error widget
 - update dependency package
@@ -237,3 +243,12 @@
 ## [0.0.1] - 13 April 2020
 
 - Initial release
+
+[jinloadingbuttonurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/jin_loading_button_example.dart
+[otherbuttonurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/other_button_example.dart
+[jinmediacardurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/jin_media_card_example.dart
+[streamfutureurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/future_stream_handler_example.dart
+[accordin-expandable]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/jin_accordion_and_jin_expandable_card.dart
+[sheet-dialog]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/dialog_sheet_example.dart
+[paginated]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/paginated_widget_example.dart
+[other]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/other_widget_example.dart

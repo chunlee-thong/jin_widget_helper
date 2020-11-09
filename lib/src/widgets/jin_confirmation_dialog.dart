@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jin_widget_helper/src/widgets/jin_platform_checker.dart';
 import 'package:jin_widget_helper/src/utils/jin_extension.dart';
+import 'package:jin_widget_helper/src/widgets/jin_platform_checker.dart';
 
 class JinConfirmationDialog extends StatelessWidget {
   final String confirmText;
@@ -39,14 +39,14 @@ class JinConfirmationDialog extends StatelessWidget {
           isDestructiveAction: true,
           onPressed: () {
             Navigator.of(context).pop(false);
-            if (onCancel != null) onCancel();
+            onCancel?.call();
           },
         ),
         CupertinoDialogAction(
           child: Text(confirmText),
           onPressed: () {
             Navigator.of(context).pop(true);
-            if (onConfirm != null) onConfirm();
+            onConfirm?.call();
           },
         ),
       ],
@@ -66,14 +66,14 @@ class JinConfirmationDialog extends StatelessWidget {
           child: Text(cancelText),
           onPressed: () {
             Navigator.of(context).pop(false);
-            if (onCancel != null) onCancel();
+            onCancel?.call();
           },
         ),
         FlatButton(
           child: Text(confirmText),
           onPressed: () {
             Navigator.of(context).pop(true);
-            if (onConfirm != null) onConfirm();
+            onConfirm?.call();
           },
         ),
       ],

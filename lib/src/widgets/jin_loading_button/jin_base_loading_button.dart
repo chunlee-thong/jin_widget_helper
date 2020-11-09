@@ -4,7 +4,8 @@ import '../../../jin_widget_helper.dart';
 
 abstract class JinBaseLoadingButton extends StatefulWidget {
   final Widget child;
-  final Widget icon;
+  final Widget startIcon;
+  final Widget endIcon;
   final Widget loadingWidget;
   final Color loadingColor;
   final Future<void> Function() onPressed;
@@ -15,7 +16,8 @@ abstract class JinBaseLoadingButton extends StatefulWidget {
     @required this.child,
     this.loadingWidget,
     this.loadingColor,
-    this.icon,
+    this.startIcon,
+    this.endIcon,
   }) : super(key: key);
 }
 
@@ -56,8 +58,8 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
           if (isLoading) {
             return widget.loadingWidget ??
                 SizedBox(
-                  width: widget.icon != null ? 24 : 20,
-                  height: widget.icon != null ? 24 : 20,
+                  width: widget.startIcon != null ? 24 : 20,
+                  height: widget.startIcon != null ? 24 : 20,
                   child: JinWidget.platformLoadingWidget(
                       color: widget.loadingColor),
                 );
@@ -67,11 +69,15 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (widget.icon != null) ...[
-                  widget.icon,
+                if (widget.startIcon != null) ...[
+                  widget.startIcon,
                   SpaceX(),
                 ],
                 widget.child,
+                if (widget.endIcon != null) ...[
+                  SpaceX(),
+                  widget.endIcon,
+                ],
               ],
             );
           }

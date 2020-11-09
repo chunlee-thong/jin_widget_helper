@@ -40,6 +40,19 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
             ),
             JinLoadingButton(
               onPressed: doingOperation,
+              fullWidth: false,
+              width: 300,
+              height: 54,
+              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              elevation: 2,
+              loadingColor: Colors.white,
+              textColor: Colors.white,
+              shape: JinWidget.roundRect(),
+              child: Text("Custom width and height"),
+              platform: ButtonPlatForm.Material,
+            ),
+            JinLoadingButton(
+              onPressed: doingOperation,
               margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               elevation: 2,
               loadingColor: Colors.white,
@@ -49,6 +62,7 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
               platform: ButtonPlatForm.Material,
             ),
             JinLoadingButton(
+              startIcon: Icon(Icons.add),
               onPressed: doingOperation,
               color: Colors.blue,
               margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),

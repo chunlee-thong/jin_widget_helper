@@ -10,6 +10,7 @@ class JinExpandable extends StatefulWidget {
   final Curve curve;
   final bool initiallyExpand;
   final Function(bool) onToggle;
+  final bool animatedOnStart;
   const JinExpandable({
     Key key,
     @required this.topChild,
@@ -20,6 +21,7 @@ class JinExpandable extends StatefulWidget {
     this.curve = Curves.linear,
     this.margin = EdgeInsets.zero,
     this.onToggle,
+    this.animatedOnStart = false,
   }) : super(key: key);
   @override
   _JinExpandableState createState() => _JinExpandableState();
@@ -34,10 +36,10 @@ class _JinExpandableState extends State<JinExpandable>
     if (controller.isAnimating) {
       return;
     } else if (controller.isCompleted) {
-      if (widget.onToggle != null) widget.onToggle(false);
+      widget.onToggle?.call(false);
       controller.reverse();
     } else {
-      if (widget.onToggle != null) widget.onToggle(true);
+      widget.onToggle?.call(true);
       controller.forward();
     }
   }
@@ -48,8 +50,10 @@ class _JinExpandableState extends State<JinExpandable>
       vsync: this,
       duration: widget.duration,
     );
+    if (widget.initiallyExpand) {
+      widget.animatedOnStart ? controller.forward() : controller.value = 1.0;
+    }
     size = CurvedAnimation(curve: widget.curve, parent: controller);
-    if (widget.initiallyExpand) controller.forward();
     super.initState();
   }
 

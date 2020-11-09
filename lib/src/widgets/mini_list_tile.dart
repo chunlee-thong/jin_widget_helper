@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jin_widget_helper/jin_widget_helper.dart';
 import 'package:jin_widget_helper/src/widgets/spacing.dart';
 
 class MiniListTile extends StatelessWidget {
@@ -52,6 +53,9 @@ class MiniListTile extends StatelessWidget {
         children: [
           InkWell(
             onTap: onTap ?? null,
+            customBorder: RoundedRectangleBorder(
+              borderRadius: decoration?.borderRadius ?? BorderRadius.zero,
+            ),
             child: Padding(
               padding: padding,
               child: Row(

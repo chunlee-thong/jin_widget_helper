@@ -10,13 +10,22 @@ enum ButtonPlatForm { Material, Cupertino, Adaptive }
 class JinLoadingButton extends JinBaseLoadingButton {
   ///A [child] to display inside the button
   final Widget child;
+
+  ///onPressed callback
   final Future<void> Function() onPressed;
 
-  ///[icon] will show on the left side of the button
-  final Widget icon;
+  ///[startIcon] will show on the left side of the button
+  final Widget startIcon;
+
+  ///[endIcon] will show on the left side of the button
+  final Widget endIcon;
 
   ///A widget to show when button is loading
   final Widget loadingWidget;
+
+  final double width;
+
+  final double height;
 
   ///Button's background color
   final Color color;
@@ -50,7 +59,10 @@ class JinLoadingButton extends JinBaseLoadingButton {
     Key key,
     @required this.onPressed,
     @required this.child,
-    this.icon,
+    this.width,
+    this.height,
+    this.startIcon,
+    this.endIcon,
     this.loadingWidget,
     this.color,
     this.textColor,
@@ -65,7 +77,8 @@ class JinLoadingButton extends JinBaseLoadingButton {
   }) : super(
           key: key,
           child: child,
-          icon: icon,
+          startIcon: startIcon,
+          endIcon: endIcon,
           onPressed: onPressed,
           loadingWidget: loadingWidget,
         );
@@ -81,7 +94,8 @@ class _JinLoadingButtonState
       {BuildContext context, Widget child, VoidCallback onPressed}) {
     ///Create a material button
     final materialButton = Container(
-      width: widget.fullWidth ? double.infinity : null,
+      height: widget.height,
+      width: widget.fullWidth ? double.infinity : widget.width,
       margin: widget.margin,
       child: JinLoadingMaterialButton(
         onPressed: onPressed,
@@ -97,7 +111,8 @@ class _JinLoadingButtonState
 
     ///Create a cupertino button
     final cupertinoButton = Container(
-      width: widget.fullWidth ? double.infinity : null,
+      height: widget.height,
+      width: widget.fullWidth ? double.infinity : widget.width,
       margin: widget.margin,
       child: JinLoadingCupertinoButton(
         onPressed: onPressed,
