@@ -40,6 +40,6 @@ class JinLoadingDialog {
   }
 
   Future<void> hide() async {
-    Navigator.of(_dialogContext).pop();
+    if (_dialogContext != null) Navigator.of(_dialogContext).pop();
   }
 }

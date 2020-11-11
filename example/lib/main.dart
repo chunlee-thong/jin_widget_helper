@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
 import 'package:jin_widget_helper_example/examples/dialog_sheet_example.dart';
+import 'package:jin_widget_helper_example/examples/form_mixin_example.dart';
 import 'package:jin_widget_helper_example/examples/future_stream_handler_example.dart';
 import 'package:jin_widget_helper_example/examples/jin_accordion_and_jin_expandable_card.dart';
 import 'package:jin_widget_helper_example/examples/jin_extension_example.dart';
@@ -58,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
     ExampleButton(
         name: "Paginated Widget Example", child: PaginatedWidgetExample()),
     ExampleButton(name: "Others Widget Example", child: OtherWidgetsExample()),
+    ExampleButton(name: "Form Mixin Example", child: FormPageMixinExample()),
   ];
 
   @override

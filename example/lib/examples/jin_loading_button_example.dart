@@ -18,7 +18,7 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
 
   @override
   Widget build(BuildContext context) {
-    jinLoadingDialog = JinLoadingDialog(context);
+    jinLoadingDialog = JinLoadingDialog(context, dismissible: false);
     return Scaffold(
       appBar: AppBar(
         title: Text("JinLoadingButton example"),
