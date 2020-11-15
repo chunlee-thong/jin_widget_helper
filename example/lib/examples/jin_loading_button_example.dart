@@ -36,6 +36,7 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
               textColor: Colors.white,
               shape: JinWidget.roundRect(),
               child: Text("Click me"),
+              //padding: EdgeInsets.symmetric(vertical: 12.0),
               platform: ButtonPlatForm.Material,
             ),
             JinLoadingButton(
@@ -79,12 +80,16 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
               onPressed: doingOperation,
               margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               elevation: 2,
+              fullWidth: false,
               loadingColor: Colors.white,
               textColor: Colors.white,
               shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
-              loadingWidget: CupertinoActivityIndicator(),
-              child: Text("Custom Shape widget"),
+              //loadingWidget: CupertinoActivityIndicator(),
+              child: Text(
+                "Test",
+                style: TextStyle(fontSize: 44),
+              ),
               platform: ButtonPlatForm.Material,
             ),
           ],

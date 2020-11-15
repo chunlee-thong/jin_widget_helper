@@ -23,7 +23,8 @@ class _OtherButtonExampleState extends State<OtherButtonExample> {
           children: [
             CustomBackButton(
               header: "Custom Back Button Header",
-              icon: Icon(Icons.arrow_back),
+              icon: Icon(Icons.arrow_back_ios),
+              headerAlignment: Alignment.centerLeft,
               backgroundColor: Colors.lightBlueAccent,
             ),
             SpaceY(),

@@ -27,6 +27,7 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
 
   void onButtonPressed() async {
     toggleLoading();
+
     await widget.onPressed?.call();
     toggleLoading();
   }
@@ -56,13 +57,7 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
         valueNotifier: loadingNotifier,
         child: (isLoading) {
           if (isLoading) {
-            return widget.loadingWidget ??
-                SizedBox(
-                  width: widget.startIcon != null ? 24 : 20,
-                  height: widget.startIcon != null ? 24 : 20,
-                  child: JinWidget.platformLoadingWidget(
-                      color: widget.loadingColor),
-                );
+            return widget.loadingWidget ?? _buildLoadingWidget();
           } else {
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -82,6 +77,16 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
             );
           }
         },
+      ),
+    );
+  }
+
+  Widget _buildLoadingWidget() {
+    return SizedBox(
+      width: widget.startIcon != null ? 24 : 20,
+      height: widget.startIcon != null ? 24 : 20,
+      child: JinWidget.platformLoadingWidget(
+        color: widget.loadingColor,
       ),
     );
   }

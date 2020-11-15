@@ -11,7 +11,6 @@ class CustomBackButton extends StatelessWidget {
   ///A callback when BackButton is Pressed, Default action is to Pop the context
   final Function onTap;
   final Color backgroundColor;
-  final double marginLeft;
 
   ///Alignment of the header
   final Alignment headerAlignment;
@@ -26,13 +25,12 @@ class CustomBackButton extends StatelessWidget {
     this.onTap,
     this.header,
     this.headerStyle = const TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
+      fontSize: 20,
+      fontWeight: FontWeight.w500,
     ),
     this.icon,
     this.headerAlignment = Alignment.center,
     this.backgroundColor = Colors.transparent,
-    this.marginLeft = 4,
     this.iconColor,
     this.elevation = 0.0,
   });
@@ -50,25 +48,14 @@ class CustomBackButton extends StatelessWidget {
             children: <Widget>[
               Align(
                 alignment: Alignment.centerLeft,
-                child: Container(
-                  margin: EdgeInsets.only(left: marginLeft),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      focusColor: Colors.white70,
-                      customBorder: const StadiumBorder(),
-                      onTap: onTap ?? () => Navigator.of(context).pop(),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: icon ??
-                            BackButton(
-                              color: iconColor ??
-                                  Theme.of(context).iconTheme.color,
-                            ),
+                child: icon != null
+                    ? IconButton(
+                        icon: icon,
+                        onPressed: onTap ?? () => Navigator.of(context).pop(),
+                      )
+                    : BackButton(
+                        color: iconColor ?? Theme.of(context).iconTheme.color,
                       ),
-                    ),
-                  ),
-                ),
               ),
               if (header != null)
                 Align(
@@ -76,11 +63,11 @@ class CustomBackButton extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.only(
                         left: headerAlignment == Alignment.centerLeft
-                            ? titleMargin + marginLeft
+                            ? titleMargin + 16
                             : 0),
                     child: Text(
                       header,
-                      style: headerStyle,
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
                 )
