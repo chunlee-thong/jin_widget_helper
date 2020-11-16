@@ -12,6 +12,8 @@ import 'package:jin_widget_helper_example/examples/other_button_example.dart';
 import 'package:jin_widget_helper_example/examples/other_widget_example.dart';
 import 'package:jin_widget_helper_example/examples/paginated_widget_example.dart';
 
+import 'examples/widget_test.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -60,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> with FormPageMixin {
         name: "Paginated Widget Example", child: PaginatedWidgetExample()),
     ExampleButton(name: "Others Widget Example", child: OtherWidgetsExample()),
     ExampleButton(name: "Form Mixin Example", child: FormPageMixinExample()),
+    ExampleButton(name: "Widget test", child: WidgetTestExample()),
   ];
 
   @override

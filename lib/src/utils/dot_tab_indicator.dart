@@ -4,7 +4,7 @@ class DotTabIndicator extends Decoration {
   final double radius;
   final Color color;
 
-  DotTabIndicator({this.radius = 8, this.color});
+  DotTabIndicator({this.radius = 4, @required this.color});
   @override
   BoxPainter createBoxPainter([void Function() onChanged]) {
     return _DotTabIndicatorPainter(
@@ -23,8 +23,10 @@ class _DotTabIndicatorPainter extends BoxPainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final Offset circleOffset = offset +
-        Offset(configuration.size.width / 2,
-            configuration.size.height - radius * 2);
+        Offset(
+          configuration.size.width / 2,
+          configuration.size.height - radius * 2,
+        );
 
     final paint = Paint()
       ..color = color

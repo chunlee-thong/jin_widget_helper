@@ -66,7 +66,7 @@ class JinLoadingButton extends JinBaseLoadingButton {
     this.loadingWidget,
     this.color,
     this.textColor,
-    this.loadingColor,
+    this.loadingColor = Colors.white,
     this.shape,
     this.elevation = 2,
     this.margin = const EdgeInsets.symmetric(vertical: 16),
@@ -80,6 +80,7 @@ class JinLoadingButton extends JinBaseLoadingButton {
           startIcon: startIcon,
           endIcon: endIcon,
           onPressed: onPressed,
+          loadingColor: loadingColor,
           loadingWidget: loadingWidget,
         );
 

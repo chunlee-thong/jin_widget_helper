@@ -68,16 +68,19 @@ class ActionButton extends StatelessWidget {
                   child,
                 ],
               ),
-              onTrue: loadingWidget ??
-                  Container(
-                    width: 20,
-                    height: 20,
-                    child: JinWidget.platformLoadingWidget(color: loadingColor),
-                  ),
+              onTrue: loadingWidget ?? _buildLoadingWidget(),
             ),
           );
         },
       ),
+    );
+  }
+
+  Widget _buildLoadingWidget() {
+    return SizedBox(
+      width: icon != null ? 24 : 20,
+      height: icon != null ? 24 : 20,
+      child: JinWidget.platformLoadingWidget(color: loadingColor),
     );
   }
 }
