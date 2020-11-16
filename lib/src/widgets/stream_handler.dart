@@ -20,7 +20,7 @@ class StreamHandler<T> extends StatefulWidget {
   final Widget Function(dynamic) error;
 
   ///A function call when stream has an error
-  final Function(dynamic) onError;
+  final void Function(dynamic) onError;
 
   ///create a streambuilder with less boilerplate code
   const StreamHandler({
@@ -37,7 +37,7 @@ class StreamHandler<T> extends StatefulWidget {
 }
 
 class _StreamHandlerState<T> extends State<StreamHandler<T>> {
-  StreamSubscription subscription;
+  StreamSubscription<T> subscription;
   @override
   void initState() {
     if (widget.onError != null) {
@@ -49,7 +49,10 @@ class _StreamHandlerState<T> extends State<StreamHandler<T>> {
 
   @override
   void dispose() {
-    if (subscription != null) subscription.cancel();
+    if (subscription != null) {
+      subscription.cancel();
+      subscription = null;
+    }
     super.dispose();
   }
 
