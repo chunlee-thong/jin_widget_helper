@@ -246,6 +246,8 @@ extension ValueNotifierExtension on Object {
 
 extension ContextExtension on BuildContext {
   Size get screenSize => MediaQuery.of(this).size;
+  Color get primaryColor => Theme.of(this).primaryColor;
+  Color get accentColor => Theme.of(this).accentColor;
   TextTheme get textTheme => Theme.of(this).textTheme;
 }
 

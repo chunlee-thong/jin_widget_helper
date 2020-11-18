@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../jin_widget_helper.dart';
+
 class JinMediaCard extends StatelessWidget {
   ///Card height with provide [screenSize] as paramater
   final double Function(Size screenSize) height;
@@ -71,7 +73,8 @@ class JinMediaCard extends StatelessWidget {
         borderRadius: containerDecoration.borderRadius,
         child: InkWell(
           customBorder: RoundedRectangleBorder(
-              borderRadius: containerDecoration.borderRadius),
+            borderRadius: containerDecoration.borderRadius,
+          ),
           onTap: onTap,
           child: Padding(
             padding: padding,
@@ -80,7 +83,7 @@ class JinMediaCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       mediaBuilder,
-                      SizedBox(width: mainAxisSpacing, height: 0),
+                      SpaceX(mainAxisSpacing),
                       Flexible(child: infoBuilder),
                     ],
                   )
@@ -91,7 +94,7 @@ class JinMediaCard extends StatelessWidget {
                         child: mediaBuilder,
                         flex: mediaFlexSize ?? 1,
                       ),
-                      SizedBox(height: mainAxisSpacing),
+                      SpaceY(mainAxisSpacing),
                       Flexible(
                         child: infoBuilder,
                         flex: 1,
@@ -106,8 +109,13 @@ class JinMediaCard extends StatelessWidget {
 }
 
 class MediaBuilder extends StatelessWidget {
+  ///Required [width] with provided [screenWidth] value
   final double Function(double screenWidth) width;
+
+  ///Background color for this widget
   final Color color;
+
+  ///BorderRadius for this widget
   final BorderRadius radius;
   final Widget child;
   const MediaBuilder({

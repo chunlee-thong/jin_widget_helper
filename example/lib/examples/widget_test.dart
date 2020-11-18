@@ -37,17 +37,6 @@ class _WidgetTestExampleState extends State<WidgetTestExample>
       body: SingleChildScrollView(
         child: Column(
           children: [
-            TabBar(
-              labelColor: Colors.blue,
-              unselectedLabelColor: Colors.black,
-              indicator: DotTabIndicator(color: Colors.blue),
-              controller: tabController,
-              tabs: [
-                Tab(text: "Car"),
-                Tab(text: "MotorCycle"),
-                Tab(text: "Ship Container"),
-              ],
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -76,6 +65,20 @@ class _WidgetTestExampleState extends State<WidgetTestExample>
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: TabBar(
+        labelColor: Colors.blue,
+        unselectedLabelColor: Colors.black,
+        indicator: DotTabIndicator(
+          color: Colors.blue,
+          dotAlignment: DotAlignment.Bottom,
+        ),
+        controller: tabController,
+        tabs: [
+          Tab(text: "Car"),
+          Tab(text: "MotorCycle"),
+          Tab(text: "Ship Container"),
+        ],
       ),
     );
   }

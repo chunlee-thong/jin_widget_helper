@@ -4,8 +4,8 @@ import 'package:jin_widget_helper/jin_widget_helper.dart';
 
 class JinLoadingDialog {
   final bool dismissible;
+  final BuildContext context;
   BuildContext _dialogContext;
-  BuildContext context;
 
   JinLoadingDialog(
     this.context, {
@@ -39,7 +39,7 @@ class JinLoadingDialog {
     await Future.delayed(Duration(milliseconds: 500));
   }
 
-  Future<void> hide() async {
+  void hide() async {
     if (_dialogContext != null) Navigator.of(_dialogContext).pop();
   }
 }

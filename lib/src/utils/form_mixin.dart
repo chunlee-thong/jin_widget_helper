@@ -16,11 +16,6 @@ mixin FormPageMixin<T extends StatefulWidget> on State<T> {
   bool get isFormValidated => formKey.currentState.validate();
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void dispose() {
     loadingNotifier.dispose();
     passwordObsecureNotifier.dispose();

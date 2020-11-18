@@ -1,14 +1,33 @@
 import 'package:flutter/material.dart';
 
 class PaginatedListView extends StatefulWidget {
+  ///Normal Listview itemCount
   final int itemCount;
+
+  ///Normal Listview physics
   final ScrollPhysics physics;
+
+  ///Normal Listview scrollDirection
   final Axis scrollDirection;
+
+  ///Normal Listview shrinkWrap
   final bool shrinkWrap;
+
+  ///[PaginatedListView] use ListView.separated, so you can provide divider widget
   final Widget divider;
+
+  ///Normal Listview itemBuilder
   final Widget Function(BuildContext, int) itemBuilder;
+
+  ///Normal Listview padding
   final EdgeInsets padding;
+
+  ///Provider a widget if there's no item
   final Widget onEmpty;
+
+  ///If [PaginatedListView] is user inside another scroll view,
+  ///you must provide a [scrollController] that use with parant scroll view
+  final ScrollController scrollController;
 
   ///callback for getting more data when ScrollController reach mex scrolExtends
   final Future<void> Function() onGetMoreData;
@@ -32,6 +51,7 @@ class PaginatedListView extends StatefulWidget {
     this.scrollDirection = Axis.vertical,
     this.divider,
     this.onEmpty,
+    this.scrollController,
   }) : super(key: key);
   @override
   _PaginatedListViewState createState() => _PaginatedListViewState();
@@ -54,9 +74,14 @@ class _PaginatedListViewState extends State<PaginatedListView> {
     _isLoading = false;
   }
 
+  void initController() {
+    scrollController = widget.scrollController ?? ScrollController();
+    scrollController.addListener(scrollListener);
+  }
+
   @override
   void initState() {
-    scrollController = ScrollController()..addListener(scrollListener);
+    initController();
     super.initState();
   }
 
