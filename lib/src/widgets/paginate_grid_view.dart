@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
 
 class PaginatedGridView extends StatefulWidget {
+  ///Simple Grid deledate
   final SliverGridDelegate gridDelegate;
   final EdgeInsets padding;
   final int itemCount;
   final bool hasMoreData;
   final Future<void> Function() onGetMoreData;
+
+  ///If [PaginatedListView] is user inside another scroll view,
+  ///you must provide a [scrollController] that also use in your parent [scrollController] scroll view
+  final ScrollController scrollController;
+
+  ///Scroll physic of grid view
   final ScrollPhysics physics;
   final bool shrinkWrap;
   final Widget loadingWidget;
@@ -22,9 +29,10 @@ class PaginatedGridView extends StatefulWidget {
     this.onEmpty,
     this.hasMoreData = false,
     this.shrinkWrap = false,
-    this.loadingWidget = const CircularProgressIndicator(),
+    this.loadingWidget,
     this.padding = const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
     this.physics = const ClampingScrollPhysics(),
+    this.scrollController,
   }) : super(key: key);
   @override
   _PaginatedGridViewState createState() => _PaginatedGridViewState();
@@ -32,32 +40,44 @@ class PaginatedGridView extends StatefulWidget {
 
 class _PaginatedGridViewState extends State<PaginatedGridView> {
   ScrollController scrollController;
-  final ValueNotifier isLoading = ValueNotifier<bool>(false);
-  void scrollListener() {
-    if (scrollController.offset >= scrollController.position.maxScrollExtent) {
-      if (widget.hasMoreData) {
-        onLoadingMoreData();
-      }
+  bool isFetching = false;
+
+  bool get _isPrimaryScrollView => widget.scrollController == null;
+
+  void scrollListener(ScrollController controller) {
+    if (controller.offset >= controller.position.maxScrollExtent) {
+      if (widget.hasMoreData) onLoadingMoreData();
     }
   }
 
   void onLoadingMoreData() async {
-    if (isLoading.value) return;
-    isLoading.value = true;
+    if (isFetching) return;
+    isFetching = true;
     await widget.onGetMoreData();
-    isLoading.value = false;
+    isFetching = false;
+  }
+
+  void initController() {
+    if (widget.scrollController != null) {
+      widget.scrollController
+          .addListener(() => scrollListener(widget.scrollController));
+    } else {
+      scrollController = ScrollController();
+      scrollController.addListener(() => scrollListener(scrollController));
+    }
   }
 
   @override
   void initState() {
-    scrollController = ScrollController()..addListener(scrollListener);
+    initController();
     super.initState();
   }
 
   @override
   void dispose() {
-    isLoading.dispose();
-    scrollController.dispose();
+    if (scrollController != null) {
+      scrollController.dispose();
+    }
     super.dispose();
   }
 
@@ -69,30 +89,25 @@ class _PaginatedGridViewState extends State<PaginatedGridView> {
     return Column(
       children: [
         Expanded(
+          flex: _isPrimaryScrollView ? 1 : 0,
           child: GridView.builder(
             gridDelegate: widget.gridDelegate,
+            shrinkWrap: widget.shrinkWrap,
             padding: widget.padding,
-            controller: scrollController,
+            controller: _isPrimaryScrollView ? scrollController : null,
+            primary: _isPrimaryScrollView,
             physics: widget.physics,
             itemCount: widget.itemCount,
             itemBuilder: widget.itemBuilder,
           ),
         ),
-        ValueObserver<bool>(
-          valueNotifier: isLoading,
-          child: (isFetchingData) {
-            return ConditionalWidget(
-              condition: isFetchingData,
-              onTrue: widget.hasMoreData
-                  ? Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Center(child: widget.loadingWidget),
-                    )
-                  : const SizedBox(),
-              onFalse: const SizedBox(),
-            );
-          },
-        ),
+        if (widget.hasMoreData)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: widget.loadingWidget ?? JinWidget.platformLoadingWidget(),
+            ),
+          )
       ],
     );
   }

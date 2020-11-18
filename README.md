@@ -1,8 +1,8 @@
 # jin_widget_helper
 
-[![pub package](https://img.shields.io/badge/pub-1.5.2-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
+[![pub package](https://img.shields.io/badge/pub-1.5.3-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
 
-A package that contain many UI and Utility helper that help decrease your development time on creating custom Widget.
+A package that contain many custom Widget and utility that help decrease your development time on creating custom Widget.
 
 # Installation
 
@@ -10,7 +10,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.5.2
+  jin_widget_helper: ^1.5.3
 ```
 
 # Widgets
@@ -142,6 +142,16 @@ Text("Hello Flutter", style: TextStyle().applFontSize(24))
 
 # Other Extension
 
+### BuildContext extension
+
+```dart
+  Size screenSize = context.screenSize;
+  Color primaryColor = context.primaryColor;
+  Color accentColor = context.accentColor;
+  TextTheme textTheme = context.textTheme;
+
+```
+
 ### DateTime extension
 
 ```dart
@@ -164,6 +174,19 @@ var count = 1.obs<int>();
 ```
 
 # Utility Class
+
+## DotTabIndicator
+
+```dart
+  TabBar(
+      ...
+      indicator: DotTabIndicator(
+        color: Colors.blue,
+        dotAlignment: DotAlignment.Bottom,
+      )
+      ...
+  )
+```
 
 ### ColorUtils
 

@@ -26,7 +26,7 @@ class PaginatedListView extends StatefulWidget {
   final Widget onEmpty;
 
   ///If [PaginatedListView] is user inside another scroll view,
-  ///you must provide a [scrollController] that use with parant scroll view
+  ///you must provide a [scrollController] that also use in your parent [scrollController] scroll view
   final ScrollController scrollController;
 
   ///callback for getting more data when ScrollController reach mex scrolExtends
@@ -63,8 +63,8 @@ class _PaginatedListViewState extends State<PaginatedListView> {
 
   bool get _isPrimaryScrollView => widget.scrollController == null;
 
-  void scrollListener() {
-    if (scrollController.offset >= scrollController.position.maxScrollExtent) {
+  void scrollListener(ScrollController controller) {
+    if (controller.offset >= controller.position.maxScrollExtent) {
       if (widget.hasMoreData) onLoadingMoreData();
     }
   }
@@ -78,8 +78,13 @@ class _PaginatedListViewState extends State<PaginatedListView> {
   }
 
   void initController() {
-    scrollController = widget.scrollController ?? ScrollController();
-    scrollController.addListener(scrollListener);
+    if (widget.scrollController != null) {
+      widget.scrollController
+          .addListener(() => scrollListener(widget.scrollController));
+    } else {
+      scrollController = ScrollController();
+      scrollController.addListener(() => scrollListener(scrollController));
+    }
   }
 
   @override
@@ -90,7 +95,9 @@ class _PaginatedListViewState extends State<PaginatedListView> {
 
   @override
   void dispose() {
-    scrollController.dispose();
+    if (scrollController != null) {
+      scrollController.dispose();
+    }
     super.dispose();
   }
 
