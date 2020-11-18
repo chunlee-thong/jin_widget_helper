@@ -110,7 +110,6 @@ class _PaginatedListViewState extends State<PaginatedListView> {
       separatorBuilder: (context, index) => widget.divider ?? SizedBox(),
       itemCount: widget.itemCount + 1,
       controller: _isPrimaryScrollView ? scrollController : null,
-      primary: _isPrimaryScrollView,
       padding: widget.padding,
       scrollDirection: widget.scrollDirection,
       physics: widget.physics,

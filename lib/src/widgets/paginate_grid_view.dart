@@ -95,7 +95,6 @@ class _PaginatedGridViewState extends State<PaginatedGridView> {
             shrinkWrap: widget.shrinkWrap,
             padding: widget.padding,
             controller: _isPrimaryScrollView ? scrollController : null,
-            primary: _isPrimaryScrollView,
             physics: widget.physics,
             itemCount: widget.itemCount,
             itemBuilder: widget.itemBuilder,

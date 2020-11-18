@@ -1,3 +1,7 @@
+## [1.5.3+1] - 18 November 2020
+
+- Fix Paginated widget bugs
+
 ## [1.5.3] - 18 November 2020
 
 - PaginatedGridView and PaginatedListView now can be use in another scrollView widget
