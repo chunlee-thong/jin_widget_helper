@@ -60,6 +60,9 @@ class PaginatedListView extends StatefulWidget {
 class _PaginatedListViewState extends State<PaginatedListView> {
   ScrollController scrollController;
   bool _isLoading = false;
+
+  bool get _isPrimaryScrollView => widget.scrollController == null;
+
   void scrollListener() {
     if (scrollController.offset >= scrollController.position.maxScrollExtent) {
       if (widget.hasMoreData) onLoadingMoreData();
@@ -99,7 +102,8 @@ class _PaginatedListViewState extends State<PaginatedListView> {
     return ListView.separated(
       separatorBuilder: (context, index) => widget.divider ?? SizedBox(),
       itemCount: widget.itemCount + 1,
-      controller: scrollController,
+      controller: _isPrimaryScrollView ? scrollController : null,
+      primary: _isPrimaryScrollView,
       padding: widget.padding,
       scrollDirection: widget.scrollDirection,
       physics: widget.physics,
