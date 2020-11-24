@@ -29,7 +29,6 @@ class _WidgetTestExampleState extends State<WidgetTestExample>
 
   @override
   Widget build(BuildContext context) {
-    final style = TextStyle(fontSize: 12);
     return Scaffold(
       appBar: AppBar(
         title: Text("Widget test"),
@@ -37,28 +36,30 @@ class _WidgetTestExampleState extends State<WidgetTestExample>
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ActionButton(
                   fullWidth: false,
-                  icon: Icon(Icons.add),
                   shape: JinWidget.roundRect(4),
-                  child: Text(
-                    "Hello",
-                    style: style,
-                  ),
+                  child: Text("Hello"),
                   onPressed: onButtonPressed,
                   loadingNotifier: loadingNotifier,
                 ),
                 SpaceX(24),
                 JinLoadingButton(
                   fullWidth: false,
-                  startIcon: Icon(Icons.add),
-                  child: Text(
-                    "Hello",
-                    style: style,
-                  ),
+                  child: Text("Hello"),
+                  onPressed: onButtonPressed,
+                ),
+                SpaceX(24),
+                RaisedButton(
+                  child: Text("Hello"),
+                  onPressed: onButtonPressed,
+                ),
+                SpaceX(24),
+                ElevatedButton(
+                  child: Text("Hello"),
                   onPressed: onButtonPressed,
                 ),
               ],
