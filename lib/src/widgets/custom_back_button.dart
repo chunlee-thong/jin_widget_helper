@@ -54,7 +54,8 @@ class CustomBackButton extends StatelessWidget {
                         onPressed: onTap ?? () => Navigator.of(context).pop(),
                       )
                     : BackButton(
-                        color: iconColor ?? Theme.of(context).iconTheme.color,
+                        color: iconColor ??
+                            Theme.of(context).appBarTheme.iconTheme.color,
                       ),
               ),
               if (header != null)
@@ -67,7 +68,7 @@ class CustomBackButton extends StatelessWidget {
                             : 0),
                     child: Text(
                       header,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).appBarTheme.textTheme.headline6,
                     ),
                   ),
                 )
