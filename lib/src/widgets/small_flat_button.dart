@@ -54,10 +54,7 @@ class SmallFlatButton extends StatelessWidget {
               children: <Widget>[
                 icon ?? SizedBox(),
                 if (icon != null) SpaceX(8),
-                DefaultTextStyle(
-                  child: child,
-                  style: Theme.of(context).textTheme.button,
-                ),
+                child,
               ],
             ),
           ),
