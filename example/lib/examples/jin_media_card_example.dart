@@ -56,6 +56,7 @@ class _JinMediaCardExampleState extends State<JinMediaCardExample> {
                   height: (width) => double.infinity,
                   mediaBuilder: MediaBuilder(
                     radius: JinWidget.radius(12),
+                    height: 100,
                     child: Image.network(
                       JinUtils.randomCategoryStringImage(
                         category: "dog",

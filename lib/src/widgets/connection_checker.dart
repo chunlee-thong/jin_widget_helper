@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io' as io show Platform;
 
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
@@ -45,16 +44,13 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
       await widget.onConnectionChange?.call(connection);
       connectionStream.add(connection);
     } catch (e) {
-      connectionStream.addError(e.toString());
+      connectionStream.addError(e);
     }
   }
 
   @override
   void initState() {
-    //if widget is not react to connection change, check the connection first because subscription stream will not working
-    if (!widget.reactToConnectionChange || io.Platform.isIOS) {
-      checkConnectionStream();
-    }
+    checkConnectionStream();
     subscription =
         connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
       //only check connection when widget is react to connectivity change

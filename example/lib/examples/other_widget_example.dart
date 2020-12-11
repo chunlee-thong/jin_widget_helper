@@ -12,6 +12,8 @@ class OtherWidgetsExample extends StatefulWidget {
 class _OtherWidgetsExampleState extends State<OtherWidgetsExample> {
   final count = 0.obs<int>();
 
+  final data = ValueNotifier<int>(null);
+
   @override
   void dispose() {
     count.dispose();
@@ -38,10 +40,13 @@ class _OtherWidgetsExampleState extends State<OtherWidgetsExample> {
         },
         child: Column(
           children: [
-            ConditionalWidget(
-              condition: 1 == 2,
-              onTrue: Text("This widget show when condition is true"),
-              onFalse: Text("This widget show when condition is false"),
+            ValueObserver<int>(
+              valueNotifier: data,
+              child: (con) => ConditionalWidget(
+                condition: con != null,
+                onTrue: Text("This widget show when condition is true"),
+                onFalse: Text("This widget show when condition is false"),
+              ),
             ),
             SpaceY(16),
             JinPlatformChecker(
@@ -89,6 +94,7 @@ class _OtherWidgetsExampleState extends State<OtherWidgetsExample> {
         child: Icon(Icons.add),
         onPressed: () {
           count.value++;
+          data.value = data.value != null ? null : count.value;
         },
       ),
     );

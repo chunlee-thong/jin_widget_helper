@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import '../../jin_widget_helper.dart';
 
 class JinMediaCard extends StatelessWidget {
-  ///Card height with provide [screenSize] as paramater
-  final double Function(Size screenSize) height;
+  final double width;
 
-  ///Card Width with provide [screenSize] as paramater
-  final double Function(Size screenSize) width;
+  final double height;
 
   ///Card padding
   final EdgeInsets padding;
@@ -56,7 +54,6 @@ class JinMediaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     final BoxDecoration containerDecoration = decoration ??
         BoxDecoration(
           color: Colors.white,
@@ -65,8 +62,8 @@ class JinMediaCard extends StatelessWidget {
 
     return Container(
       margin: margin,
-      height: height?.call(size),
-      width: width?.call(size) ?? size.width,
+      height: height,
+      width: width,
       decoration: containerDecoration,
       child: Material(
         elevation: elevation,
@@ -90,15 +87,9 @@ class JinMediaCard extends StatelessWidget {
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: mediaBuilder,
-                        flex: mediaFlexSize ?? 1,
-                      ),
+                      mediaBuilder,
                       SpaceY(mainAxisSpacing),
-                      Flexible(
-                        child: infoBuilder,
-                        flex: 1,
-                      ),
+                      infoBuilder,
                     ],
                   ),
           ),
@@ -109,8 +100,9 @@ class JinMediaCard extends StatelessWidget {
 }
 
 class MediaBuilder extends StatelessWidget {
-  ///Required [width] with provided [screenWidth] value
-  final double Function(double screenWidth) width;
+  final double width;
+
+  final double height;
 
   ///Background color for this widget
   final Color color;
@@ -122,14 +114,15 @@ class MediaBuilder extends StatelessWidget {
     Key key,
     @required this.width,
     @required this.child,
+    this.height,
     this.color = Colors.transparent,
     this.radius = BorderRadius.zero,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      width: width(screenWidth),
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         color: color,
         borderRadius: radius,

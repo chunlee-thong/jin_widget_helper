@@ -45,9 +45,8 @@ class SmallFlatButton extends StatelessWidget {
         child: Padding(
           padding: padding,
           child: DefaultTextStyle.merge(
-            style: Theme.of(context).textTheme.button.copyWith(
-                  color: textColor,
-                ),
+            style:
+                Theme.of(context).textTheme.button.copyWith(color: textColor),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,

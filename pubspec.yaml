@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.16.1
-  connectivity: ^2.0.0
+  connectivity: ^2.0.2
 
 dev_dependencies:
   flutter_test:
