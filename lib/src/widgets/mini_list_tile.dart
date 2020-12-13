@@ -13,6 +13,7 @@ class MiniListTile extends StatelessWidget {
   final BoxDecoration decoration;
   final CrossAxisAlignment aligment;
   final Widget separator;
+  final double titleSpace;
 
   ///A custom listtile for simple customization
   const MiniListTile({
@@ -27,6 +28,7 @@ class MiniListTile extends StatelessWidget {
     this.margin = const EdgeInsets.all(0.0),
     this.aligment,
     this.separator,
+    this.titleSpace = 32,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,7 @@ class MiniListTile extends StatelessWidget {
                 children: <Widget>[
                   if (leading != null) ...[
                     leading,
-                    SpaceX(16),
+                    SpaceX(titleSpace),
                   ],
                   Expanded(
                     child: Column(

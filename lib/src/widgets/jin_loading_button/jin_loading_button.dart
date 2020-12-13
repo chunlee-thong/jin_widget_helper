@@ -7,6 +7,8 @@ import 'package:jin_widget_helper/src/widgets/jin_loading_button/jin_material_lo
 
 enum ButtonPlatForm { Material, Cupertino, Adaptive }
 
+enum LoadingType { Progress, Disable }
+
 class JinLoadingButton extends JinBaseLoadingButton {
   ///A [child] to display inside the button
   final Widget child;
@@ -55,6 +57,9 @@ class JinLoadingButton extends JinBaseLoadingButton {
   ///Show button type base on Platform [Android, IOS, or Adaptive]
   final ButtonPlatForm platform;
 
+  /// select a loading type of the button
+  final LoadingType loadingType;
+
   const JinLoadingButton({
     Key key,
     @required this.onPressed,
@@ -74,6 +79,7 @@ class JinLoadingButton extends JinBaseLoadingButton {
     this.fullWidth = true,
     this.filled = false,
     this.platform = ButtonPlatForm.Material,
+    this.loadingType = LoadingType.Progress,
   }) : super(
           key: key,
           child: child,
@@ -82,6 +88,7 @@ class JinLoadingButton extends JinBaseLoadingButton {
           onPressed: onPressed,
           loadingColor: loadingColor,
           loadingWidget: loadingWidget,
+          loadingType: loadingType,
         );
 
   @override

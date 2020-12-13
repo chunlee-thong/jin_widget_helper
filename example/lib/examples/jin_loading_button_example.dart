@@ -11,9 +11,9 @@ class JinLoadingButtonExample extends StatefulWidget {
 class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
   JinLoadingDialog jinLoadingDialog;
   Future<void> doingOperation() async {
-    jinLoadingDialog.show(child: Text("Loading..."));
+    //jinLoadingDialog.show(child: Text("Loading..."));
     await Future.delayed(Duration(seconds: 3));
-    jinLoadingDialog.hide();
+    //jinLoadingDialog.hide();
   }
 
   @override
@@ -38,6 +38,7 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
               child: Text("Click me"),
               //padding: EdgeInsets.symmetric(vertical: 12.0),
               platform: ButtonPlatForm.Material,
+              loadingType: LoadingType.Disable,
             ),
             JinLoadingButton(
               onPressed: doingOperation,
@@ -51,6 +52,7 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
               shape: JinWidget.roundRect(),
               child: Text("Custom width and height"),
               platform: ButtonPlatForm.Material,
+              loadingType: LoadingType.Disable,
             ),
             JinLoadingButton(
               onPressed: doingOperation,
@@ -69,11 +71,12 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
               margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               elevation: 2,
               loadingColor: Colors.white,
-              textColor: Colors.white,
+              textColor: Colors.black,
               shape: JinWidget.roundRect(),
               loadingWidget: CupertinoActivityIndicator(),
+              loadingType: LoadingType.Disable,
               child: Text("Cupertino Style button",
-                  style: TextStyle(color: Colors.white)),
+                  style: TextStyle(color: Colors.black)),
               platform: ButtonPlatForm.Cupertino,
             ),
             JinLoadingButton(
@@ -82,7 +85,7 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
               elevation: 2,
               fullWidth: false,
               loadingColor: Colors.white,
-              textColor: Colors.white,
+              textColor: Colors.black,
               shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.circular(12)),
               //loadingWidget: CupertinoActivityIndicator(),

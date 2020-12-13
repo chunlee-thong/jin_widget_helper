@@ -63,8 +63,10 @@ class ActionButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  icon ?? const SizedBox(),
-                  if (icon != null) SpaceX(8),
+                  if (icon != null) ...[
+                    icon,
+                    SpaceX(8),
+                  ],
                   child,
                 ],
               ),

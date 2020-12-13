@@ -9,6 +9,7 @@ abstract class JinBaseLoadingButton extends StatefulWidget {
   final Widget loadingWidget;
   final Color loadingColor;
   final Future<void> Function() onPressed;
+  final LoadingType loadingType;
 
   const JinBaseLoadingButton({
     Key key,
@@ -18,6 +19,7 @@ abstract class JinBaseLoadingButton extends StatefulWidget {
     this.loadingColor,
     this.startIcon,
     this.endIcon,
+    this.loadingType,
   }) : super(key: key);
 }
 
@@ -27,7 +29,6 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
 
   void onButtonPressed() async {
     toggleLoading();
-
     await widget.onPressed?.call();
     toggleLoading();
   }
@@ -50,34 +51,46 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
 
   @override
   Widget build(BuildContext context) {
-    return buildButton(
-      context: context,
-      onPressed: widget.onPressed != null ? this.onButtonPressed : null,
-      child: ValueObserver(
-        valueNotifier: loadingNotifier,
-        child: (isLoading) {
-          if (isLoading) {
-            return widget.loadingWidget ?? _buildLoadingWidget();
-          } else {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (widget.startIcon != null) ...[
-                  widget.startIcon,
-                  SpaceX(),
-                ],
-                widget.child,
-                if (widget.endIcon != null) ...[
-                  SpaceX(),
-                  widget.endIcon,
-                ],
-              ],
-            );
-          }
-        },
-      ),
+    final Widget buttonContent = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (widget.startIcon != null) ...[
+          widget.startIcon,
+          SpaceX(),
+        ],
+        widget.child,
+        if (widget.endIcon != null) ...[
+          SpaceX(),
+          widget.endIcon,
+        ],
+      ],
+    );
+
+    final Widget loadingWidget = widget.loadingWidget ?? _buildLoadingWidget();
+
+    return ValueObserver<bool>(
+      valueNotifier: loadingNotifier,
+      child: (isLoading) {
+        return buildButton(
+          context: context,
+          onPressed: isLoading
+              ? widget.loadingType == LoadingType.Disable
+                  ? null
+                  : () {}
+              : widget.onPressed != null
+                  ? this.onButtonPressed
+                  : null,
+          child: ConditionalWidget(
+            condition: isLoading,
+            onTrue: widget.loadingType == LoadingType.Disable
+                ? buttonContent
+                : loadingWidget,
+            onFalse: buttonContent,
+          ),
+        );
+      },
     );
   }
 
