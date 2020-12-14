@@ -53,7 +53,6 @@ class _ConnectionCheckerState extends State<ConnectionChecker> {
     checkConnectionStream();
     subscription =
         connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-      //only check connection when widget is react to connectivity change
       if (widget.reactToConnectionChange) {
         checkConnectionStream();
       }

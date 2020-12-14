@@ -1,6 +1,6 @@
 # jin_widget_helper
 
-[![pub package](https://img.shields.io/badge/pub-1.5.3+1-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
+[![pub package](https://img.shields.io/badge/pub-1.5.4-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
 
 A package that contain many custom Widget and utility that help decrease your development time on creating custom Widget.
 
@@ -10,37 +10,37 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.5.3+1
+  jin_widget_helper: ^1.5.4
 ```
 
 # Widgets
 
-| Widget                                     | Description                                                             |
-| ------------------------------------------ | ----------------------------------------------------------------------- |
-| [ActionButton][otherbuttonurl]             | A Simple RaisedButton with loading notifier                             |
-| [BadgeButton][otherbuttonurl]              | A small icon button with badge (like notification badge)                |
-| [CupertinoOptionActionSheet][sheet-dialog] | A Cupertino bottom sheet with option                                    |
-| [ConditionalWidget][other]                 | Provide a widget base on condition true or false                        |
-| [ConnectionChecker][other]                 | A widget to check internet connection and provide onNoInternet callback |
-| [CustomBackButton][otherbuttonurl]         | A custom back button with title (header)                                |
-| [FutureHandler][streamfutureurl]           | A FutureBuilder with less boilerplate code                              |
-| [JinAccordian][accordin-expandable]        | A customizable ExpansionTile                                            |
-| [JinExpandable][accordin-expandable]       | A widget that can be toggle with top and bottom widget                  |
-| [JinConfirmationDialog][sheet-dialog]      | A dialog with cancel and confirm action                                 |
-| [JinMediaCard][jinmediacardurl]            | A customizable Card with media                                          |
-| [JinLoadingButton][jinloadingbuttonurl]    | A Loading button without using ValueNotifier                            |
-| [JinLoadingDialog][sheet-dialog]           | A Class for showing dialog                                              |
-| [JinPlatformChecker][other]                | Provide a widget base on Android or iOS platform                        |
-| [JinSimpleDialog][sheet-dialog]            | A simple alert dialog                                                   |
-| [MiniListTile][other]                      | An easy customizable ListTile                                           |
-| [PaginatedListView][paginated]             | A Listview.separated with pagination support                            |
-| [PaginatedGridView][paginated]             | A Gridview.builder with pagination support                              |
-| [SmallIconButton][otherbuttonurl]          | A small alternative to Flutter's IconButton                             |
-| [SmallFlatButton][otherbuttonurl]          | A small alternative to Flutter's FlatButton                             |
-| [SpaceX][other]                            | SizedBox with only width                                                |
-| [SpaceY][other]                            | SizedBox with only height                                               |
-| [StreamHandler][streamfutureurl]           | A Streambuilder with less boilerplate code                              |
-| [ValueObserver][other]                     | A ValueListenableBuilder with lest boilerplate code                     |
+| Widget | Description |
+| --- | --- |
+| [ActionButton][otherbuttonurl] | A Simple RaisedButton with loading notifier |
+| [BadgeButton][otherbuttonurl] | A small icon button with badge (like notification badge) |
+| [CupertinoOptionActionSheet][sheet-dialog] | A Cupertino bottom sheet with option |
+| [ConditionalWidget][other] | Provide a widget base on condition true or false |
+| [ConnectionChecker][other] | A widget to check internet connection and provide onNoInternet callback |
+| [CustomBackButton][otherbuttonurl] | A custom back button with title (header) |
+| [FutureHandler][streamfutureurl] | A FutureBuilder with less boilerplate code |
+| [JinAccordian][accordin-expandable] | A customizable ExpansionTile |
+| [JinExpandable][accordin-expandable] | A widget that can be toggle with top and bottom widget |
+| [JinConfirmationDialog][sheet-dialog] | A dialog with cancel and confirm action |
+| [JinMediaCard][jinmediacardurl] | A customizable Card with media |
+| [JinLoadingButton][jinloadingbuttonurl] | A Loading button without using ValueNotifier |
+| [JinLoadingDialog][sheet-dialog] | A Class for showing dialog |
+| [JinPlatformChecker][other] | Provide a widget base on Android or iOS platform |
+| [JinSimpleDialog][sheet-dialog] | A simple alert dialog |
+| [MiniListTile][other] | An easy customizable ListTile |
+| [PaginatedListView][paginated] | A Listview.separated with pagination support |
+| [PaginatedGridView][paginated] | A Gridview.builder with pagination support |
+| [SmallIconButton][otherbuttonurl] | A small alternative to Flutter's IconButton |
+| [SmallFlatButton][otherbuttonurl] | A small alternative to Flutter's FlatButton |
+| [SpaceX][other] | SizedBox with only width |
+| [SpaceY][other] | SizedBox with only height |
+| [StreamHandler][streamfutureurl] | A Streambuilder with less boilerplate code |
+| [ValueObserver][other] | A ValueListenableBuilder with lest boilerplate code |
 
 [jinloadingbuttonurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/jin_loading_button_example.dart
 [otherbuttonurl]: https://github.com/chunlee-thong/jin_widget_helper/blob/dev/example/lib/examples/other_button_example.dart

@@ -13,7 +13,6 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
   Future<void> doingOperation() async {
     //jinLoadingDialog.show(child: Text("Loading..."));
     await Future.delayed(Duration(seconds: 3));
-    //jinLoadingDialog.hide();
   }
 
   @override
@@ -36,9 +35,22 @@ class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
               textColor: Colors.white,
               shape: JinWidget.roundRect(),
               child: Text("Click me"),
+              startIcon: Icon(Icons.add),
               //padding: EdgeInsets.symmetric(vertical: 12.0),
               platform: ButtonPlatForm.Material,
-              loadingType: LoadingType.Disable,
+              //loadingType: LoadingType.Disable,
+            ),
+            JinLoadingButton(
+              onPressed: doingOperation,
+              fullWidth: false,
+              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              elevation: 2,
+              loadingColor: Colors.red,
+              textColor: Colors.white,
+              shape: JinWidget.roundRect(),
+              child: Icon(Icons.send),
+              padding: EdgeInsets.zero,
+              platform: ButtonPlatForm.Material,
             ),
             JinLoadingButton(
               onPressed: doingOperation,

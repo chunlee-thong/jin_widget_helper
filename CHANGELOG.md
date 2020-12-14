@@ -1,3 +1,7 @@
+## [1.5.4] - 14 Decemeber 2020
+
+- Widgets improvement
+
 ## [1.5.3+1] - 18 November 2020
 
 - Fix Paginated widget bugs

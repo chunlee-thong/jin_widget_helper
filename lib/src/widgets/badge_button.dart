@@ -15,7 +15,7 @@ class BadgeButton extends StatelessWidget {
     Key key,
     @required this.icon,
     this.badgeText = "",
-    this.badgeTextStyle = const TextStyle(color: Colors.white, fontSize: 8),
+    this.badgeTextStyle,
     this.margin = const EdgeInsets.all(8),
     this.padding = const EdgeInsets.all(8),
     this.badgeColor,
@@ -24,6 +24,8 @@ class BadgeButton extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final TextStyle defaultBadgeStyle =
+        const TextStyle(color: Colors.white, fontSize: 8);
     return Container(
       margin: margin,
       child: Material(
@@ -51,7 +53,7 @@ class BadgeButton extends StatelessWidget {
                       padding: const EdgeInsets.all(2),
                       child: Text(
                         badgeText,
-                        style: badgeTextStyle,
+                        style: badgeTextStyle ?? defaultBadgeStyle,
                       ),
                     ),
                   ),

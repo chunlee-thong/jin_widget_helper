@@ -23,7 +23,7 @@ class _OtherButtonExampleState extends State<OtherButtonExample> {
           children: [
             CustomBackButton(
               header: "Custom Back Button Header",
-              icon: Icon(Icons.arrow_back_ios),
+              //icon: Icon(Icons.arrow_back_ios),
               headerAlignment: Alignment.centerLeft,
               backgroundColor: Colors.lightBlueAccent,
             ),
@@ -51,6 +51,7 @@ class _OtherButtonExampleState extends State<OtherButtonExample> {
                   icon: Icon(Icons.add_a_photo_rounded, color: Colors.white),
                   child: Text("Click me"),
                   margin: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+                  textColor: Colors.white,
                   onTap: () {},
                   backgroundColor: Colors.lightGreen,
                 ),

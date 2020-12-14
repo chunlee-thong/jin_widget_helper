@@ -28,9 +28,14 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
   ValueNotifier<bool> loadingNotifier = ValueNotifier(false);
 
   void onButtonPressed() async {
-    toggleLoading();
-    await widget.onPressed?.call();
-    toggleLoading();
+    try {
+      toggleLoading();
+      await widget.onPressed?.call();
+      toggleLoading();
+    } catch (exception) {
+      toggleLoading();
+      throw exception;
+    }
   }
 
   void toggleLoading() {
