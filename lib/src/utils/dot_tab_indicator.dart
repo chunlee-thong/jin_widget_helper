@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum DotAlignment { Top, Bottom }
+enum TabAlignment { top, bottom }
 
 class DotTabIndicator extends Decoration {
   ///radius for your dot
@@ -9,21 +9,21 @@ class DotTabIndicator extends Decoration {
   ///dot color
   final Color color;
 
-  ///[DotAlignment] wether it's bottom or top of tab's label
-  final DotAlignment dotAlignment;
+  ///[TabAlignment] wether it's bottom or top of tab's label
+  final TabAlignment tabAlignment;
 
   DotTabIndicator({
     @required this.color,
     this.radius = 4,
-    this.dotAlignment = DotAlignment.Bottom,
-  });
+    this.tabAlignment = TabAlignment.bottom,
+  }) : assert(color != null);
   @override
   BoxPainter createBoxPainter([void Function() onChanged]) {
     return _DotTabIndicatorPainter(
       onChanged,
       radius,
       color,
-      dotAlignment,
+      tabAlignment,
     );
   }
 }
@@ -31,16 +31,16 @@ class DotTabIndicator extends Decoration {
 class _DotTabIndicatorPainter extends BoxPainter {
   final double radius;
   final Color color;
-  final DotAlignment dotAlignment;
+  final TabAlignment tabAlignment;
   _DotTabIndicatorPainter(
     VoidCallback onChanged,
     this.radius,
     this.color,
-    this.dotAlignment,
+    this.tabAlignment,
   ) : super(onChanged);
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    final double yOffset = dotAlignment == DotAlignment.Bottom
+    final double yOffset = tabAlignment == TabAlignment.bottom
         ? configuration.size.height - radius * 2
         : radius * 2;
 

@@ -13,6 +13,7 @@ export 'src/utils/jin_widget.dart';
 export 'src/utils/loading_mixin.dart';
 export 'src/utils/no_splash_factory.dart';
 export 'src/utils/page_navigator.dart';
+export 'src/utils/small_underline_tab_indicator.dart';
 //widgets
 export 'src/widgets/action_button.dart';
 export 'src/widgets/badge_button.dart';

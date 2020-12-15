@@ -1,22 +1,18 @@
 ///Rename the class from `FormValidator` tom `JinFormValidator` with reduce the conflic class Name wihthin the project if there's a custom validator
 class JinFormValidator {
-  static String validateRequired(String value,
-      {String message = "Please input required field"}) {
-    if (value.trim().isEmpty) return message;
+  static String validateField(
+    String value,
+    String field, {
+    String message,
+    int length,
+  }) {
+    if (value.trim().isEmpty) {
+      if (field != null) return message ?? "Please input your $field";
+    }
+    if (length != null && value.length < length) {
+      return "$field must be $length characters long";
+    }
     return null;
-  }
-
-  static String validateRequiredField(String value, String field,
-      {String message}) {
-    if (value.trim().isEmpty) return message ?? "Please input your $field";
-    return null;
-  }
-
-  static String validateUsername(String value, {String message}) {
-    if (value.trim().isEmpty) return "Please a input your username";
-    return RegExp(r"^[a-zA-Z0-9][a-zA-Z0-9_.]+[a-zA-Z0-9]$").hasMatch(value)
-        ? null
-        : "Please input valid username";
   }
 
   static String validateNumber(
@@ -36,7 +32,7 @@ class JinFormValidator {
         return "$field must be smaller than $max";
       }
       if (!(number is int) && isInteger) {
-        return "$field must be an interger";
+        return "$field must be a number";
       }
       return null;
     } catch (e) {
@@ -51,20 +47,5 @@ class JinFormValidator {
             .hasMatch(value)
         ? null
         : "Please input a valid email";
-  }
-
-  static String validatePassword(String value, {int length = 6}) {
-    if (value.trim().isEmpty) return "Please input your password";
-    if (value.trim().length < length)
-      return "Password must be at least $length characters long";
-    return null;
-  }
-
-  static String validatePhoneNumber(String value,
-      {String countryCode = "+855"}) {
-    if (value.trim().isEmpty) return "Please input your phone number";
-    String pattern = r'(^(?:[+855])?[0-9]{8,17}$)';
-    bool isValidate = RegExp(pattern).hasMatch(value.replaceAll(" ", ""));
-    return isValidate ? null : "Please input a valid phone number";
   }
 }

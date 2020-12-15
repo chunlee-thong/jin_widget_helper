@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'dart:math';
-
 import 'dart:typed_data';
-
 import 'dart:ui';
 
 import 'package:flutter/services.dart';
@@ -38,12 +36,15 @@ class JinUtils {
   }
 
   ///get A random Image from Picsum with given dimension
-  static String randomStringImage([int dimension = 200]) {
-    return "https://picsum.photos/$dimension";
+  static String randomStringImage([int width = 200, int height = 200]) {
+    return "https://picsum.photos/$width/$height";
   }
 
-  static String randomCategoryStringImage(
-      {int dimension = 200, String category = "photos"}) {
-    return "https://source.unsplash.com/${dimension}x$dimension/?$category";
+  static String randomCategoryStringImage({
+    int width = 200,
+    int height = 200,
+    String category = "photos",
+  }) {
+    return "https://source.unsplash.com/${width}x$height/?$category";
   }
 }

@@ -33,52 +33,29 @@ class _WidgetTestExampleState extends State<WidgetTestExample>
       appBar: AppBar(
         title: Text("Widget test"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ActionButton(
-                  fullWidth: false,
-                  shape: JinWidget.roundRect(4),
-                  child: Text("Hello"),
-                  onPressed: onButtonPressed,
-                  loadingNotifier: loadingNotifier,
-                ),
-                SpaceX(24),
-                JinLoadingButton(
-                  fullWidth: false,
-                  child: Text("Hello"),
-                  onPressed: onButtonPressed,
-                ),
-                SpaceX(24),
-                RaisedButton(
-                  child: Text("Hello"),
-                  onPressed: onButtonPressed,
-                ),
-                SpaceX(24),
-                ElevatedButton(
-                  child: Text("Hello"),
-                  onPressed: onButtonPressed,
-                ),
-              ],
+      body: Column(
+        children: [
+          TabBar(
+            isScrollable: true,
+            labelColor: Colors.black,
+            unselectedLabelColor: Colors.black,
+            indicatorPadding: EdgeInsets.only(left: 24),
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorColor: Colors.white,
+            indicator: SmallUnderLineTabIndicator(
+              color: Colors.red,
+              tabAlignment: TabAlignment.bottom,
+              width: 16,
+              paddingLeft: 16,
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: TabBar(
-        labelColor: Colors.blue,
-        unselectedLabelColor: Colors.black,
-        indicator: DotTabIndicator(
-          color: Colors.blue,
-          dotAlignment: DotAlignment.Bottom,
-        ),
-        controller: tabController,
-        tabs: [
-          Tab(text: "Car"),
-          Tab(text: "MotorCycle"),
-          Tab(text: "Ship Container"),
+            controller: tabController,
+            tabs: [
+              Tab(text: "Car"),
+              Tab(text: "MotorCycle"),
+              Tab(text: "Ship Container"),
+            ],
+          ),
+          Text("Hello"),
         ],
       ),
     );

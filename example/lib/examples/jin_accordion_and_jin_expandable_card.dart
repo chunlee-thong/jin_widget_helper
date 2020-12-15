@@ -23,7 +23,7 @@ class _JinAccordionAndJinExpandableState
               initiallyExpand: true,
               icon: Icon(Icons.arrow_circle_down_rounded),
               onToggle: (value) {},
-              iconPosition: IconPosition.End,
+              iconPosition: IconPosition.end,
               showIcon: true,
               childrenBackgroundColor: Colors.cyanAccent[50],
               animatedOnStart: false,

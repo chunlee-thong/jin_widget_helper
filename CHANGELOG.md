@@ -1,3 +1,12 @@
+## [1.6.0] - 15 Decemeber 2020
+
+- Add SmallUnderlineTabIndicator
+- deprecated JinMediaCard
+- BREAKING CHANGE:
+
+  - All enum value has been change to lowercase letter
+  - Remove and rework JinFormValidation, if you get an error please create your own custom validator
+
 ## [1.5.4] - 14 Decemeber 2020
 
 - Widgets improvement

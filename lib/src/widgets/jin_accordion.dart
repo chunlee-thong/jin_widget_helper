@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../jin_widget_helper.dart';
 
 enum IconPosition {
-  Start,
-  End,
+  start,
+  end,
 }
 
 ///Custom accordion that similar to Flutter's [ExpansionTile]
@@ -41,7 +41,7 @@ class JinAccordion extends StatefulWidget {
     this.headerDecoration,
     this.initiallyExpand = false,
     this.showIcon = true,
-    this.iconPosition = IconPosition.End,
+    this.iconPosition = IconPosition.end,
     this.childrenBackgroundColor,
     this.animatedOnStart = false,
   }) : super(key: key);
@@ -121,11 +121,11 @@ class _JinAccordionState extends State<JinAccordion>
               decoration: widget.headerDecoration,
               padding: widget.headerPadding ?? const EdgeInsets.all(16),
               child: Row(
-                mainAxisAlignment: widget.iconPosition == IconPosition.Start
+                mainAxisAlignment: widget.iconPosition == IconPosition.start
                     ? MainAxisAlignment.start
                     : MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  if (widget.iconPosition == IconPosition.Start &&
+                  if (widget.iconPosition == IconPosition.start &&
                       widget.showIcon) ...[
                     icon,
                     SpaceX(),
@@ -136,7 +136,7 @@ class _JinAccordionState extends State<JinAccordion>
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
-                  if (widget.iconPosition == IconPosition.End &&
+                  if (widget.iconPosition == IconPosition.end &&
                       widget.showIcon) ...[icon],
                 ],
               ),

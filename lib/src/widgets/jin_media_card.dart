@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../jin_widget_helper.dart';
 
+@Deprecated("JinMediaCard is deprecated and should't be use")
 class JinMediaCard extends StatelessWidget {
   final double width;
 
@@ -36,6 +37,7 @@ class JinMediaCard extends StatelessWidget {
 
   final int mediaFlexSize;
 
+  @Deprecated("JinMediaCard is deprecated and should't be use")
   const JinMediaCard({
     Key key,
     @required this.height,
