@@ -1,5 +1,12 @@
 ///Rename the class from `FormValidator` tom `JinFormValidator` with reduce the conflic class Name wihthin the project if there's a custom validator
 class JinFormValidator {
+  static String validate(String value, {String message}) {
+    if (value.trim().isEmpty) {
+      return message ?? "Please input required field";
+    }
+    return null;
+  }
+
   static String validateField(
     String value,
     String field, {

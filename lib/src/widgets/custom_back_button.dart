@@ -46,16 +46,19 @@ class CustomBackButton extends StatelessWidget {
           height: kToolbarHeight,
           child: Stack(
             children: <Widget>[
-              Align(
-                alignment: Alignment.centerLeft,
-                child: icon != null
-                    ? IconButton(
-                        icon: icon,
-                        onPressed: onTap ?? () => Navigator.of(context).pop(),
-                      )
-                    : BackButton(
-                        color: iconColor ?? Theme.of(context).iconTheme.color,
-                      ),
+              Padding(
+                padding: const EdgeInsets.only(left: 4.0),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: icon != null
+                      ? IconButton(
+                          icon: icon,
+                          onPressed: onTap ?? () => Navigator.of(context).pop(),
+                        )
+                      : BackButton(
+                          color: iconColor ?? Theme.of(context).iconTheme.color,
+                        ),
+                ),
               ),
               if (header != null)
                 Align(

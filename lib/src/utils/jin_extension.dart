@@ -249,6 +249,7 @@ extension ContextExtension on BuildContext {
   Color get primaryColor => Theme.of(this).primaryColor;
   Color get accentColor => Theme.of(this).accentColor;
   TextTheme get textTheme => Theme.of(this).textTheme;
+  ThemeData get theme => Theme.of(this);
 }
 
 extension DurationExtension on Duration {
