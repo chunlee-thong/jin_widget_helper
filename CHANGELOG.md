@@ -1,3 +1,7 @@
+## [1.6.1] - 22 Decemeber 2020
+
+- Add ShadowInputBorder
+
 ## [1.6.0] - 15 Decemeber 2020
 
 - Add SmallUnderlineTabIndicator

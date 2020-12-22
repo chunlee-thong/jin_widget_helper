@@ -1,6 +1,6 @@
 # jin_widget_helper
 
-[![pub package](https://img.shields.io/badge/pub-1.6.0-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
+[![pub package](https://img.shields.io/badge/pub-1.6.1-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
 
 A package that contain many custom Widget and utility that help decrease your development time on creating custom Widget.
 
@@ -10,7 +10,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.6.0
+  jin_widget_helper: ^1.6.1
 ```
 
 # Widgets
@@ -27,7 +27,6 @@ dependencies:
 | [JinAccordian][accordin-expandable] | A customizable ExpansionTile |
 | [JinExpandable][accordin-expandable] | A widget that can be toggle with top and bottom widget |
 | [JinConfirmationDialog][sheet-dialog] | A dialog with cancel and confirm action |
-| [JinMediaCard][jinmediacardurl] | A customizable Card with media |
 | [JinLoadingButton][jinloadingbuttonurl] | A Loading button without using ValueNotifier |
 | [JinLoadingDialog][sheet-dialog] | A Class for showing dialog |
 | [JinPlatformChecker][other] | Provide a widget base on Android or iOS platform |
