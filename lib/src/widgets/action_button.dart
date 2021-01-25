@@ -82,7 +82,9 @@ class ActionButton extends StatelessWidget {
     return SizedBox(
       width: icon != null ? 24 : 20,
       height: icon != null ? 24 : 20,
-      child: JinWidget.platformLoadingWidget(color: loadingColor),
+      child: CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation<Color>(loadingColor),
+      ),
     );
   }
 }

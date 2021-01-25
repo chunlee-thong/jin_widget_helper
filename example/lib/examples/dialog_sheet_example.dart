@@ -25,7 +25,7 @@ class _DialogAndSheetExampleState extends State<DialogAndSheetExample> {
 
   @override
   Widget build(BuildContext context) {
-    jinLoadingDialog = JinLoadingDialog(context);
+    jinLoadingDialog = JinLoadingDialog(context, dismissible: false);
     return Scaffold(
       appBar: AppBar(
         title: Text("Dialog and sheet example"),

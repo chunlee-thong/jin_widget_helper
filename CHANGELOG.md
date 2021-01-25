@@ -1,3 +1,7 @@
+## [1.7.0] - 25 January 2021
+
+- Update LoadingWidget of ActionButton and JinLoadingButton
+
 ## [1.6.1] - 22 Decemeber 2020
 
 - Add ShadowInputBorder

@@ -103,8 +103,8 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
     return SizedBox(
       width: widget.startIcon != null ? 24 : 20,
       height: widget.startIcon != null ? 24 : 20,
-      child: JinWidget.platformLoadingWidget(
-        color: widget.loadingColor,
+      child: CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation<Color>(widget.loadingColor),
       ),
     );
   }
