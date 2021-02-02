@@ -1,3 +1,11 @@
+## [1.7.1] - 2 February 2021
+
+- JinLoadingButton onPressed callback now support FutureOr<void>
+- rework Paginated Widget condition
+- BREAKING CHANGE:
+
+  - remove obs extension
+
 ## [1.7.0] - 25 January 2021
 
 - Update LoadingWidget of ActionButton and JinLoadingButton

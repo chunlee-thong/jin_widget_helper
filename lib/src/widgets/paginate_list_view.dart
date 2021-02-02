@@ -65,16 +65,17 @@ class _PaginatedListViewState extends State<PaginatedListView> {
 
   void scrollListener(ScrollController controller) {
     if (controller.offset >= controller.position.maxScrollExtent) {
-      if (widget.hasMoreData) onLoadingMoreData();
+      onLoadingMoreData();
+      _isLoading = true;
     }
   }
 
   void onLoadingMoreData() async {
-    //Prevent from loading more data if we're currenty loading
-    if (_isLoading == true) return;
-    _isLoading = true;
-    await widget.onGetMoreData();
-    _isLoading = false;
+    if (_isLoading) return;
+    if (widget.hasMoreData) {
+      await widget.onGetMoreData();
+      _isLoading = false;
+    }
   }
 
   void initController() {

@@ -10,7 +10,7 @@ class OtherWidgetsExample extends StatefulWidget {
 }
 
 class _OtherWidgetsExampleState extends State<OtherWidgetsExample> {
-  final count = 0.obs<int>();
+  final count = ValueNotifier<int>(0);
 
   final data = ValueNotifier<int>(null);
 

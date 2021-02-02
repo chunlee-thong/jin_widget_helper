@@ -7,7 +7,7 @@ class OtherButtonExample extends StatefulWidget {
 }
 
 class _OtherButtonExampleState extends State<OtherButtonExample> {
-  final isLoading = false.obs<bool>();
+  final isLoading = ValueNotifier<bool>(false);
 
   @override
   void dispose() {

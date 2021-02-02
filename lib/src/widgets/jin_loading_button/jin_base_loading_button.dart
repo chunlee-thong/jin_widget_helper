@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../../jin_widget_helper.dart';
@@ -8,7 +10,7 @@ abstract class JinBaseLoadingButton extends StatefulWidget {
   final Widget endIcon;
   final Widget loadingWidget;
   final Color loadingColor;
-  final Future<void> Function() onPressed;
+  final FutureOr<void> Function() onPressed;
   final LoadingType loadingType;
 
   const JinBaseLoadingButton({

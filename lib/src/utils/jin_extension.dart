@@ -238,12 +238,6 @@ extension TextStyleExtension on TextStyle {
   }
 }
 
-extension ValueNotifierExtension on Object {
-  ValueNotifier<T> obs<T>() {
-    return ValueNotifier<T>(this);
-  }
-}
-
 extension ContextExtension on BuildContext {
   Size get screenSize => MediaQuery.of(this).size;
   Color get primaryColor => Theme.of(this).primaryColor;

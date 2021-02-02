@@ -40,21 +40,23 @@ class PaginatedGridView extends StatefulWidget {
 
 class _PaginatedGridViewState extends State<PaginatedGridView> {
   ScrollController scrollController;
-  bool isFetching = false;
+  bool _isLoading = false;
 
   bool get _isPrimaryScrollView => widget.scrollController == null;
 
   void scrollListener(ScrollController controller) {
     if (controller.offset >= controller.position.maxScrollExtent) {
-      if (widget.hasMoreData) onLoadingMoreData();
+      onLoadingMoreData();
+      _isLoading = true;
     }
   }
 
   void onLoadingMoreData() async {
-    if (isFetching) return;
-    isFetching = true;
-    await widget.onGetMoreData();
-    isFetching = false;
+    if (_isLoading) return;
+    if (widget.hasMoreData) {
+      await widget.onGetMoreData();
+      _isLoading = false;
+    }
   }
 
   void initController() {

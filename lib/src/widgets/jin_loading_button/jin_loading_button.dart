@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jin_widget_helper/jin_widget_helper.dart';
@@ -14,7 +16,7 @@ class JinLoadingButton extends JinBaseLoadingButton {
   final Widget child;
 
   ///onPressed callback
-  final Future<void> Function() onPressed;
+  final FutureOr<void> Function() onPressed;
 
   ///[startIcon] will show on the left side of the button
   final Widget startIcon;

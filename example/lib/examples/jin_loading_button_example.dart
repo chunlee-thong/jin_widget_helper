@@ -10,7 +10,7 @@ class JinLoadingButtonExample extends StatefulWidget {
 
 class _JinLoadingButtonExampleState extends State<JinLoadingButtonExample> {
   JinLoadingDialog jinLoadingDialog;
-  Future<void> doingOperation() async {
+  void doingOperation() async {
     //jinLoadingDialog.show(child: Text("Loading..."));
     await Future.delayed(Duration(seconds: 3));
   }
