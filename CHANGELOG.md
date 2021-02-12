@@ -1,3 +1,8 @@
+## [1.7.2] - 12 February 2021
+
+- rework Paginated Widget condition
+- JinSimpleDialog now has a child parameter
+
 ## [1.7.1] - 2 February 2021
 
 - JinLoadingButton onPressed callback now support FutureOr<void>

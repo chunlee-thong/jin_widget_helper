@@ -7,12 +7,14 @@ class JinSimpleDialog extends StatelessWidget {
   final String content;
   final String confirmText;
   final Function onConfirm;
+  final Widget child;
 
   ///An alert dialog with title and content
   JinSimpleDialog({
-    this.confirmText = "OK",
-    @required this.content,
+    this.child,
+    this.content = "",
     this.title = "Information",
+    this.confirmText = "OK",
     this.onConfirm,
   });
 
@@ -27,7 +29,11 @@ class JinSimpleDialog extends StatelessWidget {
   Widget _buildIOSDialog(BuildContext context) {
     return CupertinoAlertDialog(
       title: Text(title),
-      content: Text(content).margin(EdgeInsets.only(top: 12)),
+      content: child ??
+          Padding(
+            padding: const EdgeInsets.only(top: 12.0),
+            child: Text(content),
+          ),
       actions: <Widget>[
         CupertinoDialogAction(
           child: Text(confirmText),
@@ -44,7 +50,7 @@ class JinSimpleDialog extends StatelessWidget {
     return AlertDialog(
       shape: JinWidget.roundRect(16),
       title: Text(title),
-      content: Text(content),
+      content: child ?? Text(content),
       actions: <Widget>[
         FlatButton(
           child: Text(confirmText),

@@ -1,6 +1,6 @@
 # jin_widget_helper
 
-[![pub package](https://img.shields.io/badge/pub-1.7.1-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
+[![pub package](https://img.shields.io/badge/pub-1.7.2-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
 
 A package that contain many custom Widget and utility that help decrease your development time on creating custom Widget.
 
@@ -10,7 +10,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.7.1
+  jin_widget_helper: ^1.7.2
 ```
 
 # Widgets

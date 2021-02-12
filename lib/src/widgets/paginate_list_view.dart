@@ -59,22 +59,22 @@ class PaginatedListView extends StatefulWidget {
 
 class _PaginatedListViewState extends State<PaginatedListView> {
   ScrollController scrollController;
-  bool _isLoading = false;
+  int loadingState = 0;
 
   bool get _isPrimaryScrollView => widget.scrollController == null;
 
   void scrollListener(ScrollController controller) {
-    if (controller.offset >= controller.position.maxScrollExtent) {
+    if (controller.offset == controller.position.maxScrollExtent) {
+      loadingState += 1;
       onLoadingMoreData();
-      _isLoading = true;
     }
   }
 
   void onLoadingMoreData() async {
-    if (_isLoading) return;
+    if (loadingState > 1) return;
     if (widget.hasMoreData) {
       await widget.onGetMoreData();
-      _isLoading = false;
+      loadingState = 0;
     }
   }
 
