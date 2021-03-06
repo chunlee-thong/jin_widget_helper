@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:jin_widget_helper/jin_widget_helper.dart';
-import 'package:jin_widget_helper/src/widgets/spacing.dart';
 
+import 'conditional_widget.dart';
+import 'spacing.dart';
+
+/// SuraRaisedButton can be use sometime to replace RaisedButton or ElevatedButton because we provide more flexibility and wrap around
 class ActionButton extends StatelessWidget {
-  ///receive a ValueNotifier to indicate loading
+  ///receive a ValueNotifier to indicate a loading widget
   final ValueNotifier<bool> loadingNotifier;
+  final Widget child;
+  final Widget icon;
   final VoidCallback onPressed;
   final Function onLongPressed;
   final double elevation;
@@ -17,11 +21,11 @@ class ActionButton extends StatelessWidget {
   final EdgeInsets margin;
   final EdgeInsets padding;
   final ShapeBorder shape;
-  final Widget child;
-  final Widget icon;
+  final MainAxisAlignment alignment;
 
   ///if [fullWidth] is `true`, Button will take all remaining horizontal space
   final bool fullWidth;
+  final BorderSide borderSide;
 
   ///Create a button with loading notifier
   ActionButton({
@@ -38,6 +42,8 @@ class ActionButton extends StatelessWidget {
     this.shape = const StadiumBorder(),
     this.onLongPressed,
     this.elevation = 2.0,
+    this.alignment,
+    this.borderSide,
     this.textColor,
   });
   @override
@@ -49,18 +55,21 @@ class ActionButton extends StatelessWidget {
       child: ValueListenableBuilder<bool>(
         valueListenable: loadingNotifier ?? ValueNotifier(false),
         builder: (context, loading, _) {
-          return RaisedButton(
+          return ElevatedButton(
             onPressed: loading ? () {} : onPressed,
-            padding: padding,
-            textColor: textColor,
-            elevation: elevation,
+            style: ElevatedButton.styleFrom(
+              shape: shape,
+              primary: color,
+              onPrimary: textColor,
+              padding: padding,
+              elevation: elevation,
+              side: borderSide,
+            ),
             onLongPress: loading ? () {} : onLongPressed,
-            color: color ?? Theme.of(context).buttonColor,
-            shape: shape,
             child: ConditionalWidget(
               condition: loading,
               onFalse: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: alignment ?? MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   if (icon != null) ...[

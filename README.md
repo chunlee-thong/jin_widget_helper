@@ -1,8 +1,13 @@
 # jin_widget_helper
 
-[![pub package](https://img.shields.io/badge/pub-1.7.2-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
+[![pub package](https://img.shields.io/badge/pub-2.0.0-blueviolet.svg)](https://pub.dev/packages/jin_widget_helper)
 
 A package that contain many custom Widget and utility that help decrease your development time on creating custom Widget.
+
+# Important note
+
+- If you're just starting using this package, We would recommend you to use [sura_flutter](https://pub.dev/packages/sura_flutter) instead, but if you're using this package, you can still use it and there'll be no breaking change.
+- sura_flutter is a successor of jin_widget_helper. we make an improvement from this package and other flutter latest feature and support.
 
 # Installation
 
@@ -10,7 +15,7 @@ Add this to pubspec.yaml
 
 ```dart
 dependencies:
-  jin_widget_helper: ^1.7.2
+  jin_widget_helper: ^2.0.0
 ```
 
 # Widgets

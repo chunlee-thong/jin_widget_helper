@@ -89,7 +89,7 @@ class _OtherButtonExampleState extends State<OtherButtonExample> {
                   },
                   child: Text("Click me"),
                   color: Colors.red,
-                  textColor: Colors.white,
+                  textColor: Colors.black,
                   fullWidth: false,
                 )
               ],

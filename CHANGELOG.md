@@ -1,3 +1,8 @@
+## [2.0.0] - 6 March 2021
+
+- Code improvement
+- Mark as done
+
 ## [1.7.2] - 12 February 2021
 
 - rework Paginated Widget condition

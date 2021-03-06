@@ -1,6 +1,6 @@
 name: jin_widget_helper
 description: A package that contain many custom Widget and utility that help decrease your development time on creating custom Widget.
-version: 1.7.2
+version: 2.0.0
 homepage: https://github.com/chunlee-thong/jin_widget_helper
 
 environment:

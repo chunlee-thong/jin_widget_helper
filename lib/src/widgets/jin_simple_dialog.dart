@@ -52,7 +52,7 @@ class JinSimpleDialog extends StatelessWidget {
       title: Text(title),
       content: child ?? Text(content),
       actions: <Widget>[
-        FlatButton(
+        TextButton(
           child: Text(confirmText),
           onPressed: () {
             onConfirm?.call();
