@@ -21,13 +21,15 @@ class JinLoadingMaterialButton extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       onPressed: onPressed,
-      shape: shape,
-      elevation: elevation,
-      padding: padding,
-      color: color,
-      textColor: textColor,
+      style: ElevatedButton.styleFrom(
+        shape: shape,
+        elevation: elevation,
+        padding: padding,
+        primary: color,
+        onPrimary: textColor,
+      ),
       child: child,
     );
   }

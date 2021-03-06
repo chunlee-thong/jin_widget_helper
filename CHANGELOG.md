@@ -1,3 +1,7 @@
+## [2.0.1] - 6 March 2021
+
+- fix deprecation of JinLoadingButton
+
 ## [2.0.0] - 6 March 2021
 
 - Code improvement
