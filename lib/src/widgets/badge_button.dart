@@ -50,7 +50,6 @@ class BadgeButton extends StatelessWidget {
                         color: badgeColor ?? Colors.red,
                       ),
                       alignment: Alignment.center,
-                      padding: const EdgeInsets.all(2),
                       child: Text(
                         badgeText,
                         style: badgeTextStyle ?? defaultBadgeStyle,

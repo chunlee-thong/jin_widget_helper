@@ -41,7 +41,7 @@ abstract class JinBaseLoadingButtonState<T extends JinBaseLoadingButton>
   }
 
   void toggleLoading() {
-    loadingNotifier.value = !loadingNotifier.value;
+    if (mounted) loadingNotifier.value = !loadingNotifier.value;
   }
 
   @override
